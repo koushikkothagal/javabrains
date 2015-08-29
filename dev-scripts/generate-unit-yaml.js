@@ -14,7 +14,7 @@ var mkdirSync = function (path) {
 
 
 
-units.results.forEach(function(unit) {
+units.results.forEach(function (unit) {
   // var unit = units.results[index];
   // mkdirSync('../data/output');
   // mkdirSync('../data/output/' + unit.CourseName);
@@ -25,8 +25,8 @@ units.results.forEach(function(unit) {
     YAML.stringify(unit)
     + '---'
     + os.EOL);
-    }
-});
+}
+  );
 
 
 

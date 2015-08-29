@@ -1,0 +1,254 @@
+{ "results": [
+	{
+        "code": "jsps_intro",
+        "createdAt": "2015-08-12T21:21:59.164Z",
+        "desc": "This course covers writing and implementing Java Server Pages (JSPs) on a servlet container. You will understand what JSPs are, how they are related to servlets and how to write view logic using them.",
+        "img": "https://i.ytimg.com/vi/zk_zEp-mtvQ/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Java Server Pages",
+        "objectId": "2Ix2gkLMD2",
+        "objectives": [
+            "Learning how JSPs work",
+            "Understanding and writing a new JSP",
+            "Learning about and using scopes",
+            "Creating a new web application using the MVC pattern",
+            "Introduction to JSTL"
+        ],
+        "slNo": 11,
+        "tags": [
+            "Java",
+            "Servlets and JSPs"
+        ],
+        "topic": "servlets",
+        "updatedAt": "2015-08-12T21:21:59.164Z"
+    },
+	{
+        "code": "javaee_jaxrs",
+        "createdAt": "2015-08-12T21:21:59.109Z",
+        "desc": "This course introduces you to RESTful Web Services using the JAX-RS standard specification. You will learn what RESTful web services are and how to write them. You will write a sample RESTful web service from scratch, design the APIs, implement it using Jersey and run it on Tomcat. ",
+        "img": "https://i.ytimg.com/vi/xkKcdK1u95s/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Developing REST APIs with JAX-RS",
+        "objectId": "2q2kUs0FJf",
+        "objectives": [
+            "Understanding REST",
+            "Learning how to design a REST API",
+            "Building a sample social media API",
+            "Writing code using Jersey and deploying using Tomcat"
+        ],
+        "slNo": 1,
+        "tags": [
+            "Java",
+            "Java EE"
+        ],
+        "topic": "javaee",
+        "updatedAt": "2015-08-12T21:21:59.109Z"
+    },
+	{
+        "code": "struts2_intro",
+        "createdAt": "2015-08-12T21:21:59.131Z",
+        "desc": "This course provides an introduction to the Struts 2 framework. You will understand the concepts of MVC, and learn to write a web application from scratch using Struts 2.",
+        "img": "https://i.ytimg.com/vi/9BvQpf7JcOI/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Beginning Struts 2",
+        "objectId": "4vxDYdtWfA",
+        "objectives": [
+            "Learning about MVC and Struts 2",
+            "Building a Struts 2 web application from scratch",
+            "Implementing Actions, Action mappings and namespaces",
+            "Understanding the ValueStack",
+            "Learning about Struts 2 Interceptors"
+        ],
+        "slNo": 9,
+        "tags": [
+            "Java",
+            "Struts 2"
+        ],
+        "topic": "struts2",
+        "updatedAt": "2015-08-12T21:21:59.131Z"
+    },
+	{
+        "code": "spring_aop",
+        "createdAt": "2015-08-12T21:21:59.111Z",
+        "desc": "This course introduces the concepts of Aspect Oriented Programming and Spring AOP. You will learn to write Aspects in Java using Spring AOP and also understand the terminologies used in AOP along the way.",
+        "img": "https://i.ytimg.com/vi/4P0TME-AbSw/mqdefault.jpg",
+        "level": "Advanced",
+        "name": "Understanding Spring AOP",
+        "objectId": "6SBrhMtoeu",
+        "objectives": [
+            "Understanding Aspect Oriented Programming",
+            "Writing an Aspect in Java",
+            "Implementing Pointcuts and JoinPoints",
+            "Understanding and writing different types of Advice",
+            "Understanding AOP Proxies"
+        ],
+        "slNo": 4,
+        "tags": [
+            "Java",
+            "Spring"
+        ],
+        "topic": "spring",
+        "updatedAt": "2015-08-12T21:21:59.111Z"
+    },
+	{
+        "code": "servlets_intro",
+        "createdAt": "2015-08-12T21:21:59.161Z",
+        "desc": "This course provides an introduction to Java Servlet technology. You will learn how to develop Java web applications using Servlets. you will also understand the life cycle of Servlets, how they work and how to configure them.",
+        "img": "https://i.ytimg.com/vi/b42CJ0r-1to/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Introduction to Servlets",
+        "objectId": "TXBpKv2DK6",
+        "objectives": [
+            "Understanding Java Servlets",
+            "Writing and configuring your first servlet",
+            "Understanding different HTTP methods mapped to servlets",
+            "Passing and receiving parameters in HTTP requests",
+            "Implementing servlet configuration"
+        ],
+        "slNo": 10,
+        "tags": [
+            "Java",
+            "Servlets and JSPs"
+        ],
+        "topic": "servlets",
+        "updatedAt": "2015-08-12T21:21:59.161Z"
+    },
+	{
+        "code": "maven_intro",
+        "createdAt": "2015-08-12T21:21:59.109Z",
+        "desc": "This course is an introduction to the basic features of Apache Maven. You will learn what Maven is and how it helps managing dependencies in your Java project. You will understand POM configuration, build phases and use plugins.",
+        "img": "https://i.ytimg.com/vi/al7bRZzz4oU/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Introduction to Maven",
+        "objectId": "hL8aZFNMCM",
+        "objectives": [
+            "Learning what Maven is and how it works",
+            "Understanding the concept of Maven archetypes",
+            "Creating a new web application using Maven",
+            "Understand build phases and lifecycle",
+            "Using Maven plugins and integrating with the Eclipse IDE"
+        ],
+        "slNo": 8,
+        "tags": [
+            "Java",
+            "Maven"
+        ],
+        "topic": "maven",
+        "updatedAt": "2015-08-12T21:21:59.109Z"
+    },
+	{
+        "code": "javaee_jaxws",
+        "createdAt": "2015-08-12T21:21:59.114Z",
+        "desc": "This course introduces you to SOAP Web Services using the JAX-WS standard specification. You will learn what SOAP web services are and how to write them. You will be writing a web service application, deploying, running and testing it on Glassfish. You will also learn to consume SOAP web services.",
+        "img": "https://i.ytimg.com/vi/Zx6NuO6niFI/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Developing SOAP Web Services with JAX-WS",
+        "objectId": "kNJYXSzRn0",
+        "objectives": [
+            "Understanding what web services are",
+            "Writing a web service client",
+            "Writing a web service endpoint",
+            "Understanding the various components of a WSDL",
+            "Using JAX-WS annotations to write code that handles web service requests"
+        ],
+        "slNo": 2,
+        "tags": [
+            "Java",
+            "Java EE"
+        ],
+        "topic": "javaee",
+        "updatedAt": "2015-08-12T21:21:59.114Z"
+    },
+	{
+        "code": "hibernate_run",
+        "createdAt": "2015-08-12T21:21:59.116Z",
+        "desc": "This course explores the runtime aspects of Hibernate. You\"ll understand how to perform Create, Read, Update and Delete operations, implement Hibernate APIs, understand the life cycle of entities, write queries in HQL, the Hibernate Query Language and implement caching.",
+        "img": "https://i.ytimg.com/vi/sjZGFHEdD4M/mqdefault.jpg",
+        "level": "Intermediate",
+        "name": "Hibernate - APIs and Runtime",
+        "objectId": "pdWl70TpQ2",
+        "objectives": [
+            "Understanding runtime aspects of Hibernate",
+            "Understand entity object states and life cycles",
+            "Implement CRUD operations on entities",
+            "Learn and use the Hibernate Query Language (HQL) ",
+            "Implement second level caching in Hibernate using EHcache"
+        ],
+        "slNo": 7,
+        "tags": [
+            "Java",
+            "Hibernate"
+        ],
+        "topic": "hibernate",
+        "updatedAt": "2015-08-12T21:21:59.116Z"
+    },
+	{
+        "code": "hibernate_intro",
+        "createdAt": "2015-08-12T21:21:59.122Z",
+        "desc": "This course provides an introduction to the Hibernate ORM framework. You will understand the concept of Object Relational Mapping (ORM). You will learn to use Hibernate to write Java applications that connect to a relational database. You will also learn various JPA annotations that let you map classes to relational models.",
+        "img": "https://i.ytimg.com/vi/Yv2xctJxE-w/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Introduction To Hibernate",
+        "objectId": "q18huzS4K2",
+        "objectives": [
+            "Understanding ORM",
+            "Using Hibernate to access and work with a database",
+            "Using JPA and Hibernate annotations",
+            "Mapping classes of various complexities to a relational database schema",
+            "Learning about the lifecycle of entities and how Hibernate works"
+        ],
+        "slNo": 6,
+        "tags": [
+            "Java",
+            "Hibernate"
+        ],
+        "topic": "hibernate",
+        "updatedAt": "2015-08-12T21:21:59.122Z"
+    },
+	{
+        "code": "spring_core",
+        "createdAt": "2015-08-12T21:21:59.115Z",
+        "desc": "This course provides an introduction to the Spring framework. You will understand the concepts of dependency injection, understand how the core Spring framework works and how to write an application using it.",
+        "img": "https://i.ytimg.com/vi/WUqyoH_G4Ko/mqdefault.jpg",
+        "level": "Beginner",
+        "name": "Learning Spring Core",
+        "objectId": "sTAgF4vSbJ",
+        "objectives": [
+            "Understanding dependency injection",
+            "Understanding the Spring application context",
+            "Implementing a Spring application by configuring and using Spring beans",
+            "Writing lifecycle hooks and BeanPostProcessors",
+            "Writing event handling logic"
+        ],
+        "slNo": 3,
+        "tags": [
+            "Java",
+            "Spring"
+        ],
+        "topic": "spring",
+        "updatedAt": "2015-08-12T21:21:59.115Z"
+    },
+	{
+        "code": "spring_data",
+        "createdAt": "2015-08-12T21:21:59.116Z",
+        "desc": "Almost every application needs to access data. In this course, you will learn about Spring support for data access from relational databases.",
+        "img": "https://i.ytimg.com/vi/eR_JFtqyNL4/mqdefault.jpg",
+        "level": "Intermediate",
+        "name": "Data access in Spring",
+        "objectId": "tlSgyj3R4z",
+        "objectives": [
+            "Understanding data access in Spring",
+            "Implementing Spring\"s JDBC Template support",
+            "Performing read and write operations",
+            "Integrating with the Hibernate ORM framework"
+        ],
+        "slNo": 5,
+        "tags": [
+            "Java",
+            "Spring",
+            "Hibernate"
+        ],
+        "topic": "spring",
+        "updatedAt": "2015-08-12T21:21:59.116Z"
+    }
+] }
