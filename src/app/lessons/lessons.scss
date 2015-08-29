@@ -1,0 +1,44 @@
+
+
+#lesson-nav {
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -ms-flex-align: start;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 7px;
+    
+}
+
+#youtube-player{
+	width:100%!important;
+	height: calc(100vh - 280px);
+	margin:auto;
+    // margin-top: -10px;
+	padding:0;
+	// max-width: 1320px;
+}
+
+.slNo {
+    font-size: 1.9rem; 
+    font-weight: 700;
+    // color: #B41734; 
+}
+.title {
+    margin-left: 5px;
+    
+}

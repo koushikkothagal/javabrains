@@ -1,0 +1,27 @@
+#navbar{ 
+	height: 65px;
+	
+	a {
+		line-height: 33px; // To make the links vertically center in the navbar.
+		color: $text-color-on-white;
+		font-size: 1.5rem;
+		margin-right: 20px;
+		&:hover {
+			background-color: #FFF;
+		}
+	}
+	.navbar-brand {
+		padding-left: 0; // To align left edge of the menu with the rest of the page
+	}
+}
+
+#sign-up a {
+	background-color: #65C999;
+	margin: 10px 10px 10px 15px;
+	line-height: 10px;
+	color: #FFF;
+	padding: 15px 25px 15px 25px;	
+	&:hover {
+		background-color: #27ae60;
+	}
+}

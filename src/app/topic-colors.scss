@@ -1,0 +1,115 @@
+
+$spring: #5CB860;
+$javaee: lighten(#DD3C43, 10%);
+$maven: lighten(#e74c3c, 15%);
+$struts2: lighten(#2980b9, 15%);
+$hibernate: darken(#f1c40f, 5%);
+$servlets: lighten(#34495e, 15%);
+$angularjs: lighten(#8e44ad, 1%);
+
+
+.spring {
+	color: $spring;
+}
+
+.javaee {
+	color: $javaee;
+}
+
+.maven {
+	color: $maven;
+}
+
+.struts2 {
+	color: $struts2;
+}
+
+.hibernate {
+	color: $hibernate;
+}
+
+.servlets {
+	color: $servlets;
+}
+
+.angularjs {
+	color: $angularjs;
+}
+
+.bg-spring {
+	background-color: $spring !important;
+}
+
+.bg-javaee {
+	background-color: $javaee !important;
+}
+
+.bg-maven {
+	background-color: $maven !important;
+}
+
+.bg-struts2 {
+	background-color: $struts2 !important;
+}
+
+.bg-hibernate {
+	background-color: $hibernate !important;
+}
+
+.bg-servlets {
+	background-color: $servlets !important;
+}
+
+.bg-angularjs {
+	background-color: $angularjs !important;
+}
+
+.btn-topic {
+	@extend .jb-btn;
+    font-size: 1.8rem;
+    font-family: "Nunito", sans-serif;
+	border-radius: 5px !important;
+	color: #FFF;
+}
+
+.btn-spring {
+	@extend .btn-topic;
+	background-color: $spring !important;
+	border-color: $spring !important;
+}
+
+.btn-javaee {
+	@extend .btn-topic;
+	background-color: $javaee !important;
+	border-color: $javaee !important;
+}
+
+.btn-maven {
+	@extend .btn-topic;
+	background-color: $maven !important;
+	border-color: $maven !important;
+}
+
+.btn-struts2 {
+	@extend .btn-topic;
+	background-color: $struts2 !important;
+	border-color: $struts2 !important;
+}
+
+.btn-hibernate {
+	@extend .btn-topic;
+	background-color: $hibernate !important;
+	border-color: $hibernate !important;
+}
+
+.btn-servlets {
+	@extend .btn-topic;
+	background-color: $servlets !important;
+	border-color: $servlets !important;
+}
+
+.btn-angularjs {
+	@extend .btn-topic;
+	background-color: $angularjs !important;
+	border-color: $angularjs !important;
+}

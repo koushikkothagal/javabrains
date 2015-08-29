@@ -1,0 +1,37 @@
+.container {
+	margin-right: auto;
+	margin-left: auto
+}
+
+.container-fluid {
+	margin-left: -10px;
+	margin-right: -10px; // To compensate for the 10 px paddiing on body
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 750px
+	}
+}
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}
+@media (min-width: 1200px) {
+	.container {
+		width: 1170px
+	}
+}
+
+@media (min-width: 1350px) {
+	.container {
+		width: 1320px
+	}
+}
+
+.panel-title {
+	color: #FFF;
+}

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+
+    <navbar home-url="'/topics'">Topics</navbar>
+
+  </div>
+  <div class="row heading-row">
+    <h3>Courses</h3>
+    <p>Browse available courses to start your learning journey.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card padded filter">
+        <h4 class="title">Filter</h4>
+        <hr />
+
+        <input class="combo" id="all" type="radio" ng-model="courses.filter" ng-value="' '">
+        <label class="combo" for="all">All</label>
+        <input class="combo" id="{{ topic.code }}" type="radio" ng-model="courses.filter" ng-value="topic.code" ng-repeat-start="topic in courses.topics" ng-click="vm.goToTopic(topic.code)">
+        <label class="combo {{topic.code}}" ng-repeat-end for="{{ topic.code }}" ng-click="vm.goToTopic(topic.code)">{{ topic.name }}</label>
+
+      </div>
+    </div>
+    <div class="col-md-9" style="border-left: 1px solid #CBDBDE;">
+      <course-tile course="course" ng-repeat="course in courses.courses | filter: courses.filter" />
+      
+    </div>
+
+  </div>

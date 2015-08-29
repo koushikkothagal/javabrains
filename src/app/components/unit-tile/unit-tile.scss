@@ -1,0 +1,73 @@
+.unit-container {
+  margin-bottom: 20px;
+}
+
+.unit-tile {
+  color: #FFF;
+  padding: 20px 0;
+  margin-bottom: 0px; // Override the 20px bottom margin for .card
+  position: relative; // For the shadow to appear over the lesson divs below this
+  .unit-heading, .unit-description {
+    color: #FFF;
+  }
+  .unit-heading {
+    font-size: 2rem;
+  }
+}
+
+.unit-body {
+  padding: 5px 10px 5px 25px;
+  font-weight: 300;
+  font-family: "Nunito", sans-serif;
+}
+
+.unit-block {
+  color: #FFF;
+  min-height: 170px;
+  min-width: 170px;
+  padding: 0;
+  border-right: 1px solid #CCC;
+  
+  .unit-text {
+     
+    font-size: 23px; 
+    margin-bottom: -15px;
+    font-weight: 600
+  }
+  .unit-number {
+     
+    font-size: 80px; 
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+     
+  }
+}
+
+.lesson-link {
+    text-decoration: none !important;
+    &:hover .lesson-name {
+      text-decoration: none;
+      color: darken($text-color-on-white, 20%);
+      transition: all 0.3s ease;
+    }  
+    &:hover .toc-lesson {
+      background-color: darken(#FFF, 3%);
+      transition: all 0.3s ease;
+    }
+    
+}
+.toc-lesson {
+  background-color: #FFF;
+  padding: 15px 10px;
+  border: 1px solid lighten($text-color-on-white, 20%);
+  border-top: 0px;
+  
+  }
+  
+  .lesson-name {
+    margin: 0 10px 0;
+    color: $text-color-on-white;
+    i.fa {
+      font-size: 1.8rem;
+    }
+  }

@@ -1,0 +1,70 @@
+.filter {
+	.title {
+		color: $primary-red;
+	}
+	
+	label {
+		font-size: 1.4rem;
+		color: $text-color-on-white;
+	}
+}
+
+/*
+label.spring::before {
+	border-color: $spring;
+} 
+label.javaee::before {
+	border-color: $javaee;
+} 
+label.maven::before {
+	border-color: $maven;
+} 
+label.struts2::before {
+	border-color: $struts2;
+} 
+label.hibernate::before {
+	border-color: $hibernate;
+} 
+label.servlets::before {
+	border-color: $servlets;
+} 
+label.angularjs::before {
+	border-color: $angularjs;
+} 
+*/
+
+
+input.combo:checked + label.spring::before {
+	border-color: $spring;
+  background-color: $spring;
+}
+
+input.combo:checked + label.javaee::before {
+	border-color: $javaee;
+  background-color: $javaee;
+}
+
+input.combo:checked + label.maven::before {
+	border-color: $maven;
+  background-color: $maven;
+}
+
+input.combo:checked + label.struts2::before {
+	border-color: $struts2;
+  background-color: $struts2;
+}
+
+input.combo:checked + label.hibernate::before {
+	border-color: $hibernate;
+  background-color: $hibernate;
+}
+
+input.combo:checked + label.servlets::before {
+	border-color: $servlets;
+  background-color: $servlets;
+}
+
+input.combo:checked + label.angularjs::before {
+	border-color: $angularjs;
+  background-color: $angularjs;
+}

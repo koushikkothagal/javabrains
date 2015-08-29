@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+  
+    <navbar home-url="'/'">Home</navbar>
+  
+  </div>
+  
+  <div class="row heading-row">
+  <h3>Topics</h3>
+  <p>Browse available topics to start your learning journey.</p>
+  </div>
+  <div class="row">
+  <div ng-repeat="topic in topics.topics" class="col-md-4" >
+
+    
+    <topic-tile topic="topic"></topic-tile>
+  </div>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="unit-container">
+	<div class="media unit-tile card bg-{{vm.unit.topic}}">
+		<div class="media-left unit-block" ng-class="vm.unit.slNo">
+			<p class="unit-text text-center"> UNIT</p>
+			<p class="unit-number text-center" ng-bind="::vm.unit.unitNumber"></p>
+		</div>
+		<div class="media-body unit-body">
+			<h4 class="media-heading unit-heading" ng-bind="::vm.unit.unitName"></h4>
+			<p class="unit-description" ng-bind="::vm.unit.unitDescription">
+
+			</p>
+		</div>
+	</div>
+
+	<a class="lesson-link" ng-href="{{vm.lessonBaseUrl + lesson.permalinkName}}" ng-repeat="lesson in vm.unit.lessons">
+	<div class="toc-lesson" >
+		<!-- <a class="lesson-link" href="#"> -->
+		<h5 class="lesson-name">
+			<i ng-if="$even" class="fa fa-play-circle"></i>
+			<i ng-if="$odd"class="fa fa-question-circle"></i>
+			&nbsp;{{::lesson.title}}
+</h5>
+		<!-- </a> -->
+	</div>
+	</a>
+</div>
