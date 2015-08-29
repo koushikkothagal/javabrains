@@ -35,3 +35,9 @@
 .panel-title {
 	color: #FFF;
 }
+
+.popover {
+    max-width: 400px;
+    /* If max-width does not work, try using width instead */
+    width: 400px; 
+}

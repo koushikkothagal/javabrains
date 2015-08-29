@@ -14,7 +14,7 @@
     vm.info.topic = 'javaee';
     var tokens = vm.info.unitSlNo.split('.');
     var unitIndex = tokens[0] - 1;
-    var lessonIndex = tokens[1];
+    var lessonIndex = tokens[1] - 1;
     $http.get('https://javabrains-data.parseapp.com/courses/' + $stateParams.courseName, {cache: true})
       .then(function (response) {
         vm.course = response.data;

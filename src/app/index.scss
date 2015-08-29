@@ -72,6 +72,10 @@ hr {
   border-left: 1px solid #CBDBDE;
 }
 
+.faded {
+  opacity: 0.4;
+}
+
 .jb-btn {
   cursor: pointer;
   color: $text-color-on-gray;

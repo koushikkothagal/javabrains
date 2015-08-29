@@ -42,3 +42,15 @@
     margin-left: 5px;
     
 }
+
+.arrow {
+    color: lighten($text-color-on-white, 35%);
+    &:hover {
+        color: lighten($text-color-on-white, 5%);
+    }
+}
+
+.notes p {
+    font-size: 1.55rem;
+    max-width: 45em;
+}

@@ -8,59 +8,59 @@ $servlets: lighten(#34495e, 15%);
 $angularjs: lighten(#8e44ad, 1%);
 
 
-.spring {
+.spring .topic-color {
 	color: $spring;
 }
 
-.javaee {
+.javaee .topic-color {
 	color: $javaee;
 }
 
-.maven {
+.maven .topic-color {
 	color: $maven;
 }
 
-.struts2 {
+.struts2 .topic-color {
 	color: $struts2;
 }
 
-.hibernate {
+.hibernate .topic-color {
 	color: $hibernate;
 }
 
-.servlets {
+.servlets .topic-color {
 	color: $servlets;
 }
 
-.angularjs {
+.angularjs .topic-color {
 	color: $angularjs;
 }
 
-.bg-spring {
+.spring .topic-bg, .bg-spring {
 	background-color: $spring !important;
 }
 
-.bg-javaee {
+.javaee .topic-bg, .bg-javaee {
 	background-color: $javaee !important;
 }
 
-.bg-maven {
+.maven .topic-bg, .bg-maven {
 	background-color: $maven !important;
 }
 
-.bg-struts2 {
+.struts2 .topic-bg, .bg-struts2 {
 	background-color: $struts2 !important;
 }
 
-.bg-hibernate {
+.hibernate .topic-bg, .bg-hibernate {
 	background-color: $hibernate !important;
 }
 
-.bg-servlets {
+.servlets .topic-bg, .bg-servlets {
 	background-color: $servlets !important;
 }
 
-.bg-angularjs {
+.angularjs .topic-bg, .bg-angularjs {
 	background-color: $angularjs !important;
 }
 

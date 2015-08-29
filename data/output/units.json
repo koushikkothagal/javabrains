@@ -1,0 +1,272 @@
+{ "results": [
+	{
+        "courseCode": "struts2_intro",
+        "createdAt": "2015-08-20T03:01:54.345Z",
+        "objectId": "4CSQISMWtA",
+        "unitDescription": "Setup your development environment to write Struts 2 applications. Bootstrap a simple Struts 2 application and write your first Struts 2 Action.",
+        "unitName": "Setting Up",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-20T03:22:26.553Z"
+    },
+	{
+        "courseCode": "javaee_jaxws",
+        "createdAt": "2015-08-12T18:44:18.423Z",
+        "objectId": "9XLTWkloTW",
+        "unitDescription": "In this unit, you'll setup your development environment to build JAX-WS web services. You'll also write a web service and learn how to customize the WSDL, schema, write custom types, annotations and bind to XML using JAXB.",
+        "unitName": "Building JAX-WS services",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-12T18:44:18.423Z"
+    },
+	{
+        "courseCode": "maven_intro",
+        "createdAt": "2015-08-20T03:41:32.103Z",
+        "objectId": "BJfHkcPies",
+        "unitDescription": "Understand some of the basic Maven concepts like archetypes, build phases and dependencies. Setup a web application using Maven that covers the concepts you've learned.",
+        "unitName": "Maven Concepts",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-20T03:42:36.592Z"
+    },
+	{
+        "courseCode": "hibernate_run",
+        "createdAt": "2015-08-12T18:44:18.868Z",
+        "objectId": "FEQOznJPDX",
+        "unitDescription": "This unit covers a full CRUD set of operations. Learn how to use Hibernate's runtime APIs to read and write entities to the database.",
+        "unitName": "CRUD Operations",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-12T18:44:18.868Z"
+    },
+	{
+        "courseCode": "hibernate_intro",
+        "createdAt": "2015-08-12T18:44:18.624Z",
+        "objectId": "FPKqm6tRsd",
+        "unitDescription": "This unit introduces you to the Hibernate framework. You'll understand what ORM means and the role Hibernate plays as an ORM. You'll also create a simple working Java application that uses Hibernate to save an object to the database.",
+        "unitName": "Getting Started",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-12T18:44:18.624Z"
+    },
+	{
+        "courseCode": "spring_data",
+        "createdAt": "2015-08-20T02:54:38.056Z",
+        "objectId": "G3c4yyZsK2",
+        "unitDescription": "This unit introduces you to Spring Data and makes the case for it by contrasting it with JDBC. Learn how Spring's data integration removes the boilerplate code you'd typically have to write.",
+        "unitName": "Spring Data - What and Why?",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-20T02:54:50.622Z"
+    },
+	{
+        "courseCode": "spring_core",
+        "createdAt": "2015-08-12T18:44:18.441Z",
+        "objectId": "IX6u518nLz",
+        "unitDescription": "Understand the concept of scopes in a Spring application. Learn how to access the application context directly from your code. Use the bean inheritance feature to manage your configuration. Implement various post-processor hooks to tap into the lifecycle of your Spring application.",
+        "unitName": "Scopes and Lifecycles",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-19T00:24:34.780Z"
+    },
+	{
+        "courseCode": "javaee_jaxrs",
+        "createdAt": "2015-08-12T18:44:18.442Z",
+        "objectId": "Necd29gZi2",
+        "unitDescription": "In this unit, we learn about writing REST APIs in Java with JAX-RS. We will build the Messenger API with JAX-RS and Jersey.",
+        "unitName": "Implementation with JAX-RS",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-12T18:44:18.442Z"
+    },
+	{
+        "courseCode": "struts2_intro",
+        "createdAt": "2015-08-20T03:01:51.358Z",
+        "objectId": "PegsY5rLU4",
+        "unitDescription": "Dive into the Struts 2 framework and try out features like namespaces and tags. Learn how to write a complete end-to-end MVC implementation from business services to actions and JSPs.",
+        "unitName": "Struts 2 Features",
+        "unitNumber": 3,
+        "updatedAt": "2015-08-20T03:22:32.891Z"
+    },
+	{
+        "courseCode": "struts2_intro",
+        "createdAt": "2015-08-20T03:02:00.018Z",
+        "objectId": "SlOPbQF8E4",
+        "unitDescription": "Understand the concepts behind MVC - Model View Controller, and why we need an MVC framework. Get a big picture view of how the Struts 2 application architecture.",
+        "unitName": "Introduction",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-20T03:22:11.674Z"
+    },
+	{
+        "courseCode": "maven_intro",
+        "createdAt": "2015-08-20T03:24:52.520Z",
+        "objectId": "SqPO3gqjbE",
+        "unitDescription": "In this unit, you'll understand what Maven is, and why it is useful. You will also setup a simple Maven project from scratch and configure pom.xml.",
+        "unitName": "Introduction and Setting Up",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-20T03:42:14.912Z"
+    },
+	{
+        "courseCode": "jsps_intro",
+        "createdAt": "2015-08-20T04:04:40.832Z",
+        "objectId": "TH5JbZVSF7",
+        "unitDescription": "Learn about the various features of JSPs, including scopes and directives. Learn how to implement the MVC pattern with Servlets and JSPs. ",
+        "unitName": "Writing JSPs",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-20T04:05:30.561Z"
+    },
+	{
+        "courseCode": "spring_core",
+        "createdAt": "2015-08-12T18:44:18.453Z",
+        "objectId": "U4u2oZ70bh",
+        "unitDescription": "There is an easier (and better) way to manage your Spring configuration - using Annotations. Learn how to declare and configure Spring beans using annotations. Learn how to autowire beans and implement component stereotypes. Also learn how to write and publish custom events in your Spring application.",
+        "unitName": "Annotations and Event Handling",
+        "unitNumber": 3,
+        "updatedAt": "2015-08-19T00:32:04.500Z"
+    },
+	{
+        "courseCode": "spring_aop",
+        "createdAt": "2015-08-19T00:39:12.254Z",
+        "objectId": "VB0rBKvjIo",
+        "unitDescription": "This unit covers an introduction to aspect oriented Programming. You'll learn why and where aspect oriented programming is helpful. You'll also setup an environment and a starter application to write Spring AOP code.",
+        "unitName": "Getting Started",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-20T02:46:49.216Z"
+    },
+	{
+        "courseCode": "hibernate_run",
+        "createdAt": "2015-08-12T18:44:18.923Z",
+        "objectId": "YA3efH6Ks9",
+        "unitDescription": "You'll now learn how to use a query language for working with Hibernate entities - called Hibernate Query Language (HQL).",
+        "unitName": "Queries With HQL",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-12T18:44:18.923Z"
+    },
+	{
+        "courseCode": "jsps_intro",
+        "createdAt": "2015-08-20T04:04:38.822Z",
+        "objectId": "ZY2NL0imOs",
+        "unitDescription": "In this unit, you'll learn what JSPs are and how to write one. You'll also understand how they are related to servlets.",
+        "unitName": "Introducing JSPs",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-20T04:05:10.059Z"
+    },
+	{
+        "courseCode": "hibernate_run",
+        "createdAt": "2015-08-12T18:44:19.836Z",
+        "objectId": "bbEXTVJ7o0",
+        "unitDescription": "Hibernate integrates with certain caching systems to improve performance. You'll now learn how to integrate the open source caching library EHCache with Hibernate.",
+        "unitName": "Cacheing with Hibernate",
+        "unitNumber": 3,
+        "updatedAt": "2015-08-12T18:44:19.836Z"
+    },
+	{
+        "courseCode": "servlets_intro",
+        "createdAt": "2015-08-20T03:54:59.897Z",
+        "objectId": "eeu7V5Y6Yf",
+        "unitDescription": "Learn about the various features of the servlet technology, including ways to map different HTTP methods, accept parameters and handle requests and sessions.",
+        "unitName": "Understanding the Servlet",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-20T03:56:04.774Z"
+    },
+	{
+        "courseCode": "maven_intro",
+        "createdAt": "2015-08-20T03:41:35.643Z",
+        "objectId": "hSFid99yz2",
+        "unitDescription": "Maven has a concept of plugins that let you implement added funcionality to your build cycle. Learn about the Jetty plugin that lets you spin up a servlet container right from a Maven command. Also, learn how to integrate Maven with Eclipse.",
+        "unitName": "Maven Plugins",
+        "unitNumber": 3,
+        "updatedAt": "2015-08-20T03:43:32.624Z"
+    },
+	{
+        "courseCode": "struts2_intro",
+        "createdAt": "2015-08-20T03:01:47.834Z",
+        "objectId": "iJQUrODvSk",
+        "unitDescription": "Learn about this powerful feature of Struts 2 that lets you configure \"hooks\" in your code. Implement and configure interceptors, and then understand how they work.",
+        "unitName": "Interceptors",
+        "unitNumber": 4,
+        "updatedAt": "2015-08-20T03:22:44.776Z"
+    },
+	{
+        "courseCode": "hibernate_intro",
+        "createdAt": "2015-08-12T18:44:18.843Z",
+        "objectId": "iwEp4tIWKC",
+        "unitDescription": "In this unit, you'll start learning about JPA annotations - a way for you to map Java classes and its member variables into relational database tables.",
+        "unitName": "Entity Mapping with JPA",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-12T18:44:18.843Z"
+    },
+	{
+        "courseCode": "spring_aop",
+        "createdAt": "2015-08-20T02:47:28.997Z",
+        "objectId": "j2KiKoSjK6",
+        "unitDescription": "Implement Spring AOP using XML. Also understand how the machinery behind aspects work in a Spring AOP application, by writing our own mini-implementation of aspects.",
+        "unitName": "Wrapping Up",
+        "unitNumber": 3,
+        "updatedAt": "2015-08-20T02:48:07.898Z"
+    },
+	{
+        "courseCode": "javaee_jaxrs",
+        "createdAt": "2015-08-12T18:44:18.294Z",
+        "objectId": "jBhYyoiRdf",
+        "unitDescription": "This unit introduces you to the concept of REST. You'll understand what RESTful web services are and how to design a good REST API.",
+        "unitName": "REST API Design",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-12T18:44:18.294Z"
+    },
+	{
+        "courseCode": "spring_core",
+        "createdAt": "2015-08-12T18:44:18.442Z",
+        "objectId": "lbSXCJcLjb",
+        "unitDescription": "Learn what the Spring Framework is all about. Understand the concept of Dependency Injection and get started with using the Spring framework. You'll learn how to setup your development environment to start writing Spring applications. You'll also create and inject Spring beans using XML configuration.",
+        "unitName": "Introduction to Spring and Dependency Injection",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-19T00:16:12.393Z"
+    },
+	{
+        "courseCode": "spring_aop",
+        "createdAt": "2015-08-20T02:46:55.299Z",
+        "objectId": "lbehPrPlcS",
+        "unitDescription": "Learn about Spring AOP's annotation support. Understand the various AOP concepts like Aspects, pointcuts and join points. Then implement them using Spring AOP annotations. ",
+        "unitName": "AOP Annotations",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-20T02:47:52.912Z"
+    },
+	{
+        "courseCode": "spring_data",
+        "createdAt": "2015-08-20T02:55:05.925Z",
+        "objectId": "nIFQHogMTc",
+        "unitDescription": "Learn about the various support classes provided by Spring for the purpose of data integration. Connect with database using JDBC and Hibernate using Spring's template classes.",
+        "unitName": "Implementation and Template Classes",
+        "unitNumber": 2,
+        "updatedAt": "2015-08-20T02:55:41.377Z"
+    },
+	{
+        "courseCode": "servlets_intro",
+        "createdAt": "2015-08-20T03:54:54.888Z",
+        "objectId": "qvH6F8M2S3",
+        "unitDescription": "In this unit, you'll setup your development environment using Eclipse to start writing servlet applications. You'll start writing your first servlet and deploy your web application on Tomcat.",
+        "unitName": "Getting Started",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-20T03:55:54.787Z"
+    },
+	{
+        "courseCode": "javaee_jaxws",
+        "createdAt": "2015-08-12T18:44:18.416Z",
+        "objectId": "s4pTdmACmW",
+        "unitDescription": "This unit introduces you to web services. You'll learn some of the terminologies. You'll also build a simple client program that consumes an existing web service.",
+        "unitName": "Introduction",
+        "unitNumber": 1,
+        "updatedAt": "2015-08-12T18:44:18.416Z"
+    },
+	{
+        "courseCode": "javaee_jaxws",
+        "createdAt": "2015-08-12T18:44:18.425Z",
+        "objectId": "wI2VpbUKMb",
+        "unitDescription": "In this unit, you'll learn about some of the tools that let you work with SOAP web services. You'll also revisit the wsimport utility and learn what it does.",
+        "unitName": "JAX-WS Clients and Tools",
+        "unitNumber": 3,
+        "updatedAt": "2015-08-12T18:44:18.425Z"
+    },
+	{
+        "courseCode": "hibernate_intro",
+        "createdAt": "2015-08-12T18:44:18.866Z",
+        "objectId": "zVeoE9ac2u",
+        "unitDescription": "This unit covers advanced JPA annotations for mapping arrays, collections and several object oriented constructs like associations and inheritance.",
+        "unitName": "Mapping Collections and Inheritance Heirarchies",
+        "unitNumber": 3,
+        "updatedAt": "2015-08-12T18:44:18.866Z"
+    }
+] }

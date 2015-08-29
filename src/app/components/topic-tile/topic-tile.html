@@ -1,6 +1,6 @@
 
-  <div class="panel panel-default topic-tile card clickable" ui-sref="courses({'topic': vm.topic.code})">
-  <div class="panel-heading bg-{{vm.topic.code}}">
+  <div class="panel panel-default topic-tile card clickable {{vm.topic.code}}" ui-sref="courses({'topic': vm.topic.code})">
+  <div class="panel-heading topic-bg">
     <p class="side-heading pull-right" ng-if="vm.topic.courses !== 1" ng-bind="::vm.topic.courses + ' courses'"></p>
     <p class="side-heading pull-right" ng-if="vm.topic.courses === 1" ng-bind="::vm.topic.courses + ' course'"></p>
     <h1 class="panel-title"><i class="fa fa-th-large"></i>Topic</h1>

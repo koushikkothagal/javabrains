@@ -1,5 +1,5 @@
-<div class="panel panel-default course-tile card clickable">
-  <div class="panel-heading bg-{{vm.topic.code}}">
+<div class="panel panel-default course-tile card clickable {{vm.topic.code}}">
+  <div class="panel-heading topic-bg">
     <!-- TODO: Get hours info from Youtube playlists and seed the data
     <p class="side-heading pull-right" ng-if="vm.course.hours !== 1" ng-bind="::vm.course.hours + ' hours'"></p>
     <p class="side-heading pull-right" ng-if="vm.course.hours === 1" ng-bind="::vm.course.hours + ' hour'"></p>
@@ -15,7 +15,7 @@
       </div>
       <div class="media-body">
         <h4 class="title course-title">{{vm.course.name}}</h4>
-        <h5 class="topic {{vm.topic.code}}" ui-sref="courses({'topic': vm.topic.code})">{{vm.topic.name}}</h5>
+        <h5 class="topic topic-color" ui-sref="courses({'topic': vm.topic.code})">{{vm.topic.name}}</h5>
         <p class="tile-description">{{vm.course.desc}}</p>
 
         <div class="labels">
