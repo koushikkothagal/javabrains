@@ -18,11 +18,12 @@ gulp.task('partials', function () {
       spare: true,
       quotes: true
     }))
-    .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'javabrains',
-      root: 'app'
-    }))
-    .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
+//    .pipe($.angularTemplatecache('templateCacheHtml.js', {
+//      module: 'javabrains',
+//      root: 'app'
+//    }))
+//    .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
+  .pipe(gulp.dest(path.join(conf.paths.dist, '/app')));
 });
 
 gulp.task('html', ['inject', 'partials'], function () {
