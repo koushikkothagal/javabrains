@@ -30,7 +30,8 @@
         url: '/courses/:courseName',
         resolve: {
           courseData:  function(REST_ROOT_URL, $http, $stateParams, $q){
-            return $http.get(REST_ROOT_URL + 'courses/' + $stateParams.courseName);
+            // return $http.get(REST_ROOT_URL + 'courses/' + $stateParams.courseName);
+            return $http.get('/assets/data/courses/' + $stateParams.courseName + '.json');
             // return $http.get('https://api.parse.com/1/classes/CourseApi?where={"CourseName":"spring_data"}');
          },
         },

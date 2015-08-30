@@ -16,10 +16,12 @@
 	<div class="toc-lesson" >
 		<!-- <a class="lesson-link" href="#"> -->
 		<h5 class="lesson-name">
-			<i ng-if="$even" class="fa fa-play-circle"></i>
-			<i ng-if="$odd"class="fa fa-question-circle"></i>
+			<i ng-if="lesson.type === 'video'" class="fa fa-play-circle"></i>
+			<i ng-if="lesson.type === 'quiz'" class="fa fa-question-circle"></i>
 			&nbsp;{{::lesson.title}}
+			<span class="pull-right" ng-bind="::lesson.durationText"></span>
 </h5>
+
 		<!-- </a> -->
 	</div>
 	</a>

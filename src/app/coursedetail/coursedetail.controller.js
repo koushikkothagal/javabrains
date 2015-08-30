@@ -16,7 +16,7 @@
      vm.info.topic = courseDataService.topicMap[vm.info.topic];
      vm.info.imageUrl = '/assets/images/' + vm.info.code + '.jpg'
      vm.info.courseBaseUrl = '/courses/' + vm.info.code + '/lessons/';
-     vm.info.startCourseUrl =  vm.info.courseBaseUrl + vm.info.units[0].firstLesson;
+     vm.info.startCourseUrl =  vm.info.units[1].firstLesson;
      angular.forEach(vm.info.units, function(unit) {
        unit.unitNumber = '0' + unit.unitNumber; // Not planning to *ever* have > 10 units per course. Change this if that isn't true.
        unit.topic = vm.info.topic.code;

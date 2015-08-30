@@ -1,4 +1,5 @@
-var BASE_PATH = '../data/output/';
+var BASE_PATH = '../data/courses/';
+var OUTPUT_PATH = '../src/assets/data/';
 var fs = require('fs');
 var yamlhead = require('yamlhead');
 var marked = require('marked');
@@ -36,6 +37,15 @@ function secondsToTime(secs) {
   }
 
   return durationString.trim();
+}
+
+
+var mkdirSync = function (path) {
+  try {
+    fs.mkdirSync(path);
+  } catch (e) {
+    if (e.code != 'EEXIST') throw e;
+  }
 }
 
 
@@ -161,17 +171,13 @@ var fillLessonInfo = function (courseInfo, fileNames) {
 
   var promiseArray = [];
   lessonFileNames.forEach(function (fileName) {
-    console.log(fileName);
     // Split it based on dots (eg: 1.1.Introduction-To-Hibernate.md)
     var tokens = fileName.split('.');
     // The first token is unit number
     var unitNum = tokens[0];
     // Get corresponding unit object
     var unit = courseInfo.units[unitNum];
-    // If this is the first time, init an empty lesson array
-    if (!unit.lessons) {
-      unit.lessons = [];
-    }
+
     var path = BASE_PATH + courseName + '/' + fileName;
     var promise = openYamlFile(path)
       .then(function (response) {
@@ -203,8 +209,14 @@ var fillLessonInfo = function (courseInfo, fileNames) {
           yaml.type = 'video';
         }
         if (yaml.type === 'video') {
-          yaml.duration = secondsToTime(yaml.duration);
+          yaml.durationText = secondsToTime(yaml.duration);
         }
+        // If this is the first time, init an empty lesson array
+        if (!unit.lessons) {
+          unit.lessons = [];
+          unit.firstLesson = '/courses/' + courseInfo.code + '/' + yaml.permalinkName;
+        }
+        
 
         unit.lessons.push(yaml);
       });
@@ -238,7 +250,20 @@ var buildCourseDataStructure = function (courseName) {
       return fillLessonInfo(courseInfo, files);
     });
 }
-  ;
+;
+
+var writeCourseApi = function(courseInfo) {
+  var path = OUTPUT_PATH + 'courses/' + courseInfo.code + '.json';
+  mkdirSync(OUTPUT_PATH + 'courses');
+  var totalDurationSeconds = 0;
+  _.forEach(courseInfo.units, function(unit) {
+    unit.lessons.forEach(function(lesson) {
+      totalDurationSeconds = totalDurationSeconds + lesson.duration;
+    });
+  });
+  courseInfo.durationText = secondsToTime(totalDurationSeconds);
+  fs.writeFileSync(path, JSON.stringify(courseInfo));
+}
 
 
 var courseName = 'hibernate_intro';
@@ -246,8 +271,8 @@ buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     var jsonString = JSON.stringify(courseInfo);
     var copy1 = JSON.parse(jsonString);
-    var copy2 = JSON.parse(jsonString);
-    // writeCourseApi(copy1);
+    // var copy2 = JSON.parse(jsonString);
+    writeCourseApi(copy1);
     // writeLessonApi(copy2);
 
 
