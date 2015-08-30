@@ -313,7 +313,8 @@ var getMiniLessonArray = function(unit) {
         'description': lesson.description,
         'permalinkName': lesson.permalinkName,
         'type': lesson.type,
-        'slNo': lesson.slNo
+        'slNo': lesson.slNo,
+        'durationText': lesson.durationText
       };
       miniLessonArray.push(miniLesson);
   });
@@ -323,10 +324,12 @@ var getMiniLessonArray = function(unit) {
 var writeLessonApi = function (courseInfo) {
   mkdirSync(OUTPUT_PATH + 'courses');
   mkdirSync(OUTPUT_PATH + 'courses/' +  courseInfo.code);
-  var BASE_PATH = OUTPUT_PATH + 'courses/' + courseInfo.code + '/';
+  mkdirSync(OUTPUT_PATH + 'courses/' +  courseInfo.code + '/lessons');
+  var BASE_PATH = OUTPUT_PATH + 'courses/' + courseInfo.code + '/lessons/';
   
   _.forEach(courseInfo.units, function (unit) {
     unit.lessons.forEach(function (lesson) {
+      lesson.topic = lesson.courseCode.split('_')[0];
       lesson.unit = {
         lessons: getMiniLessonArray(unit)
       };
@@ -356,20 +359,20 @@ var courseNames =
 // courseNames.forEach(function (courseName) {
 //   console.log(courseName);
 
-var courseName = 'javaee_jaxrs';
+var courseName = 'spring_core';
 buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     console.log('In then');
     var jsonString = JSON.stringify(courseInfo);
     var copy1 = JSON.parse(jsonString);
-    // var copy2 = JSON.parse(jsonString);
+    var copy2 = JSON.parse(jsonString);
     writeCourseApi(copy1);
     writeLessonApi(copy2);
 
 
   })
   .catch(function(e) {
-    console.log(JSON.stringify(e));
+    console.log(e);
   });
 
 // });

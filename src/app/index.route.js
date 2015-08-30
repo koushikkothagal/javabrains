@@ -43,11 +43,15 @@
         url: '/courses/:courseName/lessons/:lessonName',
         resolve: {
           lessonData:  function(REST_ROOT_URL, $http, $stateParams, $q){
+            return $http.get('/assets/data/courses/' + $stateParams.courseName + '/lessons/' + $stateParams.lessonName + '.json');
+            
+            /*
             return $http.get('https://javabrains-data.parseapp.com/courses/' + $stateParams.courseName + '/lessons/' + $stateParams.lessonName, 
               {
                 cache: true
               }
             );
+            */
             
          },
         },
