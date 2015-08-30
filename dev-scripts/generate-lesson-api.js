@@ -117,6 +117,15 @@ var cleanYaml = function (yaml) {
   return yaml;
 }
 
+var cleanLessonForCourseApi = function(lesson) {
+  
+    delete lesson.youtube;
+    delete lesson.content;
+    delete lesson.duration;
+    delete lesson.content;
+  
+}
+
 var generateCourseInfo = function (courseName) {
   var courseFileName = BASE_PATH + courseName + '/course.md';
   return openYamlFile(courseFileName)
@@ -177,7 +186,9 @@ var fillLessonInfo = function (courseInfo, fileNames) {
     // The first token is unit number
     var unitNum = tokens[0];
     // The second token is lesson number
-    var lessonNum = tokens[1];
+    var lessonNum = parseInt(tokens[1]);
+    // The third token is title
+    var permalinkName = tokens[2];
     // Get corresponding unit object
     var unit = courseInfo.units[unitNum];
 
@@ -188,8 +199,11 @@ var fillLessonInfo = function (courseInfo, fileNames) {
         
         var yaml = response[0];
         console.log('processing ' + yaml.permalinkName);
+        yaml.unitSlNo = unitNum + '.' + lessonNum;
         yaml = cleanYaml(yaml);
-        yaml.slNo = parseInt(lessonNum);
+        yaml.slNo = lessonNum;
+        yaml.title = permalinkName.replace(/-/gi, ' ');
+        yaml.permalinkName = permalinkName;
         var markup = response[1];
         if (yaml.prevLessonPermalinkName) {
           delete yaml.prevLessonPermalinkName;
@@ -280,11 +294,46 @@ var writeCourseApi = function (courseInfo) {
   var totalDurationSeconds = 0;
   _.forEach(courseInfo.units, function (unit) {
     unit.lessons.forEach(function (lesson) {
-      totalDurationSeconds = totalDurationSeconds + lesson.duration;
+      if (lesson.type === 'video') {
+        totalDurationSeconds = totalDurationSeconds + lesson.duration;  
+      }
+      // cleanLessonForCourseApi(lesson); TODO: Not working
+      
     });
   });
   courseInfo.durationText = secondsToTime(totalDurationSeconds);  // TODO: This isn't working
   fs.writeFileSync(path, JSON.stringify(courseInfo));
+}
+
+var getMiniLessonArray = function(unit) {
+  var miniLessonArray = [];
+  unit.lessons.forEach(function (lesson) {
+      var miniLesson = {
+        'title': lesson.title,
+        'description': lesson.description,
+        'permalinkName': lesson.permalinkName,
+        'type': lesson.type,
+        'slNo': lesson.slNo
+      };
+      miniLessonArray.push(miniLesson);
+  });
+  return miniLessonArray;
+}
+
+var writeLessonApi = function (courseInfo) {
+  mkdirSync(OUTPUT_PATH + 'courses');
+  mkdirSync(OUTPUT_PATH + 'courses/' +  courseInfo.code);
+  var BASE_PATH = OUTPUT_PATH + 'courses/' + courseInfo.code + '/';
+  
+  _.forEach(courseInfo.units, function (unit) {
+    unit.lessons.forEach(function (lesson) {
+      lesson.unit = {
+        lessons: getMiniLessonArray(unit)
+      };
+      var path = BASE_PATH + lesson.permalinkName + '.json';
+      fs.writeFileSync(path, JSON.stringify(lesson));
+    });
+  });
 }
 
 /*
@@ -307,7 +356,7 @@ var courseNames =
 // courseNames.forEach(function (courseName) {
 //   console.log(courseName);
 
-var courseName = 'jsps_intro';
+var courseName = 'javaee_jaxrs';
 buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     console.log('In then');
@@ -315,9 +364,12 @@ buildCourseDataStructure(courseName)
     var copy1 = JSON.parse(jsonString);
     // var copy2 = JSON.parse(jsonString);
     writeCourseApi(copy1);
-    // writeLessonApi(copy2);
+    writeLessonApi(copy2);
 
 
+  })
+  .catch(function(e) {
+    console.log(JSON.stringify(e));
   });
 
 // });

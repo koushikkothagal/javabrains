@@ -37,12 +37,12 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<div class="padded">
+			<div ng-if="course.info.sourceCode" class="padded">
 				<h4>Downloads</h4>
 				<hr />
-				<div class="media">
+				<div ng-if="course.info.sourceCode" class="media">
 					<div class="media-left">
-						<a href="#">
+						<a ng-href="{{course.info.sourceCode}}">
 							<span class="fa fa-3x fa-file-archive-o topic-color" aria-hidden="true"></span>
 						</a>
 					</div>
