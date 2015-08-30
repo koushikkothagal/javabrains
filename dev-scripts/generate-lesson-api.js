@@ -2,6 +2,43 @@ var BASE_PATH = '../data/output/';
 var fs = require('fs');
 var yamlhead = require('yamlhead');
 var marked = require('marked');
+var _ = require('lodash');
+var Q = require('q');
+
+// String startsWith polyfill
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = function (searchString, position) {
+    position = position || 0;
+    return this.indexOf(searchString, position) === position;
+  };
+}
+
+/**
+ * Convert number of seconds into time object
+ *
+ * @param integer secs Number of seconds to convert
+ * @return object
+ */
+function secondsToTime(secs) {
+  var durationString;
+  var hours = Math.floor(secs / (60 * 60));
+
+  var divisor_for_minutes = secs % (60 * 60);
+  var minutes = Math.floor(divisor_for_minutes / 60);
+
+  var divisor_for_seconds = divisor_for_minutes % 60;
+
+  if (hours) {
+    durationString = hours + ' hours ';
+  }
+  if (minutes) {
+    durationString = minutes + ' minutes ';
+  }
+
+  return durationString.trim();
+}
+
+
 
 // Generate a map of file name (eg: 1.2.Setting-Up.md) to it's prev permalink (eg: Introduction-To-Hibernate)
 var generatePrevPermalinks = function (files) {
@@ -37,11 +74,188 @@ var generateNextPermalinks = function (files) {
   return nextPermalinkMap;
 }
 
+var getLessonFileNames = function (fileNames) {
+  return _.partition(fileNames, function (fileName) {
+    return !fileName.startsWith('unit') && !fileName.startsWith('course');
+  })[0];
+}
 
-var files = fs.readdirSync(BASE_PATH + 'hibernate_intro');
-files.sort();
-var prevPermalinkMap = generatePrevPermalinks(files);
-var nextPermalinkMap = generateNextPermalinks(files);
+var getUnitFileNames = function (fileNames) {
+  return _.partition(fileNames, function (fileName) {
+    return fileName.startsWith('unit');
+  })[0];
+}
+
+var openYamlFile = function (path) {
+  return Q.nfcall(yamlhead, path);
+}
+
+function convertToHtml(markup) {
+  return marked(markup);
+}
+
+var cleanYaml = function (yaml) {
+  if (yaml.createdAt) {
+    delete yaml.createdAt;
+  }
+  if (yaml.updatedAt) {
+    delete yaml.updatedAt;
+  }
+  if (yaml.objectId) {
+    delete yaml.objectId;
+  }
+  return yaml;
+}
+
+var generateCourseInfo = function (courseName) {
+  var courseFileName = BASE_PATH + courseName + '/course.md';
+  return openYamlFile(courseFileName)
+    .then(function (response) {
+      var yaml = response[0];
+      yaml = cleanYaml(yaml);
+      return yaml;
+    })
+}
+
+var generateUnitMap = function (courseName, fileNames) {
+  var unitFileNames = getUnitFileNames(fileNames);
+  var unitMap = {};
+  var promiseArray = [];
+  unitFileNames.forEach(function (unitFileName) {
+
+    var unitNum = unitFileName.split('.')[1];
+    var path = BASE_PATH + courseName + '/' + unitFileName;
+    var promise = openYamlFile(path)
+      .then(function (response) {
+
+        var yaml = response[0];
+        if (yaml.createdAt) {
+          delete yaml.createdAt;
+        }
+        if (yaml.updatedAt) {
+          delete yaml.updatedAt;
+        }
+        if (yaml.objectId) {
+          delete yaml.objectId;
+        }
+        unitMap[unitNum] = yaml;
+
+      });
+    promiseArray.push(promise);
+
+
+  });
+
+  return Q.all(promiseArray)
+    .then(function () {
+
+      return unitMap;
+    });
+
+}
+
+var fillLessonInfo = function (courseInfo, fileNames) {
+  var lessonFileNames = getLessonFileNames(fileNames);
+  var prevPermalinkMap = generatePrevPermalinks(lessonFileNames);
+  var nextPermalinkMap = generateNextPermalinks(lessonFileNames);
+
+  var promiseArray = [];
+  lessonFileNames.forEach(function (fileName) {
+    console.log(fileName);
+    // Split it based on dots (eg: 1.1.Introduction-To-Hibernate.md)
+    var tokens = fileName.split('.');
+    // The first token is unit number
+    var unitNum = tokens[0];
+    // Get corresponding unit object
+    var unit = courseInfo.units[unitNum];
+    // If this is the first time, init an empty lesson array
+    if (!unit.lessons) {
+      unit.lessons = [];
+    }
+    var path = BASE_PATH + courseName + '/' + fileName;
+    var promise = openYamlFile(path)
+      .then(function (response) {
+        var yaml = response[0];
+        yaml = cleanYaml(yaml);
+        var markup = response[1];
+        if (yaml.prevLessonPermalinkName) {
+          delete yaml.prevLessonPermalinkName;
+        }
+        var prevPermalink = prevPermalinkMap[fileName];
+        if (prevPermalink) {
+          yaml.prev = '/courses/' + courseInfo.code + '/' + prevPermalink;
+        }
+
+        if (yaml.nextLessonPermalinkName) {
+          delete yaml.nextLessonPermalinkName;
+        }
+        var nextPermalink = nextPermalinkMap[fileName];
+        if (nextPermalink) {
+          yaml.next = '/courses/' + courseInfo.code + '/' + nextPermalink;
+        }
+
+        var html = convertToHtml(markup);
+        if (html) {
+          yaml.content = html;
+        }
+
+        if (!yaml.type) {
+          yaml.type = 'video';
+        }
+        if (yaml.type === 'video') {
+          yaml.duration = secondsToTime(yaml.duration);
+        }
+
+        unit.lessons.push(yaml);
+      });
+    promiseArray.push(promise);
+  });
+  return Q.all(promiseArray)
+    .then(function () {
+      return courseInfo;
+    });
+}
+
+
+var buildCourseDataStructure = function (courseName) {
+
+  var courseInfo = {};
+  var files = fs.readdirSync(BASE_PATH + courseName);
+  files.sort();
+
+
+  return generateCourseInfo(courseName)
+    .then(function (result) {
+      courseInfo = result;
+    })
+    .then(function () {
+      return generateUnitMap(courseName, files);
+    })
+    .then(function (result) {
+      courseInfo.units = result;
+    })
+    .then(function () {
+      return fillLessonInfo(courseInfo, files);
+    });
+}
+  ;
+
+
+var courseName = 'hibernate_intro';
+buildCourseDataStructure(courseName)
+  .then(function (courseInfo) {
+    var jsonString = JSON.stringify(courseInfo);
+    var copy1 = JSON.parse(jsonString);
+    var copy2 = JSON.parse(jsonString);
+    // writeCourseApi(copy1);
+    // writeLessonApi(copy2);
+
+
+  });
+
+
+/*
+
 var result = {};
 // For each file in the directory
 for (var index in files) {
@@ -74,10 +288,10 @@ for (var index in files) {
       yaml.prevPermalinkName = prevPermalinkMap[key];
       yaml.nextPermalinkName = nextPermalinkMap[key];
       // Get the unit number
-       var tokens2 = yaml.unitSlNo.toString().split('.');
-       var unitNum2 = tokens2[0];
-       // Add the JSONified object to the lesson array of the right unit in the final results object
-       result[unitNum2].lessons.push(yaml);
+      var tokens2 = yaml.unitSlNo.toString().split('.');
+      var unitNum2 = tokens2[0];
+      // Add the JSONified object to the lesson array of the right unit in the final results object
+      result[unitNum2].lessons.push(yaml);
     }
   });
 
@@ -88,9 +302,7 @@ setTimeout(function () {
   fs.writeFileSync(BASE_PATH + 'hibernate_intro/out.js', JSON.stringify(result));
 }, 2000)
 
-function convertToHtml(markup) {
-  return marked(markup);
-}
+*/
 
 
 
