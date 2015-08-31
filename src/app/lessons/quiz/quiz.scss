@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+}
+
+.quiz {
+	min-height: 400px;
+	// font-family: "Lora", serif;
+    background: #fff;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    max-width: 1100px;
+    margin: 30px auto;
+    ol {
+        list-style: none;
+    }
+
+}
+
+.flex-align-center, .flex-center, .flex-column, .flex-row, .flex-row-cells, .flex-row-reverse {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex-row, .flex-row-cells-md, .flex-row-cells {
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+
+.flex-column {
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column
+}
+
+.col-grow-shrink {
+    max-width: none;
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.question-tabs {
+    margin: 0;
+    padding: 0;
+    max-width: 84px;
+    -moz-flex: 0 0 84px;
+    -ms-flex: 0 0 84px;
+    -webkit-flex: 0 0 84px;
+    flex: 0 0 84px;
+    border: 1px solid #fff;
+}
+
+.quiz-tab {
+    -webkit-transition: background 130ms linear;
+    transition: background 130ms linear;
+    background: #d8d8d8;
+    border-bottom: 1px solid #fff;
+    color: #999;
+    cursor: pointer;
+    font-size: 20px;
+    width: 84px;
+    &.active {
+        background: #eee;
+        color: $primary-red;
+    }
+    &.correct, &.incorrect {
+    background: #666;
+        .question-number-text {
+            display: none;
+        }
+    }
+    &.correct {
+        background: #2ecc71;
+    }
+}
+
+
+
+.correct {
+    .correct-icon {
+        display: block;
+        
+    }
+    
+    
+}
+
+.incorrect {
+    .incorrect-icon {
+        display: block;
+    }
+}
+
+
+.quiz-tab svg {
+    height: 24px;
+    width: 24px;
+}
+.correct-icon, .incorrect-icon {
+    display: none;
+    fill: #fff;
+}
+
+
+
+.flex-center, .justify-center {
+    -ms-flex-pack: center;
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.align-center, .flex-align-center, .flex-center {
+    -ms-flex-align: center;
+    -ms-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/* End side tabs */
+
+
+.quiz-tabs {
+    flex: 0 0 43%;
+    width: 40%;
+    max-width: 40%;
+    padding: 20px;
+    // color: #FFF;
+}
+
+
+.quiz-title {
+    // color: #FFF;
+    line-height: 44px;
+    padding-left: 10px;
+    // font-family: "Montserrat", sans-serif;
+}
+
+.quiz-question-text-list {
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.quiz-question-text {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transition: ease 350ms;
+    transition: ease 350ms;
+    -webkit-transition-property: left,-webkit-transform;
+    transition-property: left,transform;
+    display: inline-block;
+    // font-weight: 500;
+    line-height: 3rem;
+    margin: 0 0 5px;
+    padding: 0 4px 0 10px;
+    position: relative;
+    vertical-align: top;
+    white-space: normal;
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+/* End question text section */
+
+/* Start choices section */
+
+.quiz-question-list {
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    width: 50%;
+}
+
+.separator-left {
+    border-left: 1px solid #d8d8d8;
+}
+
+.quiz-question {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transition: ease 350ms;
+    transition: ease 350ms;
+    -webkit-transition-property: left,-webkit-transform;
+    transition-property: left,transform;
+    display: inline-block;
+    padding: 40px 20px 20px 26px;
+    position: relative;
+    vertical-align: top;
+    white-space: normal;
+    width: 100%;
+}
+
+.quiz-question label {
+    cursor: pointer;
+    font-size: 1.6rem;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+
+.answer {
+    // font-family: "Lato", sans-serif;
+}
+
+.correct {
+    color: #27ae60;
+}
+
+.incorrect {
+    color: $primary-red;
+}
+
+.quiz-nav {
+    margin: 20px auto;
+}
+
+
+
+
+/* End choices section */
