@@ -1,90 +1,97 @@
 <div class="{{lesson.info.topic}}">
-<div class="container resize-offset">
-  <div class="row">
+  <div class="container resize-offset">
+    <div class="row">
 
-    <navbar home-url="'/courses/' +  lesson.info.courseCode">{{lesson.info.courseName}}</navbar>
+      <navbar home-url="'/courses/' +  lesson.info.courseCode">{{lesson.info.courseName}}</navbar>
 
-  </div>
-</div>
-
-<div class="container-fluid topic-bg" style="margin-top: -25px">
-  <div id="lesson-nav" class="container">
-    <div ng-repeat="alesson in lesson.unit.lessons">
-      <span ng-if="alesson.current" class="fa-stack">
-      <i  class="fa fa-stack-2x fa-circle-thin" style="color: rgb(255, 255, 255); "></i>
-      <i class="fa fa-play-circle fa-stack-1x clickable" style=" color: #FFF;" popover="{{alesson.description}}"
-      popover-title="{{$index + 1 + '. ' + alesson.title}}" popover-trigger="mouseenter" popover-placement="bottom" type="button"
-      ui-sref="lesson({'courseName': lesson.info.courseCode, 'lessonName': alesson.permalinkName})"></i>
-      </span>
-
-      <span ng-if="!alesson.current" class="fa-stack">
-      
-      <i class="fa fa-play-circle fa-2x faded clickable" style=" color: #FFF;" popover="{{alesson.description}}"
-      popover-title="{{$index + 1 + '. ' + alesson.title}}" popover-trigger="mouseenter" popover-placement="bottom" type="button"
-      ui-sref="lesson({'courseName': lesson.info.courseCode, 'lessonName': alesson.permalinkName})"></i>
-      </span>
-      <!-- TODO: Fix placement to left or right at the edges -->
     </div>
-
   </div>
-</div>
-<div class="container-fluid">
-  <div class="card" style="margin-left: -15px; margin-right: -15px;margin-bottom: 10px;height: 132px;">
-    <div class="container full-height" style="padding: 15px 25px;">
-      <div class="row head-row full-height">
-        <div class="col-md-8 border-right full-height">
-          
-          <h3>
+
+  <div class="container-fluid topic-bg" style="margin-top: -25px">
+    <div id="lesson-nav" class="container">
+    <div ng-repeat="alesson in lesson.unit.lessons">
+      <span class="fa-stack">
+      <i ng-if="alesson.current" class="fa fa-stack-2x fa-circle-thin" style="color: rgb(255, 255, 255); "></i>
+      <i ng-class="lesson.getLessonTrailClasses(alesson)" style=" color: #FFF;" popover="{{alesson.description}}"
+      popover-title="{{$index + 1 + '. ' + alesson.title}}" popover-trigger="mouseenter" popover-placement="bottom" type="button"
+      ui-sref="lesson({'courseName': lesson.info.courseCode, 'lessonName': alesson.permalinkName})"></i>
+      </span>
+
+      
+        <!-- TODO: Fix placement to left or right at the edges -->
+      </div>
+
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="card" style="margin-left: -15px; margin-right: -15px;margin-bottom: 10px;height: 132px;">
+      <div class="container full-height" style="padding: 15px 25px;">
+        <div class="row head-row full-height">
+          <div class="col-md-8 border-right full-height">
+
+            <h3>
 					
 					<span class="slNo topic-color" ng-bind="lesson.info.unitSlNo"></span>
 					<span class="title" ng-bind="lesson.info.title"></span>
 					
 				</h3>
-        <a ng-if="lesson.info.prevLessonPermalinkName" class="pull-left" style="margin-left: -70px" ui-sref="lesson({'courseName': lesson.info.courseCode, 'lessonName': lesson.info.prevLessonPermalinkName}">
-						<i class="fa fa-2x fa-arrow-left arrow"></i>
-					</a>
-          <p ng-bind="lesson.info.description"></p>
-        </div>
-        <div class="col-md-4 padded">
-          <p>Your progress is not being saved. </p>
-          <a ng-if="lesson.info.nextLessonPermalinkName" class="pull-right" style="margin-right: -90px" ng-href="{{lesson.info.nextLessonPermalinkName}}">
-						<i class="fa fa-2x fa-arrow-right arrow"></i>
-					</a>
-          <p><a href="#">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
+            <a ng-if="lesson.info.prev" class="pull-left" style="margin-left: -70px" ng-href="{{lesson.info.prev}}">
+              <i class="fa fa-2x fa-arrow-left arrow"></i>
+            </a>
+            <p ng-bind="lesson.info.description"></p>
+          </div>
+          <div class="col-md-4 padded">
+            <p>Your progress is not being saved. </p>
+            <a ng-if="lesson.info.next" class="pull-right" style="margin-right: -90px" ng-href="{{lesson.info.next}}">
+              <i class="fa fa-2x fa-arrow-right arrow"></i>
+            </a>
+            <p><a href="#">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <!-- if video -->
+  <div ng-if="lesson.info.type === 'video'">
+  <div class="embed-container shadow" style="max-width: 1320px;margin: auto;margin-bottom: 40px;">
+    <iframe id="youtube-player" ng-src="{{lesson.info.youtube}}" frameborder="0" allowfullscreen></iframe>
+    <!-- "//www.youtube.com/embed/n_dZNLr2cME"-->
+  </div>
 
-<div class="embed-container shadow" style="max-width: 1320px;margin: auto;margin-bottom: 40px;">
-  <iframe id="youtube-player" ng-src="{{lesson.info.youtube}}" frameborder="0" allowfullscreen></iframe>
-  <!-- "//www.youtube.com/embed/n_dZNLr2cME"-->
-</div>
-
-<div class="container-fluid">
-  <div class="container">
-    <div class="col-md-8 notes padded">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="col-md-8 notes padded">
         <div ng-if="lesson.info.content">
           <h4>Notes</h4>
-          <div ng-bind="::lesson.info.content"></div>
+          <div ng-bind-html="::lesson.info.content"></div>
         </div>
-    <div class="col-md-4 padded border-left">
-      <h4>Downloads</h4>
-      <hr />
-      <div class="media">
-        <div class="media-left">
-          <a href="#">
-            <span class="fa fa-3x fa-file-archive-o topic-color" aria-hidden="true"></span>
-          </a>
+      </div>
+      <div class="col-md-4 padded border-left">
+        <div ng-if="lesson.info.sourceCode">
+          <h4>Downloads</h4>
+          <hr />
+          <div class="media">
+            <div class="media-left">
+              <a ng-href="{{lesson.info.sourceCode}}">
+                <span class="fa fa-3x fa-file-archive-o topic-color" aria-hidden="true"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h5 class="media-heading">Project source code</h5>
+              <p>.zip file</p>
+            </div>
+          </div>
         </div>
-        <div class="media-body">
-          <h5 class="media-heading">Project source code</h5>
-          <p>.zip file</p>
-        </div>
+
       </div>
 
     </div>
   </div>
-</div>
-</div>
+  </div>
+  <!-- end if video -->
+  
+  <!-- if quiz -->
+  <div ng-if="lesson.info.type === 'quiz'">
+    <h1>Quiz</h1>
+  </div>
+  <!-- end if quiz -->

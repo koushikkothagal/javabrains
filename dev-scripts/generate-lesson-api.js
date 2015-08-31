@@ -175,6 +175,13 @@ var generateUnitMap = function (courseName, fileNames) {
 
 var fillLessonInfo = function (courseInfo, fileNames) {
   var lessonFileNames = getLessonFileNames(fileNames);
+  lessonFileNames = _.sortBy(lessonFileNames, function(file) {
+    var num = parseInt(file.split('.')[0]) * 100 + parseInt(file.split('.')[1]);
+    console.log(file + ' ' + num);
+    return num;
+  });
+  console.log(JSON.stringify(lessonFileNames));
+  
   var prevPermalinkMap = generatePrevPermalinks(lessonFileNames);
   var nextPermalinkMap = generateNextPermalinks(lessonFileNames);
 
@@ -210,7 +217,7 @@ var fillLessonInfo = function (courseInfo, fileNames) {
         }
         var prevPermalink = prevPermalinkMap[fileName];
         if (prevPermalink) {
-          yaml.prev = '/courses/' + courseInfo.code + '/' + prevPermalink;
+          yaml.prev = '/courses/' + courseInfo.code + '/lessons/' + prevPermalink;
         }
 
         if (yaml.nextLessonPermalinkName) {
@@ -218,7 +225,7 @@ var fillLessonInfo = function (courseInfo, fileNames) {
         }
         var nextPermalink = nextPermalinkMap[fileName];
         if (nextPermalink) {
-          yaml.next = '/courses/' + courseInfo.code + '/' + nextPermalink;
+          yaml.next = '/courses/' + courseInfo.code + '/lessons/' + nextPermalink;
         }
 
         var html = convertToHtml(markup);
@@ -265,7 +272,8 @@ var buildCourseDataStructure = function (courseName) {
 
   var courseInfo = {};
   var files = fs.readdirSync(BASE_PATH + courseName);
-  files.sort();
+
+  
 
 
   return generateCourseInfo(courseName)
@@ -359,7 +367,7 @@ var courseNames =
 // courseNames.forEach(function (courseName) {
 //   console.log(courseName);
 
-var courseName = 'spring_core';
+var courseName = 'javaee_jaxrs';
 buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     console.log('In then');

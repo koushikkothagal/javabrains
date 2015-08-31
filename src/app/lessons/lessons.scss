@@ -50,7 +50,13 @@
     }
 }
 
-.notes p {
+.notes {
+ h1, h2, h3, h4 {
+     font-size: 1.8rem;
+     margin-top: 25px;
+ }
+ p {
     font-size: 1.55rem;
     max-width: 45em;
+}
 }
