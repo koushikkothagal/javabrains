@@ -337,7 +337,10 @@ var writeLessonApi = function (courseInfo) {
   
   _.forEach(courseInfo.units, function (unit) {
     unit.lessons.forEach(function (lesson) {
-      lesson.topic = lesson.courseCode.split('_')[0];
+      if (lesson.courseCode) {
+        lesson.topic = lesson.courseCode.split('_')[0];  
+      }
+      
       lesson.unit = {
         lessons: getMiniLessonArray(unit)
       };
@@ -379,8 +382,9 @@ buildCourseDataStructure(courseName)
 
 
   })
-  .catch(function(e) {
+  .catch(function(e, f) {
     console.log(e);
+    console.log(f);
   });
 
 // });
