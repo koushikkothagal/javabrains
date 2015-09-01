@@ -117,6 +117,14 @@ var cleanYaml = function (yaml) {
   return yaml;
 }
 
+var prepareQuizContent = function(quiz, permalinkName) {
+  for (var i = 0; i < quiz.length; i++) {
+    var question = quiz[i];
+    question.id = permalinkName + '-' + i;
+  }
+  
+}
+
 var cleanLessonForCourseApi = function(lesson) {
   
     delete lesson.youtube;
@@ -239,6 +247,10 @@ var fillLessonInfo = function (courseInfo, fileNames) {
         if (yaml.type === 'video') {
           yaml.durationText = secondsToTime(yaml.duration);
         }
+        if (yaml.type === 'quiz' && yaml.quizContent) {
+          prepareQuizContent(yaml.quizContent, yaml.permalinkName);
+        }
+        
         // If this is the first time, init an empty lesson array
         if (!unit.lessons) {
           unit.lessons = [];

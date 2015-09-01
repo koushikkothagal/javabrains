@@ -50,12 +50,26 @@
       var answer = this.userData.quizAnswers[question.id];
       return null != answer && answer != question.correctAnswer;
   };
+  
+  this.correctAnswerTexts = 
+  ["Yes, that's right!",
+    "Good work!",
+    "That's correct!",
+    "You've got it right!",
+    "Awesome! That's correct!"];
 
+  this.incorrectAnswerTexts = 
+   ["Hmm... no",
+    "That isn't correct.",
+    "Try again!",
+    "Not exactly. Try again.",
+    "Nope, that isn't the right answer."];
   
+  var index = Math.floor(Math.random() * 5);
+    
+  this.correctAnswerText = this.correctAnswerTexts[index];
   
-  
-
-};
-  
+  this.incorrectAnswerText = this.incorrectAnswerTexts[index];
+  }
   
 })(); 

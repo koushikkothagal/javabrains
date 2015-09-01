@@ -19,7 +19,7 @@
         <div class="quiz-question-text-list">
           <div class="quiz-question-text card-text" 
                 ng-repeat="question in ctrl.quiz.questions" 
-                ng-bind-html="::question.description | trust_html" 
+                ng-bind-html="::question.question | trust_html" 
                 translate-x="(-(ctrl.activeQuestionIndex * 100)) + '%'">
                   
             </div>
@@ -47,12 +47,12 @@
             </div>
             <div class="answer-area" style="min-height: 60px;">
             <div class="answer correct" ng-show="ctrl.isAnswerCorrect(question)">
-              <strong class="quiz-correct-title" ng-bind="::question.correctAnswerMainTitle"></strong>
-		      <div class="quiz-correct-description" ng-bind="::question.correctAnswerDescription"></div>
+              <strong class="quiz-correct-title" ng-bind="::ctrl.correctAnswerText"></strong>
+		   <!--   <div class="quiz-correct-description" ng-bind="::question.correctAnswerDescription"></div> -->
             </div>
             <div class="answer incorrect" ng-show="ctrl.isAnswerIncorrect(question)"> 
-                <strong class="quiz-incorrect-title" ng-bind="::question.incorrectAnswerMainTitle"></strong>
-				<div class="quiz-incorrect-description" ng-bind="::question.incorrectAnswerDescription"></div>
+                <strong class="quiz-incorrect-title" ng-bind="::ctrl.incorrectAnswerText"></strong>
+			<!--	<div class="quiz-incorrect-description" ng-bind="::question.incorrectAnswerDescription"></div> -->
 			</div>
             </div>
             <div class="quiz-nav text-center">
