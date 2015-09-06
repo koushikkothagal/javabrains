@@ -14,6 +14,17 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardController',
+        controllerAs: 'dashboard',
+        resolve: {
+          'currentUser': ['Auth', function (Auth) {
+            return Auth.$requireAuth();
+          }]
+        }
+      })
       .state('topics', {
         url: '/topics',
         templateUrl: 'app/topics/topics.html',

@@ -22,11 +22,14 @@
     
 	};
   
-  function LoginController($scope, User, $modalInstance) {
+  function LoginController($scope, User, $modalInstance, $state) {
       
       $scope.login = function () {
         User.login($scope.user)
-          .then($modalInstance.dismiss());
+          .then(function() {
+            $modalInstance.dismiss()
+            $state.go('dashboard');
+          });
         
         
         

@@ -18,14 +18,15 @@
           
           
           <div  class="btn-group" dropdown>
-      <button id="profile-button" type="button" class="btn btn-default"><i class="fa fa-user"></i>
- Name here</button>
+      <button id="profile-button" type="button" class="btn btn-default" ui-sref="dashboard">
+        <i class="fa fa-user"></i> Name here
+     </button>
       <button type="button" class="btn btn-default" dropdown-toggle>
         <span class="caret"></span>
         <span class="sr-only">Profile</span>
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
-        <li role="menuitem"><a href="#">Your Profile</a></li>
+        <li role="menuitem"><a class="clickable" ui-sref="dashboard">Your Dashboard</a></li>
         <li class="divider"></li>
         <li role="menuitem"><a class="clickable" ng-click="vm.logout()">Logout</a></li>
       </ul>
