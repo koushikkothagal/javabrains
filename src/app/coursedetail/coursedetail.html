@@ -18,7 +18,7 @@
 			</span>
 			-->
 				<p class="course-description" ng-bind="::course.info.desc"></p>
-				<a id="start-course" class="btn-{{course.info.topic.code}}" ng-href="{{::course.info.startCourseUrl}}">Start Course</a>
+				<a id="start-course" class="btn-{{course.info.topic.code}}" ng-click="course.markCourseStarted()" ng-href="{{::course.info.startCourseUrl}}">Start Course</a>
 				<p class="course-description course-covers">This course covers:</p>
 				<ul class="list-square fa-ul">
 					<li ng-repeat="objective in ::course.info.objectives"><i class="fa-li fa fa-check topic-color"></i>{{::objective}}</li>

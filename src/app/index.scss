@@ -133,8 +133,14 @@ i.fa {
   margin-bottom: 30px;
 }
 
+/* Start textbox */
+.text-box { padding:3px; font-size:16px; border-width:0px; border-color:#cccccc; border-bottom-width: 2px;  } 
+.text-box:focus { outline:none; } 
+
+/* End textbox */
+
 /* Start checkbox */
-input {
+input.combo, input.check {
   position: absolute;
   left: -9999px;
 }

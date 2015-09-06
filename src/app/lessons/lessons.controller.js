@@ -6,9 +6,10 @@
     .controller('LessonController', LessonController);
 
   /** @ngInject */
-  function LessonController(lessonData, $sce, $http, $stateParams) {
+  function LessonController(lessonData, $sce, $http, $stateParams, User) {
     this.info = lessonData.data;
     var vm = this;
+    vm.user = User;
     
     // this.info = {"courseCode":"javaee_jaxws","courseName":"Developing SOAP Web Services with JAX-WS","description":"Welcome to this tutorial course on SOAP web services in Java. We'll start with an introduction to web services. We'll understand what they are and how they are useful.","nextLessonPermalinkName":"Web-Service-Jargon","permalinkName":"Introduction-to-Web-Services","title":"Introduction to Web Services","unitSlNo":"2.1","youtube":"mKjvKPlb1rA", "topic": "javaee"};
     var tokens = vm.info.unitSlNo.split('.');

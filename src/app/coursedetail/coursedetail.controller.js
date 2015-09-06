@@ -6,7 +6,7 @@
     .controller('CourseDetailController', CourseDetailController);
 
   /** @ngInject */
-  function CourseDetailController(courseData, courseDataService) {
+  function CourseDetailController(courseData, courseDataService, User, UserData) {
      this.info = courseData.data;
      console.log(this.info);
      var vm = this;
@@ -20,6 +20,12 @@
      angular.forEach(vm.info.units, function(unit) {
        unit.unitNumber = '0' + unit.unitNumber; // Not planning to *ever* have > 10 units per course. Change this if that isn't true.
        unit.topic = vm.info.topic.code;
-     })
+     });
+     
+     vm.markCourseStarted = function() {
+       UserData.markCourseStarted(vm.info.code);
+     }
+     
+     
   }
 })();

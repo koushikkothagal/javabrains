@@ -1,14 +1,17 @@
 #navbar{ 
 	height: 65px;
-	
 	a {
+			margin-right: 20px;
+		}
+	a, button {
 		line-height: 33px; // To make the links vertically center in the navbar.
 		color: $text-color-on-white;
 		font-size: 1.5rem;
-		margin-right: 20px;
+		
 		&:hover {
 			background-color: #FFF;
 		}
+		
 	}
 	.navbar-brand {
 		padding-left: 0; // To align left edge of the menu with the rest of the page
@@ -24,4 +27,8 @@
 	&:hover {
 		background-color: #27ae60;
 	}
+}
+
+#profile-dropdown {
+	line-height: 60px;
 }

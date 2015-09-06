@@ -30,9 +30,11 @@
         url: '/courses/:courseName',
         resolve: {
           courseData:  function(REST_ROOT_URL, $http, $stateParams, $q){
-            // return $http.get(REST_ROOT_URL + 'courses/' + $stateParams.courseName);
-            return $http.get('/assets/data/courses/' + $stateParams.courseName + '.json');
-            // return $http.get('https://api.parse.com/1/classes/CourseApi?where={"CourseName":"spring_data"}');
+            return $http.get('/assets/data/courses/' + $stateParams.courseName + '.json',
+            {
+                cache: true
+            })
+            ;
          },
         },
         templateUrl: '/app/coursedetail/coursedetail.html',
@@ -43,22 +45,23 @@
         url: '/courses/:courseName/lessons/:lessonName',
         resolve: {
           lessonData:  function(REST_ROOT_URL, $http, $stateParams, $q){
-            return $http.get('/assets/data/courses/' + $stateParams.courseName + '/lessons/' + $stateParams.lessonName + '.json');
-            
-            /*
-            return $http.get('https://javabrains-data.parseapp.com/courses/' + $stateParams.courseName + '/lessons/' + $stateParams.lessonName, 
+            return $http.get('/assets/data/courses/' + $stateParams.courseName + '/lessons/' + $stateParams.lessonName + '.json',
               {
                 cache: true
               }
             );
-            */
-            
          },
         },
         templateUrl: '/app/lessons/lessons.html',
         controller: 'LessonController',
         controllerAs: 'lesson'
-      })    
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'app/login/login.html',
+        controller: 'LoginController',
+        controllerAs: 'login'
+      })
       ;
 
     $urlRouterProvider.otherwise('/');

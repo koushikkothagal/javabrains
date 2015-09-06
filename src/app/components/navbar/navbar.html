@@ -8,10 +8,51 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a ng-href="#">Home</a></li>
+        <li class="active"><a ng-href="/">Home</a></li>
         <li><a ng-href="/courses">Courses</a></li>
-        <li><a ng-href="#">Log in</a></li>
-        <li id="sign-up"><a ng-href="#" class="shadow bold-text">Sign up</a></li>
+        <li ng-if="!vm.user.getCurrentUser()"><a class="clickable" ng-click="vm.openLoginModal()">Log in</a></li>
+        <li ng-if="!vm.user.getCurrentUser()" id="sign-up"><a ng-click="vm.openSignupModal()" class="shadow bold-text clickable">Sign up</a></li>
+        <li id="profile-dropdown" ng-if="vm.user.getCurrentUser()" class="dropdown">
+          
+          
+          
+          
+          <div  class="btn-group" dropdown>
+      <button id="profile-button" type="button" class="btn btn-default"><i class="fa fa-user"></i>
+ Name here</button>
+      <button type="button" class="btn btn-default" dropdown-toggle>
+        <span class="caret"></span>
+        <span class="sr-only">Profile</span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
+        <li role="menuitem"><a href="#">Your Profile</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a class="clickable" ng-click="vm.logout()">Logout</a></li>
+      </ul>
+    </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+         <!-- 
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Name here <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Account Details</a></li>
+            <li role="separator" class="divider"></li>
+            <a class="clickable" ng-click="vm.logout()">Logout</a></li>
+          </ul>
+          
+          -->
+          
+        </li>
+          
       </ul>
 
       

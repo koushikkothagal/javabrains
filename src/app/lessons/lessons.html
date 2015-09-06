@@ -41,11 +41,13 @@
             <p ng-bind="lesson.info.description"></p>
           </div>
           <div class="col-md-4 padded">
+            <div ng-if="!lesson.user.getCurrentUser()">
             <p>Your progress is not being saved. </p>
             <a ng-if="lesson.info.next" class="pull-right" style="margin-right: -90px" ng-href="{{lesson.info.next}}">
               <i class="fa fa-2x fa-arrow-right arrow"></i>
             </a>
             <p><a href="#">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
+          </div>
           </div>
         </div>
       </div>
