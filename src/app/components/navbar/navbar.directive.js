@@ -56,6 +56,7 @@
       vm.auth.$onAuth(function (authData) {
       if (authData) {
         User.setCurrentUser(authData.uid);
+        User.setAuthData(authData);
         vm.currentUser = authData.uid;
       } else {
         vm.currentUser = null;

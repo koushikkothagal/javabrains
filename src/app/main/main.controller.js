@@ -6,9 +6,12 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
+  function MainController($rootScope) {
     var vm = this;
-
+    $rootScope.page = {
+      'title': 'Java Brains',
+      'desc': 'Learn and advance your Java and JavaScript skills online'
+    };
     
   }
 })();

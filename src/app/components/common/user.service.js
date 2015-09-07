@@ -18,27 +18,38 @@ angular.module('javabrains')
       return currentAuthData;
     };
     
+    service.setAuthData = function (authData) {
+      currentAuthData = authData;
+    };
+    
 
     service.login = function (user) {
+      if (user.rememberMe) {
+        user.rememberMe = 'default';
+      }
+      else {
+        user.rememberMe = 'sessionOnly';
+      } 
       return Auth.$authWithPassword({
         email: user.email,
         password: user.password
-      }, function(error, authData) {
-        if (error) {
-          currentUser = null;
-          console.error('Authentication failed:', error);
-        } else {
+      }, {'remember': user.rememberMe})
+      .then(function(authData, err) {
           currentUser = authData.uid;
           currentAuthData = authData;
           console.log('Logged in as:', authData.uid);
-        }
+        
       });
+      
+      
+      
     };
 
     service.signup = function (user) {
       return Auth.$createUser({
         email: user.email,
-        password: user.password
+        password: user.password,
+        fullName: user.fullName
       }, function(error, authData) {
         if(error){
           console.error('Error: ', error);
@@ -51,8 +62,8 @@ angular.module('javabrains')
     };
 
     service.logout = function () {
-      console.log('LOGOUT FIRED!');
       Auth.$unauth();
       currentUser = null;
+      currentAuthData = null;
     };
   });

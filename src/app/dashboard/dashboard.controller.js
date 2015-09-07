@@ -6,8 +6,9 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController() {
+  function DashboardController(User, currentUser) {
     var vm = this;
+    console.log(currentUser);
 
     
   }
