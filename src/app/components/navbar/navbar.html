@@ -10,16 +10,16 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a ng-href="/">Home</a></li>
         <li><a ng-href="/courses">Courses</a></li>
-        <li ng-if="!vm.user.getCurrentUser()"><a class="clickable" ng-click="vm.openLoginModal()">Log in</a></li>
-        <li ng-if="!vm.user.getCurrentUser()" id="sign-up"><a ng-click="vm.openSignupModal()" class="shadow bold-text clickable">Sign up</a></li>
-        <li id="profile-dropdown" ng-if="vm.user.getCurrentUser()" class="dropdown">
+        <li ng-if="!vm.currentUser"><a class="clickable" ng-click="vm.openLoginModal()">Log in</a></li>
+        <li ng-if="!vm.currentUser" id="sign-up"><a ng-click="vm.openSignUpModal()" class="shadow bold-text clickable">Sign up</a></li>
+        <li id="profile-dropdown" ng-if="vm.currentUser" class="dropdown">
           
           
           
           
           <div  class="btn-group" dropdown>
       <button id="profile-button" type="button" class="btn btn-default" ui-sref="dashboard">
-        <i class="fa fa-user"></i> Name here
+        <i class="fa fa-user"></i> <span ng-bind="vm.currentUser.fullName"
      </button>
       <button type="button" class="btn btn-default" dropdown-toggle>
         <span class="caret"></span>

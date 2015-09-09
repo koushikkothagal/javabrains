@@ -180,7 +180,10 @@
 				*/
 
 			];
-	
+	this.courseMap = {};
+	for (var i=0; i< this.courses.length; i++) {
+		this.courseMap[this.courses[i].code] = this.courses[i];
+	}
 	
 	
   }

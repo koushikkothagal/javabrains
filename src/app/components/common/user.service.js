@@ -1,51 +1,63 @@
 'use strict';
 
 angular.module('javabrains')
-  .service('User', function (Auth) {
+  .service('User', function (Auth, ParseAuth) {
     var service = this,
-      currentUser = null,
-      currentAuthData = null;
-
+      currentUser = null;
+      
     service.getCurrentUser = function () {
+      if (ParseAuth.getCurrentUser()) {
+        currentUser = ParseAuth.getCurrentUser();  
+      }
       return currentUser;
     };
 
     service.setCurrentUser = function (user) {
       currentUser = user;
     };
-    
-    service.getAuthData = function () {
-      return currentAuthData;
-    };
-    
-    service.setAuthData = function (authData) {
-      currentAuthData = authData;
-    };
-    
 
     service.login = function (user) {
+      
+      return ParseAuth.loginUser(user)
+        .then(function(user) {
+          currentUser = user;
+        });
+      
+      
+      
+      /*
       if (user.rememberMe) {
         user.rememberMe = 'default';
       }
       else {
         user.rememberMe = 'sessionOnly';
-      } 
+      }
       return Auth.$authWithPassword({
         email: user.email,
         password: user.password
-      }, {'remember': user.rememberMe})
-      .then(function(authData, err) {
+      }, { 'remember': user.rememberMe })
+        .then(function (authData, err) {
           currentUser = authData.uid;
           currentAuthData = authData;
           console.log('Logged in as:', authData.uid);
-        
-      });
-      
-      
-      
+
+        });
+
+        */
+
     };
 
     service.signup = function (user) {
+      return ParseAuth.createUser(user)
+        .then(function (user) {
+          currentUser = user;
+        });
+        
+    
+      
+      
+      
+      /*
       return Auth.$createUser({
         email: user.email,
         password: user.password,
@@ -59,11 +71,12 @@ angular.module('javabrains')
           return service.login(user.email, user.password);
         }
       });
+      
+      */
     };
 
     service.logout = function () {
-      Auth.$unauth();
+      ParseAuth.logout();
       currentUser = null;
-      currentAuthData = null;
     };
   });

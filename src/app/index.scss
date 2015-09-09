@@ -90,8 +90,7 @@ hr {
   text-decoration: none;
 }
 
-.card {
-  @extend .shadow;
+.card-no-shadow {
   background-color: #FFF;
   color: $text-color-on-white;
   margin-bottom: 40px;
@@ -110,6 +109,11 @@ hr {
 		font-weight: 700;
 		margin: 0 0 20px 0;
 	}
+}
+
+.card {
+  @extend .shadow;
+  @extend .card-no-shadow;
 
 }
 

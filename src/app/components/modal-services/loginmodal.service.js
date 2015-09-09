@@ -22,7 +22,7 @@
 
   };
 
-  function LoginController($scope, User, $modalInstance, $state) {
+  function LoginController($scope, User, $modalInstance, $state, signUpModalService) {
 
     $scope.login = function () {
       User.login($scope.user)
@@ -34,10 +34,10 @@
           if (err.code === 'INVALID_EMAIL') {
             $scope.err = "Please enter a valid email ID";
           }
-          if (err.code === 'INVALID_PASSWORD') {
-            $scope.err = "Looks like your email or password is incorrect. Please try again!";
+          if (err.code === 'INVALID_LOGIN') {
+            $scope.err = "Incorrect login. Please try again!";
           }
-          console.log(JSON.stringify(err));
+          
         });
         
         
@@ -55,10 +55,14 @@
       */
     };
     
-    $scope.openSignUpModal = function() {
-        $modalInstance.dismiss();
-        loginModalService.openLoginModal();
-      }
+    $scope.clearError = function() {
+      $scope.err = '';
+    }  
+    
+    $scope.openSignUpModal = function () {
+      $modalInstance.dismiss();
+      signUpModalService.openSignUpModal();
+    }
     
     
   };

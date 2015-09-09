@@ -6,10 +6,13 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController(User, currentUser) {
+  function DashboardController(User, currentUser, userCourses, courseDataService) {
     var vm = this;
-    console.log(currentUser);
-
+    vm.takenCourseDetails = [];
+    
+    for (var i in userCourses) {
+      vm.takenCourseDetails.push(courseDataService.courseMap[userCourses[i].courseId]);
+    }
     
   }
 })();

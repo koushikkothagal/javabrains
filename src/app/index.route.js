@@ -20,8 +20,11 @@
         controller: 'DashboardController',
         controllerAs: 'dashboard',
         resolve: {
-          'currentUser': ['Auth', function (Auth) {
-            return Auth.$requireAuth();
+          'currentUser': ['ParseAuth', function (ParseAuth) {
+            return ParseAuth.requireAuth();
+          }],
+          'userCourses': ['UserData', function(UserData) {
+            return UserData.getStartedCourses();
           }]
         }
       })

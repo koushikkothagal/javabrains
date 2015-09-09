@@ -4,7 +4,8 @@
 	<!-- Main Form -->
 	<div class="login-form-1">
 		<form id="register-form" class="text-left">
-			<div class="login-form-main-message"></div>
+			<div class="login-form-main-message" ng-bind="err"
+				ng-class="{'error show': err}"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">

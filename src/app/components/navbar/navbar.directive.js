@@ -40,19 +40,22 @@
       */
       
       vm.user = User;
+      vm.currentUser = User.getCurrentUser();
       vm.auth = Auth;
       vm.openLoginModal = function () {
        loginModalService.openLoginModal();
       }
 
-      vm.openSignupModal = function () {
-        signUpModalService.openSignupModal();
+      vm.openSignUpModal = function () {
+        signUpModalService.openSignUpModal();
       }
 
       vm.logout = function () {
         User.logout();
+        vm.currentUser = null;
       }
 
+     /*
       vm.auth.$onAuth(function (authData) {
       if (authData) {
         User.setCurrentUser(authData.uid);
@@ -62,7 +65,7 @@
         vm.currentUser = null;
       }
     });
-
+    */
 
     }
   }

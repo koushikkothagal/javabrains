@@ -9,11 +9,11 @@
 				<div class="login-group">
 					<div class="form-group">
 						<label for="lg_username" class="sr-only">Email</label>
-						<input type="text" class="form-control" ng-model="user.email" id="lg_username" name="lg_username" placeholder="Email">
+						<input type="text" class="form-control" ng-model="user.email" ng-change="clearError()" id="lg_username" name="lg_username" placeholder="Email">
 					</div>
 					<div class="form-group">
 						<label for="lg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" ng-model="user.password" id="lg_password" name="lg_password" placeholder="Password">
+						<input type="password" class="form-control" ng-model="user.password" ng-change="clearError()" id="lg_password" name="lg_password" placeholder="Password">
 					</div>
 					<div class="form-group login-group-checkbox">
 						<input type="checkbox" id="lg_remember" name="lg_remember" ng-model="user.rememberMe">
@@ -24,7 +24,7 @@
 			</div>
 			<div class="etc-login-form">
 				<p>Forgot your password? <a href="#">Click here</a></p>
-				<p>Don't have an account? <a href="#" ng-click="openLoginModal()">Create one</a></p>
+				<p>Don't have an account? <a href="#" ng-click="openSignUpModal()">Create one</a></p>
 			</div>
 		</form>
 	</div>

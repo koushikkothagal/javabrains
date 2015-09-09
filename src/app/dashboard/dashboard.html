@@ -4,6 +4,27 @@
     <navbar home-url="'/topics'">Topics</navbar>
   </div>
 
-<h3>Dashboard</h3>
+  <h3>Dashboard</h3>
+
+  <div class="panel panel-default card-no-shadow">
+
+    <div class="panel-body">
+      <h4></i>Welcome</h4>
+      <p>Thank you for registering with Java Brains. You can now save your progress in courses and earn points to track how
+        you are doing!</p>
+      <p>Below are some courses for you to start working on. Enjoy learning!</p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12" ng-repeat="course in dashboard.takenCourseDetails">
+      <course-tile course="course" />
+    </div>
+    
+  </div>
+  
+  
+  
+
 
 </div>
