@@ -59,7 +59,7 @@
     border-bottom: 1px solid #fff;
     color: #999;
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     width: 84px;
     padding: 3px;
     &.active {
@@ -146,7 +146,9 @@
 }
 .question-count {
     color: $text-color-on-white;
-    margin: 0px 10px;
+    margin: 0px 0 10px 10px;
+    border-bottom: 1px solid #EEE;
+    width: 40%;
 }
 
 .quiz-question-text {
@@ -157,7 +159,7 @@
     -webkit-transition-property: left,-webkit-transform;
     transition-property: left,transform;
     display: inline-block;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     line-height: 3.1rem;
     margin: 0 0 5px;
     padding: 0 4px 0 10px;
@@ -165,6 +167,7 @@
     vertical-align: top;
     white-space: normal;
     width: 100%;
+    font-weight:100;
     
 }
 

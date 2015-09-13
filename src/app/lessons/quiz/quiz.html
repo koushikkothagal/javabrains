@@ -17,7 +17,7 @@
       <div class="quiz-tabs">
         
         <div class="quiz-question-text-list">
-          <p class="question-count">Question {{ctrl.activeQuestionIndex + 1}} of {{::ctrl.quiz.questions.length}} </p>  
+          <p class="question-count topic-color">Question {{ctrl.activeQuestionIndex + 1}} of {{::ctrl.quiz.questions.length}} </p>  
           <h3 class="quiz-question-text card-text" 
                 ng-repeat="question in ctrl.quiz.questions" 
                 ng-bind-html="::question.question | trust_html" 
@@ -40,7 +40,7 @@
             translate-x="(-(ctrl.activeQuestionIndex * 100)) + '%'" 
             ng-init="outer = $index; first = $first; last = $last;">
             
-            <div class="answer-area" style="min-height: 40px;">
+            <div class="answerstatus-area" style="min-height: 40px;">
             <div class="answer correct" ng-show="ctrl.isAnswerCorrect(question)">
               <strong class="quiz-correct-title" ng-bind="::ctrl.correctAnswerText"></strong>
 		   <!--   <div class="quiz-correct-description" ng-bind="::question.correctAnswerDescription"></div> -->
@@ -56,7 +56,7 @@
             </div>
             
             <div ng-repeat="answer in question.answers" class="answer-option">
-                <input class="combo" id="q{{::outer}}a{{::$index}}"  type="radio" ng-model="ctrl.userData.quizAnswers[question.id]" value="{{$index}}">
+                <input class="combo" id="q{{::outer}}a{{::$index}}"  type="radio" ng-model="ctrl.userData.quizAnswers[question.id]" ng-disabled="ctrl.userData.quizAnswers[question.id]" value="{{$index}}">
                 <label class="combo" for="q{{::outer}}a{{::$index}}" ng-bind-html="::answer.content | trust_html" style="max-width: 16px;"></label>
                 <!-- <div ng-bind-html= "ctrl.test | trust_html"></div> -->
                 
