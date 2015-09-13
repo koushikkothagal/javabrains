@@ -28,9 +28,16 @@ fs.writeFileSync('../data/test.md',
 */
 
 
-openYamlFile('../data/courses/javaee_jaxrs/1.09.HTTP-Methods.Quiz.md')
+openYamlFile('../data/courses/javaee_jaxrs/1.05.Resource-URIs.Quiz.md')
   .then(function(yaml) {
-    console.log(JSON.stringify(yaml));
+    // console.log(JSON.stringify(yaml));
+    var code = yaml.quizContent[3].code;
+    
+    code = "```java" + "\n" + code + "\n ```";
+    code = marked(code);
+    code = code.replace("______", '</code><input type="text"></input><code>');
+    console.log(code);
+    
   })
   .catch(function(e) {
     console.log(e);

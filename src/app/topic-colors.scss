@@ -72,43 +72,43 @@ $angularjs: lighten(#8e44ad, 1%);
 	color: #FFF;
 }
 
-.btn-spring {
+.spring .btn-topic {
 	@extend .btn-topic;
 	background-color: $spring !important;
 	border-color: $spring !important;
 }
 
-.btn-javaee {
+.javaee .btn-topic {
 	@extend .btn-topic;
 	background-color: $javaee !important;
 	border-color: $javaee !important;
 }
 
-.btn-maven {
+.maven .btn-topic {
 	@extend .btn-topic;
 	background-color: $maven !important;
 	border-color: $maven !important;
 }
 
-.btn-struts2 {
+.struts2 .btn-topic {
 	@extend .btn-topic;
 	background-color: $struts2 !important;
 	border-color: $struts2 !important;
 }
 
-.btn-hibernate {
+.hibernate .btn-topic {
 	@extend .btn-topic;
 	background-color: $hibernate !important;
 	border-color: $hibernate !important;
 }
 
-.btn-servlets {
+.servlets .btn-topic {
 	@extend .btn-topic;
 	background-color: $servlets !important;
 	border-color: $servlets !important;
 }
 
-.btn-angularjs {
+.angularjs .btn-topic {
 	@extend .btn-topic;
 	background-color: $angularjs !important;
 	border-color: $angularjs !important;

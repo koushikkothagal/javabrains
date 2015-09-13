@@ -59,10 +59,9 @@
     "Awesome! That's correct!"];
 
   this.incorrectAnswerTexts = 
-   ["Hmm... no",
+   ["Hmm... no. That's not right.",
     "That isn't correct.",
-    "Try again!",
-    "Not exactly. Try again.",
+    "Sorry, that isn't the correct answer.",
     "Nope, that isn't the right answer."];
   
   var index = Math.floor(Math.random() * 5);
@@ -70,6 +69,8 @@
   this.correctAnswerText = this.correctAnswerTexts[index];
   
   this.incorrectAnswerText = this.incorrectAnswerTexts[index];
+  
+  
   }
   
 })(); 

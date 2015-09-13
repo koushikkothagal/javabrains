@@ -3,7 +3,7 @@
 		<navbar home-url="'/courses?topic=' + course.info.topic.code">{{course.info.topic.name }} Courses</navbar>
 	</div>
 </div>
-<div class="container-fluid" style="background-color: #FFF; margin: -30px -10px 0; padding: 50px 10px 20px ">
+<div class="container-fluid {{course.info.topic.code}}" style="background-color: #FFF; margin: -30px -10px 0; padding: 50px 10px 20px ">
 	<div class="container courseinfo-container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-5 course-image">
@@ -18,7 +18,7 @@
 			</span>
 			-->
 				<p class="course-description" ng-bind="::course.info.desc"></p>
-				<a id="start-course" class="btn-{{course.info.topic.code}}" ng-click="course.markCourseStarted()" ng-href="{{::course.info.startCourseUrl}}">Start Course</a>
+				<a id="start-course" class="btn-topic" ng-click="course.markCourseStarted()" ng-href="{{::course.info.startCourseUrl}}">Start Course</a>
 				<p class="course-description course-covers">This course covers:</p>
 				<ul class="list-square fa-ul">
 					<li ng-repeat="objective in ::course.info.objectives"><i class="fa-li fa fa-check topic-color"></i>{{::objective}}</li>

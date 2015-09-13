@@ -5,7 +5,7 @@ angular.module('javabrains')
 
     var service = this;
 
-    var user = new Parse.User();
+    // var user = new Parse.User();
     
     service.getCurrentUser = function() {
       if (Parse.User.current()) {

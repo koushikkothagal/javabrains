@@ -121,6 +121,10 @@ angular.module('javabrains')
 			return _.map(array, function(item) {
 				return item.attributes;
 			});
+		};
+		
+		service.unParseObject = function(item) {
+				return item.attributes;
 		}
 		
 

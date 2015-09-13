@@ -121,6 +121,13 @@ var prepareQuizContent = function(quiz, permalinkName) {
   for (var i = 0; i < quiz.length; i++) {
     var question = quiz[i];
     question.id = permalinkName + '-' + i;
+    if (question.type === 'code') {
+      var code = "```java" + "\n" + question.code + "\n ```";
+      code = marked(code);
+      code = code.replace("______", '</code><input type="text"></input><code>');
+      console.log(code);
+      question.code = code;
+    }
   }
   
 }

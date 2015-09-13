@@ -50,6 +50,9 @@
             })
             ;
          },
+         lessonsViewed: function($stateParams, UserData) {
+           return UserData.getAndMarkLessonsViewed($stateParams.courseName, null);
+         }
         },
         templateUrl: '/app/coursedetail/coursedetail.html',
         controller: 'CourseDetailController',
@@ -65,6 +68,9 @@
               }
             );
          },
+         lessonsViewed: function($stateParams, UserData) {
+           return UserData.getAndMarkLessonsViewed($stateParams.courseName, $stateParams.lessonName);
+         }
         },
         templateUrl: '/app/lessons/lessons.html',
         controller: 'LessonController',
