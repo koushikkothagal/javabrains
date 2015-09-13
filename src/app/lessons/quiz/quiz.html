@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="quiz flex-column">
+	<div class="quiz card flex-column">
       <ol class="question-tabs flex-row flex-row-md">
   		  <li class="quiz-tab col-grow-shrink flex-center" ng-repeat="q in ctrl.quiz.questions" id="quiz-question-tab-{{$index+1}}" ng-class="{'active' : (ctrl.activeQuestionIndex === $index),
                 'correct': ctrl.isAnswerCorrect(q),
@@ -71,10 +71,10 @@
                     Next question &nbsp; <i class="fa fa-arrow-right"></i>
 
                 </a>
-                <!--
-                    <a ng-if="last" class="btn" href="#" ng-click="ctrl.submit()">
-                    Submit &nbsp; <i class="fa fa-arrow-right"></i>
-                 -->
+                
+                    <a ng-if="last" class="btn btn-topic" href="#" ng-click="ctrl.submit()">
+                    Submit &nbsp; <i class="fa fa-paper-plane"></i>
+                
 
 
                 </a>

@@ -59,8 +59,9 @@
     border-bottom: 1px solid #fff;
     color: #999;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.6rem;
     width: 84px;
+    padding: 3px;
     &.active {
         background: #eee;
         color: $primary-red;
