@@ -3,6 +3,9 @@ var OUTPUT_PATH = '../src/assets/data/';
 var fs = require('fs');
 var yamlhead = require('yamlhead');
 var marked = require('marked');
+var prism = require('prismjs');
+var highlight = require('highlight.js');
+var cheerio = require('cheerio');
 var _ = require('lodash');
 var Q = require('q');
 
@@ -123,8 +126,19 @@ var prepareQuizContent = function(quiz, permalinkName) {
     question.id = permalinkName + '-' + i;
     if (question.type === 'code') {
       var code = "```java" + "\n" + question.code + "\n ```";
+      // var code = question.code;
+      console.log(code);
       code = marked(code);
-      code = code.replace("______", '</code><input type="text"></input><code>');
+      // var result = highlight.highlight('java', code, true);
+      // code = result.value;
+      // var $ = cheerio.load(code);
+      
+      // code = code.replace("\n", '\n\n');
+      // var codeElement = prism.highlightElement($('pre')[0], prism.languages.clike);
+      // code = codeElement.html();
+      code = code.replace("######", '<input type="text" class="quiz-input-text" ng-model="answer" ng-change="onChange({value: answer})"></input>');
+      // code = code.replace("\n", '<br/>');
+      console.log('Code is ');
       console.log(code);
       question.code = code;
     }

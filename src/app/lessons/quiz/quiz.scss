@@ -230,6 +230,12 @@
     margin: 20px auto;
 }
 
+.quiz-input-text {
+    border: none;
+    border-bottom:2px solid #cccccc; 
+    &:focus { outline:none; }   
+}
+
 
 
 
