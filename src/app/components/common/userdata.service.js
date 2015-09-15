@@ -52,12 +52,16 @@ angular.module('javabrains')
 					['EQ', 'courseId', courseId]
 				])
 				.then(function (results) {
-					var lessonsViewed = {};
+					var lessonsViewed = {
+						'totalPoints': 0
+					};
 					var saved = false;
 					if (results) {
 						for (var i = 0; i < results.length; i++) {
+							
 							var lessonViewed = ParseData.unParseObject(results[i]);
 							lessonsViewed[lessonViewed.permalinkName] = true;
+							lessonsViewed.totalPoints += lessonViewed.points;
 							if (permalinkName && lessonViewed.permalinkName === permalinkName) {
 								ParseData.saveObject(results[i],
 									{
@@ -76,9 +80,11 @@ angular.module('javabrains')
 							{
 								'courseId': courseId,
 								'user': User.getCurrentUser().email,
-								'permalinkName': permalinkName
+								'permalinkName': permalinkName,
+								'points': 10 // Default points for lesson: 10
 							});
 					}
+					// TODO: (maybe not) add the newly saved 10 points into the lessonsViewed object returned below. I'll be 10 points short (i.e., not including points for the lesson just viewed)
 					return lessonsViewed;
 
 				});
@@ -105,11 +111,13 @@ angular.module('javabrains')
 							});
 					}
 					else {
+						// Default points for lesson: 10
 						ParseData.save('UserLessons',
 							{
 								'courseId': courseId,
 								'user': User.getCurrentUser().email,
-								'permalinkName': permalinkName
+								'permalinkName': permalinkName,
+								
 							});
 					}
 

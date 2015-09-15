@@ -28,33 +28,36 @@
       <div class="container full-height" style="padding: 15px 25px;">
         <div class="row head-row full-height">
           <div class="col-md-8 border-right full-height">
-
+            <a ng-if="lesson.info.prev" class="pull-left" style="margin-left: -70px" ng-href="{{lesson.info.prev}}">
+              <i class="fa fa-2x fa-arrow-left arrow"></i>
+            </a>
             <h3>
 					
 					<span class="slNo topic-color" ng-bind="lesson.info.unitSlNo"></span>
 					<span class="title" ng-bind="lesson.info.title"></span>
 					
 				</h3>
-            <a ng-if="lesson.info.prev" class="pull-left" style="margin-left: -70px" ng-href="{{lesson.info.prev}}">
-              <i class="fa fa-2x fa-arrow-left arrow"></i>
-            </a>
+            
             <p ng-bind="lesson.info.description"></p>
           </div>
           <div class="col-md-4 padded">
-            <div ng-if="!lesson.user.getCurrentUser()">
-              <p>Your progress is not being saved. </p>
-              <a ng-if="lesson.info.next" class="pull-right" style="margin-right: -90px" ng-href="{{lesson.info.next}}">
+            <a ng-if="lesson.info.next" class="pull-right" style="margin-right: -90px" ng-href="{{lesson.info.next}}">
                 <i class="fa fa-2x fa-arrow-right arrow"></i>
               </a>
+            
+            <div ng-if="!lesson.user.getCurrentUser()">
+              <p>Your progress is not being saved. </p>
+              
               <p><a href="#">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
             </div>
+            
             <div class="text-center" ng-if="lesson.user.getCurrentUser()">
-              <h4 class="title">Your course score</h4>
+              <h4 class="title" style="margin-top: -15px">Your course score</h4>
               <div class="progress-wrapper">
                 
-                <div round-progress max="50" current="25" color="{{lesson.info.topicColor}}" bgcolor="#eaeaea" semi="true" rounded="false"
-                clockwise="true" responsive="false" duration="800" animation="easeInOutQuart" radius="63" stroke="6"></div>
-                <div class="progress-text"><sup>250</sup>/<sub>5000</sub>​</div>
+                <div round-progress max="500" current="lesson.lessonsViewed.totalPoints" color="{{lesson.info.topicColor}}" bgcolor="#eaeaea" semi="true" rounded="false"
+                clockwise="true" responsive="false" duration="800" animation="easeInOutQuart" radius="80" stroke="6"></div>
+                <div class="progress-text"><sup>{{lesson.lessonsViewed.totalPoints}}</sup>/<sub>5000</sub>​</div>
               </div>
             </div>
 

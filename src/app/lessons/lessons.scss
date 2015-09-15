@@ -45,6 +45,7 @@
 
 .arrow {
     color: lighten($text-color-on-white, 35%);
+    line-height: 90px;
     &:hover {
         color: lighten($text-color-on-white, 5%);
     }
@@ -63,6 +64,6 @@
 
 
 .progress-text{
-    margin-top: -30px;
-    font-size: 22px;
+    margin-top: -45px;
+    font-size: 27px;
 }

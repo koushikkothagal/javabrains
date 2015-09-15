@@ -16,8 +16,9 @@
 	<div class="toc-lesson" >
 		<!-- <a class="lesson-link" href="#"> -->
 		<h5 class="lesson-name">
-			<i ng-if="lesson.type === 'video'" class="fa fa-play-circle"></i>
-			<i ng-if="lesson.type === 'quiz'" class="fa fa-question-circle"></i>
+			<i ng-if="lesson.type === 'video' && !lesson.viewed" class="fa fa-play-circle"></i>
+			<i ng-if="lesson.type === 'quiz' && !lesson.viewed" class="fa fa-question-circle"></i>
+			<i ng-if="lesson.viewed" class="fa fa-check-circle topic-color"></i>
 			&nbsp;{{::lesson.title}}
 			<span class="pull-right" ng-bind="::lesson.durationText"></span>
 </h5>

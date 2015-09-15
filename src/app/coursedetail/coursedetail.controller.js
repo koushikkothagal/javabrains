@@ -13,11 +13,22 @@
      vm.info.topic = courseDataService.topicMap[vm.info.topic];
      vm.info.imageUrl = '/assets/images/' + vm.info.code + '.jpg'
      vm.info.courseBaseUrl = '/courses/' + vm.info.code + '/lessons/';
-     vm.info.startCourseUrl =  vm.info.units[1].firstLesson;
+     vm.info.mainButtonText = "Start Course";
      angular.forEach(vm.info.units, function(unit) {
        unit.unitNumber = '0' + unit.unitNumber; // Not planning to *ever* have > 10 units per course. Change this if that isn't true.
        unit.topic = vm.info.topic.code;
+       angular.forEach(unit.lessons, function(lesson) {
+         if (lessonsViewed[lesson.permalinkName]) {
+           lesson.viewed = true;
+           vm.info.mainButtonText = "Resume Course";
+         }
+         if (!lessonsViewed[lesson.permalinkName] && !vm.info.startCourseUrl) {
+           vm.info.startCourseUrl = vm.info.courseBaseUrl + lesson.permalinkName;
+           
+         }
+       })
      });
+     
      
      vm.markCourseStarted = function() {
        UserData.markCourseStarted(vm.info.code);
