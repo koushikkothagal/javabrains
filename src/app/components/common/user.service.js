@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('javabrains')
-  .service('User', function (Auth, ParseAuth) {
+  .service('User', function (ParseAuth) {
     var service = this,
       currentUser = null;
       

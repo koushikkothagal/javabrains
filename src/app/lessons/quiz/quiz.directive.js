@@ -47,7 +47,7 @@
 
 
 
-  function QuizModuleCtrl($scope, $timeout) {
+  function QuizModuleCtrl($scope, $timeout, UserData, $stateParams) {
 
     this.quiz = {
       'questions': $scope.content
@@ -104,6 +104,11 @@
         this.userData.quizAnswers[this.activeQuestion.id] = val;
       }
     }
+    
+    this.submit = function() {
+      UserData.submitQuizData($stateParams.lessonName, this.userData);
+    }
+    
 
   }
 

@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 angular.module('javabrains')
@@ -6,3 +7,4 @@ angular.module('javabrains')
     return $firebaseAuth(ref);
   })
 ;
+*/

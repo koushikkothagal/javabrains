@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('javabrains')
-	.service('UserData', function (ENDPOINT_URI, $firebaseArray, User, ParseData, $q) {
+	.service('UserData', function (ENDPOINT_URI, User, ParseData, $q) {
 		var service = this;
 
 		service.getStartedCourses = function (userId) {
@@ -117,6 +117,11 @@ angular.module('javabrains')
 				.catch(function () {
 					// TODO: Some Analytics call to log error
 				});
+		};
+		
+		service.submitQuizData = function(lesson, quizData) {
+			console.log(lesson);
+			console.log(quizData);
 		}
 
 

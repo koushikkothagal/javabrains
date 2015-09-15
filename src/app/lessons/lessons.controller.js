@@ -6,7 +6,7 @@
     .controller('LessonController', LessonController);
 
   /** @ngInject */
-  function LessonController(lessonData, $sce, $http, $stateParams, User, $rootScope, lessonsViewed) {
+  function LessonController(lessonData, $sce, $http, $stateParams, User, $rootScope, lessonsViewed, courseDataService) {
     this.info = lessonData.data;
     var vm = this;
     vm.user = User;
@@ -52,6 +52,7 @@
     this.info.youtube = $sce.trustAsResourceUrl('//www.youtube.com/embed/' + this.info.youtube + '?rel=0&showinfo=0&fs=1&theme=light&modestbranding=1');
     this.info.content = $sce.trustAsHtml(this.info.content);
     
+    this.info.topicColor = courseDataService.topicMap[this.info.topic].color;
     
   }
 })();

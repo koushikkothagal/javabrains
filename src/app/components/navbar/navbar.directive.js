@@ -26,7 +26,7 @@
     
 
     /** @ngInject */
-    function NavbarController($modal, $firebaseAuth, loginModalService, signUpModalService, User, Auth) {
+    function NavbarController($modal, loginModalService, signUpModalService, User) {
       var vm = this;
       
       /*
@@ -41,7 +41,7 @@
       
       vm.user = User;
       vm.currentUser = User.getCurrentUser();
-      vm.auth = Auth;
+      // vm.auth = Auth;
       vm.openLoginModal = function () {
        loginModalService.openLoginModal();
       }
