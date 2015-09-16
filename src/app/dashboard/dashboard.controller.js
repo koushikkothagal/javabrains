@@ -62,6 +62,7 @@
             // What was last viewed is the last lesson in a unit! Go to the next unit
             index = 0;
             unit = unitArray[i + 1];
+            break;
           }
           else {
             // Normal scenario
