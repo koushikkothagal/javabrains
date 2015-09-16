@@ -1,12 +1,12 @@
-<div class="container dashboard {{::dashboard.mostRecent.courseDetails.topic}}">
+<div class="container dashboard">
 
   <div>
     <navbar home-url="'/topics'">Topics</navbar>
   </div>
+  <!-- Start greet panel -->
+  <div class="panel panel-default card-no-shadow greet-panel {{::dashboard.mostRecent.courseDetails.topic}}">
 
-  <div class="panel panel-default card-no-shadow">
-
-    <div ng-if="!dashboard.takenCourseDetails" class="panel-body greet-panel">
+    <div ng-if="!dashboard.takenCourseDetails" class="panel-body">
 
 
       <h3>Welcome</h3>
@@ -14,22 +14,29 @@
         you are doing!</p>
       <p>Below are some courses for you to start working on. Enjoy learning!</p>
     </div>
-    <div ng-if="dashboard.takenCourseDetails" class="panel-body greet-panel">
+    <div ng-if="::dashboard.takenCourseDetails" class="panel-body">
 
 
-      <h3>Welcome back, {{dashboard.user.fullName}}!</h3>
-      <p>It's time to continue where you left off. Here are the next few lessons in the course <a href="#" class="topic-color">{{dashboard.mostRecent.courseDetails.name}}</a>.
-        </p>
-      <p>Go ahead, resume the course and enjoy learning!</p>
+      <h3>Welcome back, {{::dashboard.user.fullName}}!</h3>
+      <p>It's time to continue where you left off. Here are the next few lessons in the course <a ng-href="{{::dashboard.courseBaseUrl}}" class="topic-color">{{::dashboard.mostRecent.courseDetails.name}}</a>.
+      </p>
+      <p>Go ahead, resume the course and jump right back in!</p>
     </div>
-    
 
-  </div>
-  
-    <a class="lesson-link" ng-href="{{dashboard.courseBaseUrl + lesson.permalinkName}}" ng-repeat="lesson in dashboard.mostRecent.lessons | limitTo: 4">
-    <div class="toc-lesson">
-      <!-- <a class="lesson-link" href="#"> -->
-      <h5 class="lesson-name">
+
+
+    <div class="recent-unit-header topic-bg">
+      <button class="pull-right">Resume Course</button>
+      <h4><span>Unit </span>
+      <span ng-bind="::dashboard.mostRecent.unit.unitNumber"></span>
+      <span> - </span>
+      <span ng-bind="::dashboard.mostRecent.unit.unitName"></span></h4>
+
+    </div>
+    <a class="lesson-link" ng-href="{{dashboard.lessonBaseUrl + lesson.permalinkName}}" ng-repeat="lesson in dashboard.mostRecent.lessons | limitTo: 4">
+      <div class="toc-lesson">
+        <!-- <a class="lesson-link" href="#"> -->
+        <h5 class="lesson-name">
 			<i ng-if="lesson.type === 'video' && !lesson.viewed" class="fa fa-play-circle"></i>
 			<i ng-if="lesson.type === 'quiz' && !lesson.viewed" class="fa fa-question-circle"></i>
 			<i ng-if="lesson.viewed" class="fa fa-check-circle topic-color"></i>
@@ -37,16 +44,26 @@
 			<span class="pull-right" ng-bind="::lesson.durationText"></span>
 </h5>
 
-      <!-- </a> -->
-    </div>
+        <!-- </a> -->
+      </div>
     </a>
-
+  </div>
+  <!-- End greet panel -->
+  
+  <!-- Start courses in progress -->
+  <div class="in-progress">
+    <button class="jb-btn pull-right">All courses</button>
+  <h3> Courses in progress </h3>
+  </div>
   <div class="row">
     <div class="col-md-12" ng-repeat="course in dashboard.takenCourseDetails">
       <course-tile course="course" />
     </div>
 
+  
   </div>
+  
+  <!-- End courses in progress -->
 
 
 

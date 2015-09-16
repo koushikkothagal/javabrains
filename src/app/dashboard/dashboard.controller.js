@@ -20,13 +20,15 @@
       vm.mostRecent = {
         'courseDetails': vm.takenCourseDetails[0],
         'userCourse': userCourses[0],
+        'unit': {},
         'resumeLesson': '',
         'lessons': []
       }
     }
     var lessonsViewed = userCourses[0].lessons;
     var latestLessonViewedPermalink = lessonsViewed.latest
-    vm.courseBaseUrl = '/courses/' + vm.mostRecent.courseDetails.code + '/lessons/';
+    vm.courseBaseUrl = '/courses/' + vm.mostRecent.courseDetails.code;
+    vm.lessonBaseUrl = vm.courseBaseUrl + '/lessons/';
     $http.get('/assets/data/courses/' + vm.mostRecent.courseDetails.code + '.json',
       {
         cache: true
@@ -71,6 +73,7 @@
           }
 
         }
+        vm.mostRecent.unit = unit;
         vm.mostRecent.resumeLesson = unit.lessons[index];
         for (var j = index; j < unit.lessons.length; j++) {
           unit.lessons[j].viewed = !!lessonsViewed[unit.lessons[j].permalinkName];
