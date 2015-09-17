@@ -82,6 +82,7 @@ hr {
   padding: 10px 25px;
   border: solid $text-color-on-gray 1px;
   text-decoration: none;
+  background-color: transparent;
 }
 
 .jb-btn:hover {
@@ -96,8 +97,11 @@ hr {
   margin-bottom: 40px;
   min-height: 40px; // TODO: For dev purposes. Remove later.
   .panel-heading {
-		padding: 15px;
+		padding: 18px;
 	}
+  .panel-title {
+    font-size: 17px;
+  }
 	.panel-body {
 		padding: 20px 30px;	
 	}
@@ -107,7 +111,8 @@ hr {
 	}
   .topic {
 		font-weight: 700;
-		margin: 0 0 20px 0;
+		margin: 15px 0px;
+    font-size: 1.6rem;
 	}
 }
 

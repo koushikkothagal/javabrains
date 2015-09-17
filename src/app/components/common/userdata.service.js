@@ -103,7 +103,8 @@ angular.module('javabrains')
 
 						*/
 					}
-					if (permalinkName && !saved) {
+					else {
+					if (permalinkName) {
 
 						lessons[permalinkName] = {
 							'points': 10 // Default points for lesson: 10
@@ -115,6 +116,7 @@ angular.module('javabrains')
 								'user': User.getCurrentUser().email,
 								'lessons': lessons
 							});
+					}
 					}
 					// TODO (maybe not):  add the newly saved lessons object into the lessonsViewed object returned below. It'll be 10 points short (i.e., not including points for the lesson just viewed)
 					return lessons;

@@ -12,9 +12,9 @@
       <div ng-repeat="alesson in lesson.unit.lessons">
         <span class="fa-stack">
       <i ng-if="alesson.current" class="fa fa-stack-2x fa-circle-thin" style="color: rgb(255, 255, 255); "></i>
-      <i ng-class="::lesson.getLessonTrailClasses(alesson)" style=" color: #FFF;" popover="{{alesson.description}}"
+      <a ng-class="::lesson.getLessonTrailClasses(alesson)" style=" color: #FFF;" popover="{{alesson.description}}"
       popover-title="{{$index + 1 + '. ' + alesson.title}}" popover-trigger="mouseenter" popover-placement="bottom" type="button"
-      ui-sref="lesson({'courseName': lesson.info.courseCode, 'lessonName': alesson.permalinkName})"></i>
+      ui-sref="lesson({'courseName': lesson.info.courseCode, 'lessonName': alesson.permalinkName})"></a>
       </span>
 
 
@@ -34,7 +34,7 @@
             <h3>
 					
 					<span class="slNo topic-color" ng-bind="lesson.info.unitSlNo"></span>
-					<span class="title" ng-bind="lesson.info.title"></span>
+					<span class="lesson-title" ng-bind="lesson.info.title"></span>
 					
 				</h3>
             

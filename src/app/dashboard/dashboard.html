@@ -1,12 +1,12 @@
 <div class="container dashboard">
 
   <div>
-    <navbar home-url="'/topics'">Topics</navbar>
+    <navbar></navbar>
   </div>
   <!-- Start greet panel -->
   <div class="panel panel-default card-no-shadow greet-panel {{::dashboard.mostRecent.courseDetails.topic}}">
 
-    <div ng-if="!dashboard.takenCourseDetails" class="panel-body">
+    <div ng-if="::!dashboard.mostRecent" class="panel-body">
 
 
       <h3>Welcome</h3>
@@ -14,7 +14,7 @@
         you are doing!</p>
       <p>Below are some courses for you to start working on. Enjoy learning!</p>
     </div>
-    <div ng-if="::dashboard.takenCourseDetails" class="panel-body">
+    <div ng-if="::dashboard.mostRecent" class="panel-body">
 
 
       <h3>Welcome back, {{::dashboard.user.fullName}}!</h3>
@@ -25,8 +25,8 @@
 
 
 
-    <div class="recent-unit-header topic-bg">
-      <button class="pull-right">Resume Course</button>
+    <div ng-if="::dashboard.mostRecent" class="recent-unit-header topic-bg">
+      <a ng-href="{{::dashboard.resumeCourseUrl}}" class="pull-right">Resume Course</a>
       <h4><span>Unit </span>
       <span ng-bind="::dashboard.mostRecent.unit.unitNumber"></span>
       <span> - </span>
@@ -53,10 +53,11 @@
   <!-- Start courses in progress -->
   <div class="in-progress">
     <button class="jb-btn pull-right">All courses</button>
-  <h3> Courses in progress </h3>
+  <h3 ng-if="::dashboard.mostRecent">Courses in progress </h3>
+  <h3 ng-if="::!dashboard.mostRecent">Popular courses </h3>
   </div>
   <div class="row">
-    <div class="col-md-12" ng-repeat="course in dashboard.takenCourseDetails">
+    <div class="col-md-12" ng-repeat="course in dashboard.courseList">
       <course-tile course="course" />
     </div>
 

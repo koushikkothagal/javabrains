@@ -26,9 +26,12 @@
     
 
     /** @ngInject */
-    function NavbarController($modal, loginModalService, signUpModalService, User) {
+    function NavbarController($modal, loginModalService, signUpModalService, User, $rootScope) {
       var vm = this;
-      
+      $rootScope.$on('$stateChangeSuccess', 
+        function(event, toState, toParams, fromState, fromParams){
+          window.scrollTo(0, 0);
+        });
       /*
       var ref = new Firebase("https://javabrains.firebaseio.com/");
       vm.authObj = $firebaseAuth(ref);

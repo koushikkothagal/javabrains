@@ -9,22 +9,24 @@
 }
 
 .recent-unit-header {
-	min-height: 65px;
-	height: 65px;
+	min-height: 67px;
+	height: 67px;
 	padding: 9px 20px;
 	h4 {
 		color: #FFF;
 		margin: 0;
 		line-height: 45px;	
 	}
-	button {
+	a {
 		background-color:transparent;
-		border:2px solid #ffffff;
+		border:3px solid #ffffff;
 		display:inline-block;
 		cursor:pointer;
 		color:#ffffff;
 		padding:10px 24px;
 		text-decoration:none;
+		font-family: "Nunito", sans-serif;
+		font-weight: 500;
 	}
 }
 

@@ -8,17 +8,30 @@
   /** @ngInject */
   function DashboardController(User, currentUser, userCourses, courseDataService, $http) {
     var vm = this;
-    vm.takenCourseDetails = [];
+    vm.courseList = [];
     vm.user = User.getCurrentUser();
-    for (var i in userCourses) {
-      vm.takenCourseDetails.push(courseDataService.courseMap[userCourses[i].courseId]);
+
+    if (userCourses.length === 0) {
+      // User hasn't taken any courses yet. Show them the popular courses
+      vm.mostRecent = undefined;
+      var popularCourses = ['javaee_jaxrs', 'spring_core', 'maven_intro'];
+      
+      for (var i in popularCourses) {
+        
+        vm.courseList.push(courseDataService.courseMap[popularCourses[i]]);
+      }
+      return;
     }
 
-    vm.takenCourseDetails = _.uniq(vm.takenCourseDetails);
+    for (var i in userCourses) {
+      vm.courseList.push(courseDataService.courseMap[userCourses[i].courseId]);
+    }
+
+    vm.courseList = _.uniq(vm.courseList);
 
     if (userCourses.length > 0) {
       vm.mostRecent = {
-        'courseDetails': vm.takenCourseDetails[0],
+        'courseDetails': vm.courseList[0],
         'userCourse': userCourses[0],
         'unit': {},
         'resumeLesson': '',
@@ -69,32 +82,25 @@
           else {
             // Normal scenario
             break;
-            
+
           }
 
         }
         vm.mostRecent.unit = unit;
         vm.mostRecent.resumeLesson = unit.lessons[index];
+        // unit.lessons[index] is viewed. Resume course url should take one to the next lesson
+        // Unless, of course, if index = 0. In which case, the first lesson in the unit hasn't been viewed.
+        if (index === 0) {
+          vm.resumeCourseUrl = vm.courseBaseUrl + '/lessons/' + unit.lessons[0].permalinkName;
+        }
+        else {
+          vm.resumeCourseUrl = vm.courseBaseUrl + '/lessons/' + unit.lessons[index + 1].permalinkName;
+        }
+
         for (var j = index; j < unit.lessons.length; j++) {
           unit.lessons[j].viewed = !!lessonsViewed[unit.lessons[j].permalinkName];
           vm.mostRecent.lessons.push(unit.lessons[j]);
         }
-        console.log(vm.mostRecent);
-          
-        
-          
-        /*
-         angular.forEach(unit.lessons, function (lesson) {
-           if (!lessonsViewed[lesson.permalinkName] && !vm.mostRecent.resumeCourseUrl) {
-             vm.mostRecent.resumeCourseUrl = courseBaseUrl + lesson.permalinkName;
-             
-           }
-         })
-         */
-
-
-
-
 
       });
 
