@@ -1,5 +1,6 @@
 <div class="container">
-    <div class="quiz card flex-column">
+    <!-- Start quiz area -->
+    <div ng-if="!ctrl.quizSubmitted" class="quiz card flex-column">
         <ol class="question-tabs flex-row flex-row-md">
             <li class="quiz-tab col-grow-shrink flex-center" ng-repeat="q in ctrl.quiz.questions" id="quiz-question-tab-{{$index+1}}"
             ng-class="{'active' : (ctrl.activeQuestionIndex === $index),
@@ -31,7 +32,7 @@
 
 
 
-
+        <!-- Start answer area -->
         <div class="quiz-question-list separator-left">
 
             <div ng-repeat="question in ctrl.quiz.questions" class="quiz-question" translate-x="(-(ctrl.activeQuestionIndex * 100)) + '%'"
@@ -86,8 +87,19 @@
                 </div>
             </div>
         </div>
-
-
+        <!-- End answer area -->
+    </div>
+    <!-- End quiz area -->
+    <div ng-if="ctrl.quizSubmitted" class="quiz card flex-column text-center padded">
+        <h1 ng-if="!ctrl.quizComplete" class="padded topic-color">Oh no!</h1>
+        <h3 ng-if="!ctrl.quizComplete" class="padded">You didn't get enough questions right. Try again later!</h3>
+        <h1 ng-if="ctrl.quizComplete" class="padded topic-color">Awesome work!</h1>
+        <h3 ng-if="ctrl.quizComplete" class="padded">Good job on the quiz!</h3>
+        <div class="points" style="border: 1px solid gray; border-radius: 200px; height: 200px; width: 200px; margin: auto;">
+            <div class="progress-text" style="margin-top: 60px; font-size: 6rem;"><sup>{{::ctrl.totalCorrectAnswers}}</sup>/<sub>{{::ctrl.quiz.questions.length}}</sub>​</div>
+        </div>
+        <a class="btn btn-topic" style="max-width: 200px; margin: 20px auto" ng-href="{{ctrl.nextPermalinkName}}">Next lesson &nbsp; <i class="fa fa-arrow-right"></i></a>
 
     </div>
+
 </div>

@@ -2,7 +2,8 @@
   <div class="container" style="height:100%">
     <div class="navbar-header">
       <a class="navbar-brand bold-text" ng-href="{{vm.homeUrl}}">
-        <i ng-show="vm.homeUrl" class="fa fa-arrow-left"></i> <span ng-transclude></span>
+        <i ng-show="vm.homeUrl" class="fa fa-arrow-left"></i> 
+        <img ng-show="!vm.homeUrl" width="120px" src="/assets/images/logo.png" style="margin-top: 5px;" /></i> <span ng-transclude></span> 
       </a>
     </div>
 

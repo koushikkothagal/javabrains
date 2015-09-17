@@ -37,7 +37,8 @@
     return {
       templateUrl: '/app/lessons/quiz/quiz.html',
       scope: {
-        'content': '='
+        'content': '=',
+        'nextPermalinkName': '='
       },
       controller: QuizModuleCtrl,
       controllerAs: 'ctrl'
@@ -48,10 +49,12 @@
 
 
   function QuizModuleCtrl($scope, $timeout, UserData, $stateParams) {
-
+    var vm = this;
+    
     this.quiz = {
       'questions': $scope.content
     };
+    vm.nextPermalinkName = $scope.nextPermalinkName;
     this.quiz.questions[this.quiz.questions.length - 1].last = true;
     this.quizStarted = true;
     this.showTabs = true;
@@ -104,11 +107,40 @@
         this.userData.quizAnswers[this.activeQuestion.id] = val;
       }
     }
-    
-    this.submit = function() {
-      UserData.submitQuizData($stateParams.lessonName, this.userData);
+
+    this.submit = function () {
+      vm.quizSubmitted = true;
+      vm.totalCorrectAnswers =
+        _.reduce(vm.quiz.questions, function (totalCorrectAnswers, question) {
+          if (vm.isAnswerCorrect(question)) {
+            totalCorrectAnswers++;
+          }
+          return totalCorrectAnswers;
+        }, 0);
+        
+        
+      if (Math.floor(vm.totalCorrectAnswers * 100/vm.quiz.questions.length) > 65) {
+        UserData.submitQuizData($stateParams.lessonName, this.userData);
+        vm.quizComplete = true;  
+      }
+      else {
+        vm.quizComplete = false;
+        /*
+        var modalInstance = $modal.open({
+        templateUrl: '/app/lessons/quiz/not-enough-correct.html',
+        controller: function($scope) {
+          $scope.close = function() {
+            modalInstance.dismiss();
+          }
+        }
+
+      });
+      */
+        
+      }
+      
     }
-    
+
 
   }
 
