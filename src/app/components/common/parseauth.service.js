@@ -7,9 +7,9 @@ angular.module('javabrains')
 
     // var user = new Parse.User();
     
-    service.getCurrentUser = function() {
+    service.getCurrentUser = function () {
       if (Parse.User.current()) {
-        return Parse.User.current().attributes;  
+        return Parse.User.current().attributes;
       }
     }
 
@@ -41,6 +41,28 @@ angular.module('javabrains')
       return deferred.promise;
     }
 
+
+    service.resetPassword = function (userObj) {
+      var deferred = $q.defer();
+      Parse.User.requestPasswordReset(userObj.email)
+        .then(
+          function (user) {
+            return deferred.resolve(user.attributes);
+          },
+          function (error) {
+            if (error.code === 125) {
+              error.code = 'INVALID_EMAIL';
+            }
+            if (error.code === 205) {
+              error.code = 'NOT_FOUND';
+            }
+            return deferred.reject(error);
+          }
+          );
+      return deferred.promise;
+
+
+    }
 
     service.loginUser = function (userObj) {
       var deferred = $q.defer();

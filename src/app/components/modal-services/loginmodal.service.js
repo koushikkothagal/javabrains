@@ -22,7 +22,7 @@
 
   };
 
-  function LoginController($scope, User, $modalInstance, $state, signUpModalService) {
+  function LoginController($scope, User, $modalInstance, $state, signUpModalService, resetPasswordModalService) {
 
     $scope.login = function () {
       User.login($scope.user)
@@ -62,6 +62,11 @@
     $scope.openSignUpModal = function () {
       $modalInstance.dismiss();
       signUpModalService.openSignUpModal();
+    }
+    
+    $scope.openResetPasswordModal = function () {
+      $modalInstance.dismiss();
+      resetPasswordModalService.openResetPasswordModal();
     }
     
     

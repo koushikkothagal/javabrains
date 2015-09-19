@@ -1,43 +1,35 @@
-<div class="panel panel-default course-tile card clickable {{vm.topic.code}}">
+<div class="panel panel-default course-tile card clickable {{::vm.topic.code}}">
   <div class="panel-heading topic-bg">
     <!-- TODO: Get hours info from Youtube playlists and seed the data
     <p class="side-heading pull-right" ng-if="vm.course.hours !== 1" ng-bind="::vm.course.hours + ' hours'"></p>
     <p class="side-heading pull-right" ng-if="vm.course.hours === 1" ng-bind="::vm.course.hours + ' hour'"></p>
     -->
-    <h1 class="panel-title"><i class="fa fa-book"></i>Course</h1>
+    <h1 class="panel-title"><i class="fa fa-book"></i>Course
+     <span class="pull-right">{{::vm.course.maxPoints}} points </span>
+    </h1>
+    
   </div>
   <div class="panel-body" ui-sref="course({'courseName': vm.course.code})">
     <div class="media">
       <div class="media-left course-thumbnail">
         
-          <img class="media-object" width="280px" ng-src="{{ vm.course.img }}" alt="...">
+          <img class="media-object" width="280px" ng-src="{{ ::vm.course.img }}" alt="...">
         
       </div>
       <div class="media-body">
-        <h4 class="title course-title">{{vm.course.name}}</h4>
-        <h5 class="topic topic-color" ui-sref="courses({'topic': vm.topic.code})">{{vm.topic.name}}</h5>
-        <p class="tile-description">{{vm.course.desc}}</p>
+        <h4 class="title course-title">{{::vm.course.name}}</h4>
+        <h5 class="topic topic-color" ui-sref="courses({'topic': vm.topic.code})">{{::vm.topic.name}}</h5>
+        <p class="tile-description">{{::vm.course.desc}}</p>
 
         <div class="labels">
 
           <span ng-repeat="tag in vm.course.tags" class="label label-default" style="margin: 3px; padding:5px"> 
-            {{ tag }}
+            {{ ::tag }}
           </span>
 
 
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-   
   </div>
 </div>

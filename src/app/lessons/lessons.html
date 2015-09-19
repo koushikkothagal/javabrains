@@ -55,9 +55,9 @@
               <h4 class="title" style="margin-top: -15px">Your course score</h4>
               <div class="progress-wrapper">
                 
-                <div round-progress max="500" current="lesson.lessonsViewed.totalPoints" color="{{lesson.info.topicColor}}" bgcolor="#eaeaea" semi="true" rounded="false"
+                <div round-progress max="lesson.info.maxPoints" current="lesson.lessonsViewed.totalPoints" color="{{lesson.info.topicColor}}" bgcolor="#eaeaea" semi="true" rounded="false"
                 clockwise="true" responsive="false" duration="800" animation="easeInOutQuart" radius="80" stroke="6"></div>
-                <div class="progress-text"><sup>{{lesson.lessonsViewed.totalPoints}}</sup>/<sub>5000</sub>​</div>
+                <div class="progress-text"><sup>{{lesson.lessonsViewed.totalPoints}}</sup>/<sub>{{lesson.info.maxPoints}}</sub>​</div>
               </div>
             </div>
 
@@ -107,7 +107,7 @@
 
   <!-- if quiz -->
   <div ng-if="lesson.info.type === 'quiz'">
-    <quiz content="lesson.info.quizContent" next-permalink-name="lesson.info.next"></quiz>
+    <quiz content="lesson.info.quizContent" next-permalink-name="lesson.info.next" course-code="lesson.info.courseCode"></quiz>
   </div>
   <!-- end if quiz -->
 </div>

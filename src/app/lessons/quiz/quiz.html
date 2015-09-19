@@ -90,16 +90,29 @@
         <!-- End answer area -->
     </div>
     <!-- End quiz area -->
-    <div ng-if="ctrl.quizSubmitted" class="quiz card flex-column text-center padded">
-        <h1 ng-if="!ctrl.quizComplete" class="padded topic-color">Oh no!</h1>
-        <h3 ng-if="!ctrl.quizComplete" class="padded">You didn't get enough questions right. Try again later!</h3>
-        <h1 ng-if="ctrl.quizComplete" class="padded topic-color">Awesome work!</h1>
-        <h3 ng-if="ctrl.quizComplete" class="padded">Good job on the quiz!</h3>
+    <div ng-if="ctrl.quizSubmitted" class="quiz card flex-column padded">
+        <div class="padded">
+            <h1 ng-if="!ctrl.quizComplete" class="padded topic-color">Uh oh!</h1>
+            <h3 ng-if="!ctrl.quizComplete" class="padded">You didn't get enough questions right. Try again later!</h3>
+            <h1 ng-if="ctrl.quizComplete" class="padded topic-color">Awesome work!</h1>
+            <h3 ng-if="ctrl.quizComplete" class="padded">You've cleared it in style. Good job!</h3>
+            <div class="row text-center">
+                <!--
         <div class="points" style="border: 1px solid gray; border-radius: 200px; height: 200px; width: 200px; margin: auto;">
             <div class="progress-text" style="margin-top: 60px; font-size: 6rem;"><sup>{{::ctrl.totalCorrectAnswers}}</sup>/<sub>{{::ctrl.quiz.questions.length}}</sub>​</div>
         </div>
-        <a class="btn btn-topic" style="max-width: 200px; margin: 20px auto" ng-href="{{ctrl.nextPermalinkName}}">Next lesson &nbsp; <i class="fa fa-arrow-right"></i></a>
+        -->
+                <div class="acore-wrapper text-center">
 
+                    <div round-progress max="ctrl.quiz.questions.length" current="ctrl.totalCorrectAnswers" color="#000"
+                    bgcolor="#eaeaea" semi="false" rounded="false" clockwise="true" responsive="false" duration="800" animation="easeInOutQuart"
+                    radius="140" stroke="6"></div>
+                    <div class="progress-text" style="font-size: 90px; margin-top: -210px"><sup>{{ctrl.totalCorrectAnswers}}</sup>/<sub>{{ctrl.quiz.questions.length}}</sub>​</div>
+                </div>
+
+            </div>
+            <a class="btn btn-topic pull-right" style="max-width: 200px; margin: 70px auto" ng-href="{{ctrl.nextPermalinkName}}">Next lesson &nbsp; <i class="fa fa-arrow-right"></i></a>
+        </div>
     </div>
 
 </div>

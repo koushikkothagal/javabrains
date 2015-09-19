@@ -13,6 +13,7 @@ angular.module('javabrains')
 				})
 		}
 
+		// TODO: Remove this function. Not used.
 		service.markCourseStarted = function (courseId) {
 			if (!User.getCurrentUser()) {
 				return;
@@ -65,7 +66,6 @@ angular.module('javabrains')
 					if (result) {
 						var lessonsViewed = ParseData.unParseObject(result);
 						lessons = lessonsViewed.lessons;
-						console.log(lessonsViewed.lessons);
 
 						totalPoints = _.reduce(lessons, function (total, n, key) {
 							// Maybe a property doesn't have "points", like the totalPoints property for example
@@ -76,7 +76,10 @@ angular.module('javabrains')
 
 						}, 0);
 						lessons.totalPoints = totalPoints;
-						if (permalinkName && !lessons[permalinkName]) {
+						if (permalinkName						// If a permalink name is supplied (user is loading a lesson page)
+							&& !permalinkName.indexOf("-Quiz")	// and it's not a Quiz permalink (we should save Quiz "views" only after successful completion) 
+							&& !lessons[permalinkName]			// and the permalink isn't already saved 
+							) {
 							lessons[permalinkName] = {
 								'points': 10
 							};
@@ -104,19 +107,19 @@ angular.module('javabrains')
 						*/
 					}
 					else {
-					if (permalinkName) {
+						if (permalinkName && !permalinkName.indexOf("-Quiz")) {
 
-						lessons[permalinkName] = {
-							'points': 10 // Default points for lesson: 10
-						};
-						lessons.latest = permalinkName;
-						ParseData.save('UserLessons',
-							{
-								'courseId': courseId,
-								'user': User.getCurrentUser().email,
-								'lessons': lessons
-							});
-					}
+							lessons[permalinkName] = {
+								'points': 10 // Default points for lesson: 10
+							};
+							lessons.latest = permalinkName;
+							ParseData.save('UserLessons',
+								{
+									'courseId': courseId,
+									'user': User.getCurrentUser().email,
+									'lessons': lessons
+								});
+						}
 					}
 					// TODO (maybe not):  add the newly saved lessons object into the lessonsViewed object returned below. It'll be 10 points short (i.e., not including points for the lesson just viewed)
 					return lessons;
@@ -127,11 +130,30 @@ angular.module('javabrains')
 		}
 
 
-		
 
-		service.submitQuizData = function (lesson, quizData) {
-			console.log(lesson);
-			console.log(quizData);
+
+		service.submitQuizData = function (courseId, permalinkName, quizData) {
+			if (!User.getCurrentUser()) {
+				return;
+			}
+			return ParseData.getFirst('UserLessons',
+				[
+					['EQ', 'courseId', courseId]
+				])
+				.then(function (result) {
+					var lessonsViewed = ParseData.unParseObject(result);
+					var lessons = lessonsViewed.lessons;
+					lessons[permalinkName] = {
+						'points': 50 // Default points for quiz: 50
+					};
+					ParseData.saveObject(result,
+						{
+							'lessons': lessons
+						});
+
+				});
+
+
 		}
 
 

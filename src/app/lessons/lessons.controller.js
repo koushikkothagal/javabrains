@@ -53,6 +53,7 @@
     this.info.content = $sce.trustAsHtml(this.info.content);
     
     this.info.topicColor = courseDataService.topicMap[this.info.topic].color;
+    this.info.maxPoints = courseDataService.courseMap[this.info.courseCode].maxPoints;
     
   }
 })();

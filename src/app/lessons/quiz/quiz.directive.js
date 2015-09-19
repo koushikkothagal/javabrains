@@ -38,6 +38,7 @@
       templateUrl: '/app/lessons/quiz/quiz.html',
       scope: {
         'content': '=',
+        'courseCode': '=',
         'nextPermalinkName': '='
       },
       controller: QuizModuleCtrl,
@@ -119,8 +120,8 @@
         }, 0);
         
         
-      if (Math.floor(vm.totalCorrectAnswers * 100/vm.quiz.questions.length) > 65) {
-        UserData.submitQuizData($stateParams.lessonName, this.userData);
+      if (Math.floor(vm.totalCorrectAnswers * 100/vm.quiz.questions.length) < 65) {
+        UserData.submitQuizData($scope.courseCode, $stateParams.lessonName, this.userData);
         vm.quizComplete = true;  
       }
       else {
