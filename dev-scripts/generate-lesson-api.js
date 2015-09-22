@@ -129,6 +129,7 @@ var prepareQuizContent = function(quiz, permalinkName) {
       // var code = question.code;
       console.log(code);
       code = marked(code);
+      var answerLength = question.correctAnswer.length;
       // var result = highlight.highlight('java', code, true);
       // code = result.value;
       // var $ = cheerio.load(code);
@@ -136,7 +137,7 @@ var prepareQuizContent = function(quiz, permalinkName) {
       // code = code.replace("\n", '\n\n');
       // var codeElement = prism.highlightElement($('pre')[0], prism.languages.clike);
       // code = codeElement.html();
-      code = code.replace("######", '<input type="text" class="quiz-input-text" ng-model="answer" ng-change="onChange({value: answer})"></input>');
+      code = code.replace("######", '<input type="text" class="quiz-input-text" size="' + answerLength + '" ng-model="answer" ng-change="onChange({value: answer})"></input>');
       // code = code.replace("\n", '<br/>');
       console.log('Code is ');
       console.log(code);
@@ -240,6 +241,7 @@ var fillLessonInfo = function (courseInfo, fileNames) {
         yaml.slNo = lessonNum;
         yaml.title = permalinkName.replace(/-/gi, ' ');
         yaml.permalinkName = permalinkName;
+        yaml.courseCode = courseName;
         var markup = response[1];
         if (yaml.prevLessonPermalinkName) {
           delete yaml.prevLessonPermalinkName;
