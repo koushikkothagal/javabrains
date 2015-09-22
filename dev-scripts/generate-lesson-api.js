@@ -1,11 +1,11 @@
-var BASE_PATH = '../data/courses/';
-var OUTPUT_PATH = '../src/assets/data/';
+var BASE_PATH = 'data/courses/';
+var OUTPUT_PATH = 'src/assets/data/';
 var fs = require('fs');
 var yamlhead = require('yamlhead');
 var marked = require('marked');
-var prism = require('prismjs');
+// var prism = require('prismjs');
 var highlight = require('highlight.js');
-var cheerio = require('cheerio');
+// var cheerio = require('cheerio');
 var _ = require('lodash');
 var Q = require('q');
 
@@ -403,7 +403,7 @@ var courseNames =
 // courseNames.forEach(function (courseName) {
 //   console.log(courseName);
 
-var courseName = 'javaee_jaxrs';
+var courseName = 'javaee_advjaxrs';
 buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     console.log('In then');

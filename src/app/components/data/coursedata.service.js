@@ -172,7 +172,6 @@
 						'img': 'https://i.ytimg.com/vi/zk_zEp-mtvQ/mqdefault.jpg',
 						'tags': ['Java', 'Servlets and JSPs']
 				}
-				/*
 				,
 				{ slNo: 12, code: 'javaee_advjaxrs', topic: 'javaee', name: 'Advanced JAX-RS',
 						'desc': 'This course covers more advanced concepts of JAX-RS. You will learn some important concepts related to resource life cycle, authentication and client APIs. You will also implement framework extensions like converters, message readers and writers. ',
@@ -187,8 +186,8 @@
 								'Implementing REST API Authentication',
 								'Testing your REST API project'
 									]
-				},
-				*/
+				}
+				
 
 			];
 	this.courseMap = {};

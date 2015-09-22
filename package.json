@@ -55,7 +55,8 @@
     "uglify-save-license": "~0.4.1",
     "wiredep": "~2.2.2",
     "wrench": "~1.5.8",
-    "yamlhead": "^0.2.0"
+    "yamlhead": "^0.2.0",
+    "youtube-uploader": "^0.1.0"
   },
   "engines": {
     "node": ">=0.10.0"
