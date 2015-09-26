@@ -239,7 +239,9 @@ var fillLessonInfo = function (courseInfo, fileNames) {
         yaml.unitSlNo = unitNum + '.' + lessonNum;
         yaml = cleanYaml(yaml);
         yaml.slNo = lessonNum;
-        yaml.title = permalinkName.replace(/-/gi, ' ');
+        if (!yaml.title) {
+          yaml.title = permalinkName.replace(/-/gi, ' ');  
+        }
         yaml.permalinkName = permalinkName;
         yaml.courseCode = courseName;
         var markup = response[1];
