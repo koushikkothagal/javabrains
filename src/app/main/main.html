@@ -1,9 +1,206 @@
-<div class="container">
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #headerwrap {
+    background: url(/assets/images/banner.svg) no-repeat right top;
+    margin-top: 0px;
+    padding-top: 120px;
+    text-align: center;
+    background-attachment: relative;
+    background-position: right right;
+    min-height: 900px;
+    width: 100%;
+    -webkit-background-size: 120%;
+    -moz-background-size: 120%;
+    -o-background-size: 120%;
+    background-size: 120%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  .home-signup-form *::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #FFF !important;
+  }
+  
+  .home-signup-form *:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #FFF !important;
+    opacity: 0.8;
+  }
+  
+  .home-signup-form *::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #FFF !important;
+    opacity: 0.8;
+  }
+  
+  .home-signup-form *:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #FFF !important;
+  }
+  
+  .main-thumbnails .caption {
+    margin-top: 30px;
+  }
+  
+  .main-thumbnails p.lead {
+    font-size: 18px;
+    line-height: 30px;
+    color: #777;
+    padding: 0 10%;
+  }
+</style>
 
-  <div>
-    <navbar></navbar>
+<div class="container-fluid" style="background-color: #4C8EB4; height: 800px; padding: 0; margin: 0">
+  <div style="position: relative; max-width: 1700px; margin: auto">
+    <!-- 
+  <div id="headerwrap">
+    <h1>Test</h1>
   </div>
-<h3>Home</h3>
+  -->
+    <div class="jumbotron" style="position: absolute; top: 80px; left: 40px; background-color: rgba(76, 142, 180, 0.8); color: #FFF">
+
+      <h1 style="font-size: 60px; font-family: 'Monaco'; margin-bottom: 40px">javaBrains</h1>
+      <p style="font-size: 25px; color: rgba(256, 256, 256, 0.8);">Learn Java and Javascript through</p>
+      <p style="font-size: 25px; color: rgba(256, 256, 256, 0.8)">hundreds of training videos and learning material</p>
 
 
+      <p style="font-size: 25px; margin-top: 30px;">Create an account for free</p>
+
+
+
+
+      <div class="home-signup-form">
+        <div class="login-group" style="background: transparent">
+          <div class="form-group">
+            <label for="reg_username" class="sr-only">Email address</label>
+            <input type="text" class="form-control" ng-model="user.email" id="reg_username" name="reg_username" placeholder="Email" style="color: #FFF; background-color: #4C8EB4; border: none; border-radius: 0; border-bottom: 1px solid white; font-size: 17px;">
+          </div>
+          <div class="form-group">
+            <label for="reg_password" class="sr-only">Password</label>
+            <input type="password" class="form-control" ng-model="user.password" id="reg_password" name="reg_password" placeholder="Password"
+            style="color: #FFF; background-color: #4C8EB4; border: none; border-radius: 0; border-bottom: 1px solid white; font-size: 17px;">
+          </div>
+
+          <div class="form-group">
+            <label for="reg_fullname" class="sr-only">Full Name</label>
+            <input type="text" class="form-control" ng-model="user.fullName" id="reg_fullname" name="reg_fullname" placeholder="Full name"
+            style="color: #FFF; background-color: #4C8EB4; border: none; border-radius: 0; border-bottom: 1px solid white; font-size: 17px;">
+          </div>
+        </div>
+        <!-- <button type="submit" ng-click="signup()" class="login-button"><i class="fa fa-chevron-right"></i></button> -->
+      </div>
+
+
+
+
+
+      <p><a class="btn btn-primary btn-lg jb-btn" style="color: #FFF; border-color: #FFF; margin-top: 30px; font-size: 20px;"
+        href="#" role="button">Start learning!</a></p>
+    </div>
+
+
+    <img src="/assets/images/banner.svg" class="pull-right" alt="Responsive image">
+  </div>
+
+</div>
+
+
+<div class="container-fluid" style="background-color: #FFF;padding: 60px 0 40px 0; margin: 0;">
+
+
+
+
+  <div class="container main-thumbnails text-center">
+    <h2>Start your learning journey</h2>
+    <p class="lead">Learn something new. Or dive deep into a topic you are already familiar with.</p>
+    <p class="lead">&nbsp;</p>
+    <div class="row text-center">
+      <div class="col-sm-6 col-md-4">
+        <div class="">
+          <span class="fa-stack fa-4x" style="color: rgba(76, 174, 80, 0.7)">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-video-camera fa-stack-1x fa-inverse"></i>
+          </span>
+          <div class="caption">
+            <h3>Video training</h3>
+            <p class="lead">Watch it done! See hundreds of video tutorials covering various programming topics. </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="">
+          <span class="fa-stack fa-4x" style="color: rgba(221, 60, 67, 0.7)">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-map-signs fa-stack-1x fa-inverse"></i>
+          </span>
+          <div class="caption">
+            <h3>Follow along</h3>
+            <p class="lead">Step by step instructions to follow along as you watch. </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="">
+          <span class="fa-stack fa-4x" style="color: rgba(41, 128, 185, 0.7)">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa fa-repeat fa-stack-1x fa-inverse"></i>
+          </span>
+          <div class="caption">
+            <h3>Test your knowledge</h3>
+            <p class="lead">Take tests and answer quizzes to test your understanding of the topics covered. </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+
+<div class="container-fluid" style="padding: 60px 0 40px 0; margin: 0;">
+  <div class="container main-thumbnails text-center">
+    <h2>Explore</h2>
+    <p class="lead">Browse by topic or view available courses</p>
+    <p class="lead">&nbsp;</p>
+    <div class="row text-left" style="margin-bottom: 20px">
+      <div class="col-sm-12">
+        <a href="/topics" class="jb-btn pull-right">All topics</a>
+        <h3>Popular Topics</h3>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="col-sm-12">
+        <div ng-repeat="topic in main.topics | limitTo: 3" class="col-md-4">
+          <topic-tile topic="topic"></topic-tile>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-left" style="margin-bottom: 20px">
+      <div class="col-sm-12">
+        <a href="/courses" class="jb-btn pull-right">All courses</a>
+        <h3>Popular Courses</h3>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="col-sm-12">
+        <course-tile course="course" ng-repeat="course in main.courses | limitTo: 3" />
+      </div>
+    </div>
+
+  </div>
 </div>
