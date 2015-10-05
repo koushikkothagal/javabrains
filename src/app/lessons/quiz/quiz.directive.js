@@ -49,7 +49,7 @@
 
 
 
-  function QuizModuleCtrl($scope, $timeout, UserData, $stateParams) {
+  function QuizModuleCtrl($scope, $timeout, UserData, codeService, $stateParams) {
     var vm = this;
     
     this.quiz = {
@@ -75,11 +75,17 @@
 
     this.isAnswerCorrect = function (question) {
       var answer = this.userData.quizAnswers[question.id];
+      if (question.type === 'code') {
+        return codeService.compareCode(question.correctAnswer, answer);
+      }
       return null != answer && answer == question.correctAnswer;
     };
 
     this.isAnswerIncorrect = function (question) {
       var answer = this.userData.quizAnswers[question.id];
+      if (question.type === 'code') {
+        return !codeService.compareCode(question.correctAnswer, answer);
+      }
       return null != answer && answer != question.correctAnswer;
     };
 
@@ -120,24 +126,12 @@
         }, 0);
         
         
-      if (Math.floor(vm.totalCorrectAnswers * 100/vm.quiz.questions.length) < 65) {
+      if (Math.floor(vm.totalCorrectAnswers * 100/vm.quiz.questions.length) > 65) {
         UserData.submitQuizData($scope.courseCode, $stateParams.lessonName, this.userData);
         vm.quizComplete = true;  
       }
       else {
         vm.quizComplete = false;
-        /*
-        var modalInstance = $modal.open({
-        templateUrl: '/app/lessons/quiz/not-enough-correct.html',
-        controller: function($scope) {
-          $scope.close = function() {
-            modalInstance.dismiss();
-          }
-        }
-
-      });
-      */
-        
       }
       
     }

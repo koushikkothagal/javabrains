@@ -76,9 +76,9 @@ angular.module('javabrains')
 
 						}, 0);
 						lessons.totalPoints = totalPoints;
-						if (permalinkName						// If a permalink name is supplied (user is loading a lesson page)
-							&& !permalinkName.indexOf("-Quiz")	// and it's not a Quiz permalink (we should save Quiz "views" only after successful completion) 
-							&& !lessons[permalinkName]			// and the permalink isn't already saved 
+						if (permalinkName								// If a permalink name is supplied (user is loading a lesson page)
+							&& permalinkName.indexOf("-Quiz") === -1	// and it's not a Quiz permalink (we should save Quiz "views" only after successful completion) 
+							&& !lessons[permalinkName]					// and the permalink isn't already saved 
 							) {
 							lessons[permalinkName] = {
 								'points': 10
@@ -107,7 +107,7 @@ angular.module('javabrains')
 						*/
 					}
 					else {
-						if (permalinkName && !permalinkName.indexOf("-Quiz")) {
+						if (permalinkName && permalinkName.indexOf("-Quiz") === -1) {
 
 							lessons[permalinkName] = {
 								'points': 10 // Default points for lesson: 10
