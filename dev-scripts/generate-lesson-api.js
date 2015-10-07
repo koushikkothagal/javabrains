@@ -25,18 +25,22 @@ if (!String.prototype.startsWith) {
  */
 function secondsToTime(secs) {
   var durationString;
+  if (secs < 60) {
+    return secs + ' seconds ';
+  }
   var hours = Math.floor(secs / (60 * 60));
 
   var divisor_for_minutes = secs % (60 * 60);
   var minutes = Math.floor(divisor_for_minutes / 60);
 
-  var divisor_for_seconds = divisor_for_minutes % 60;
-
   if (hours) {
     durationString = hours + ' hours ';
   }
-  if (minutes) {
+  if (minutes && minutes !== 1) {
     durationString = minutes + ' minutes ';
+  }
+  if (minutes && minutes === 1) {
+    durationString = minutes + ' minute ';
   }
 
   return durationString.trim();
