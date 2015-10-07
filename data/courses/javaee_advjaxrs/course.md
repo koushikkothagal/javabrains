@@ -15,5 +15,5 @@
     - "Java"
     - "Java EE"
   topic: "javaee"
-  sourceCode: https://github.com/koushikkothagal/messenger/archive/master.zip
+  sourceCode: https://github.com/koushikkothagal/advanced-jaxrs/archive/master.zip
 ---

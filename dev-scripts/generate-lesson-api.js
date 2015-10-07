@@ -248,6 +248,7 @@ var fillLessonInfo = function (courseInfo, fileNames) {
         }
         yaml.permalinkName = permalinkName;
         yaml.courseCode = courseName;
+        yaml.courseName = courseInfo.name;
         var markup = response[1];
         if (yaml.prevLessonPermalinkName) {
           delete yaml.prevLessonPermalinkName;
