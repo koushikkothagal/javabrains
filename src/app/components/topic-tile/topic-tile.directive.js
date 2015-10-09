@@ -22,9 +22,6 @@
 
     /** @ngInject */
     function TopicTileController() {
-      
-      console.log('Got ' + this.topic);
-      
     }
   }
 

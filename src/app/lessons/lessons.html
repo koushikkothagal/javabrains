@@ -48,7 +48,7 @@
             <div ng-if="!lesson.user.getCurrentUser()">
               <p>Your progress is not being saved. </p>
               
-              <p><a href="#">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
+              <p><a href="#" ng-click="lesson.openSignupModal()">Sign up</a> to save your place in this course, earn points, track how you are doing and more!</p>
             </div>
             
             <div class="text-center" ng-if="lesson.user.getCurrentUser()">

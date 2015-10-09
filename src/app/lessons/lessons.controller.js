@@ -6,7 +6,7 @@
     .controller('LessonController', LessonController);
 
   /** @ngInject */
-  function LessonController(lessonData, $sce, $http, $stateParams, User, $rootScope, lessonsViewed, courseDataService) {
+  function LessonController(lessonData, $sce, $http, $stateParams, User, $rootScope, lessonsViewed, courseDataService, signUpModalService) {
     this.info = lessonData.data;
     var vm = this;
     vm.user = User;
@@ -47,6 +47,9 @@
       return style;
     }
 
+    vm.openSignupModal = function() {
+      signUpModalService.openSignUpModal();
+    }
 
     
     this.info.youtube = $sce.trustAsResourceUrl('//www.youtube.com/embed/' + this.info.youtube + '?rel=0&showinfo=0&fs=1&theme=light&modestbranding=1');

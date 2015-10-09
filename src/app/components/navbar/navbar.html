@@ -9,7 +9,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a ng-href="/">Home</a></li>
+        <li class="active"><a ng-href="{{vm.getHomeLink()}}">Home</a></li>
         <li><a ng-href="/courses">Courses</a></li>
         <li ng-if="!vm.currentUser"><a class="clickable" ng-click="vm.openLoginModal()">Log in</a></li>
         <li ng-if="!vm.currentUser" id="sign-up"><a ng-click="vm.openSignUpModal()" class="shadow bold-text clickable">Sign up</a></li>

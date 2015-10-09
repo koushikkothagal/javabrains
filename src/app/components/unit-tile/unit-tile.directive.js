@@ -21,8 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function UnitTileController(courseDataService) {
-      console.log(this.unit);
+    function UnitTileController() {
       this.lessonBaseUrl = '/courses/' + this.unit.courseCode + '/lessons/';
       
        

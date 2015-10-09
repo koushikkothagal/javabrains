@@ -7,6 +7,9 @@
 
   /** @ngInject */
   function MainController($rootScope, courseDataService, User, $state, loginModalService) {
+    if (User.getCurrentUser()) {
+      $state.go('dashboard');
+    }
     var vm = this;
     $rootScope.page = {
       'title': 'Java Brains',

@@ -15,10 +15,10 @@
                       newVal = parseFloat(newVal) + "%";
                       elem.css("transform", "translateX(" + newVal + ")"); 
                     } 
-                })
+                });
             }
-        }
-    };
+        };
+    }
   
 })();
   

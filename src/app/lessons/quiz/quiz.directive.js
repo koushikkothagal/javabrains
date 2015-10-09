@@ -4,7 +4,7 @@
   angular
     .module('javabrains')
     .directive('quiz', QuizDirective)
-    .directive('codeQuiz', function ($compile, $timeout) {
+    .directive('codeQuiz', function ($compile) {
       return {
         'restrict': 'A',
         'scope': {
@@ -12,7 +12,7 @@
           'onChange': '&'
         },
         'link': function ($scope, element, attrs) {
-          $scope.$watch(attrs, function (newVal, oldVal) {
+          $scope.$watch(attrs, function () {
 
             if ($scope.code) {
               $scope.code = $scope.code.replace(/\n/g, '<br/>');
@@ -75,7 +75,7 @@
 
     this.isAnswerCorrect = function (question) {
       var answer = this.userData.quizAnswers[question.id];
-      if (question.type === 'code') {
+      if (question.type === 'code' && answer) {
         return codeService.compareCode(question.correctAnswer, answer);
       }
       return null != answer && answer == question.correctAnswer;
@@ -83,7 +83,7 @@
 
     this.isAnswerIncorrect = function (question) {
       var answer = this.userData.quizAnswers[question.id];
-      if (question.type === 'code') {
+      if (question.type === 'code' && answer) {
         return !codeService.compareCode(question.correctAnswer, answer);
       }
       return null != answer && answer != question.correctAnswer;
@@ -113,7 +113,7 @@
       if (val) {
         this.userData.quizAnswers[this.activeQuestion.id] = val;
       }
-    }
+    };
 
     this.submit = function () {
       vm.quizSubmitted = true;
@@ -134,7 +134,7 @@
         vm.quizComplete = false;
       }
       
-    }
+    };
 
 
   }

@@ -43,7 +43,7 @@
       .state('course', {
         url: '/courses/:courseName',
         resolve: {
-          courseData:  function(REST_ROOT_URL, $http, $stateParams, $q){
+          courseData:  function(REST_ROOT_URL, $http, $stateParams){
             return $http.get('/assets/data/courses/' + $stateParams.courseName + '.json',
             {
                 cache: true
@@ -61,7 +61,7 @@
       .state('lesson', {
         url: '/courses/:courseName/lessons/:lessonName',
         resolve: {
-          lessonData:  function(REST_ROOT_URL, $http, $stateParams, $q){
+          lessonData:  function(REST_ROOT_URL, $http, $stateParams){
             return $http.get('/assets/data/courses/' + $stateParams.courseName + '/lessons/' + $stateParams.lessonName + '.json',
               {
                 cache: true

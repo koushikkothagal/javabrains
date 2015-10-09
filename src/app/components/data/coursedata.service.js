@@ -95,7 +95,7 @@
 						'desc': 'This course introduces you to RESTful Web Services using the JAX-RS standard specification. You will learn what RESTful web services are and how to write them. You will write a sample RESTful web service from scratch, design the APIs, implement it using Jersey and run it on Tomcat. ',
 						'shortdesc': 'Learn how to build RESTful services using the JAX-RS specification. You\'ll build a REST API application using Jersey.',
 						'level': 'Beginner', 
-						'maxPoints': 1,
+						'maxPoints': 510,
 						'img': 'https://i.ytimg.com/vi/xkKcdK1u95s/mqdefault.jpg',
 						'tags': ['Java', 'Java EE']
 				},
@@ -176,6 +176,7 @@
 				{ slNo: 12, code: 'javaee_advjaxrs', topic: 'javaee', name: 'Advanced JAX-RS',
 						'desc': 'This course covers more advanced concepts of JAX-RS. You will learn some important concepts related to resource life cycle, authentication and client APIs. You will also implement framework extensions like converters, message readers and writers. ',
 						'level': 'Advanced', 
+						'maxPoints': 520,
 						'img': 'https://i.ytimg.com/vi/EOdvmGVdndA/mqdefault.jpg',
 						'tags': ['Java', 'Java EE'],
 						objectives: [

@@ -22,6 +22,9 @@
 
 
             // answer = cs.strip(answer);
+            if (!answer) {
+                return;
+            }
             answer = answer.trim();
             answer = answer.replace(regLineBreaks, " ");
             answer = answer.replace(regSpaces, " ");

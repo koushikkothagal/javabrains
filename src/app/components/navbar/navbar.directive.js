@@ -29,47 +29,34 @@
     function NavbarController($modal, loginModalService, signUpModalService, User, $rootScope) {
       var vm = this;
       $rootScope.$on('$stateChangeSuccess', 
-        function(event, toState, toParams, fromState, fromParams){
+        function(){
           window.scrollTo(0, 0);
         });
-      /*
-      var ref = new Firebase("https://javabrains.firebaseio.com/");
-      vm.authObj = $firebaseAuth(ref);
-      vm.authObj.$onAuth(function(authData) {
-        vm.authData = authData;
-        console.log('listened');
-        console.log(authData.password.email);
-      });
-      */
-      
+
       vm.user = User;
       vm.currentUser = User.getCurrentUser();
-      // vm.auth = Auth;
+
       vm.openLoginModal = function () {
        loginModalService.openLoginModal();
-      }
+      };
 
       vm.openSignUpModal = function () {
         signUpModalService.openSignUpModal();
-      }
+      };
 
       vm.logout = function () {
         User.logout();
         vm.currentUser = null;
-      }
-
-     /*
-      vm.auth.$onAuth(function (authData) {
-      if (authData) {
-        User.setCurrentUser(authData.uid);
-        User.setAuthData(authData);
-        vm.currentUser = authData.uid;
-      } else {
-        vm.currentUser = null;
-      }
-    });
-    */
-
+      };
+      
+      vm.getHomeLink = function() {
+        if (User.getCurrentUser()) {
+          return '/dashboard';
+        }
+        else {
+          return '/';
+        }
+      };
     }
   }
 

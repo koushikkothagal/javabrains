@@ -12,6 +12,11 @@
   "globals": {
     "angular": false,
     "inject": false,
-    "module": false
+    "module": false,
+    "Parse": false,
+    "window": false,
+    "$": false,
+    "hljs": false,
+    "_": false
   }
 }
