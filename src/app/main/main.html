@@ -57,17 +57,17 @@
   }
 </style>
 
-<div class="container-fluid" style="background-color: #4C8EB4; height: 800px; padding: 0; margin: 0">
+<div class="container-fluid" style="background-color: #4C8EB4; height: 802px; padding: 0; margin: 0">
   <div style="position: relative; max-width: 1700px; margin: auto">
     <!-- 
   <div id="headerwrap">
     <h1>Test</h1>
   </div>
   -->
-    <div class="jumbotron" style="position: absolute; top: 80px; left: 40px; background-color: rgba(76, 142, 180, 0.8); color: #FFF">
+    <div class="jumbotron" style="position: absolute; top: 80px; left: 40px; background-color: rgba(76, 142, 180, 0.8); color: #FFF; padding-bottom: 2px">
 
       <h1 style="font-size: 60px; font-family: 'Monaco'; margin-bottom: 40px">javaBrains</h1>
-      <p style="font-size: 25px; color: rgba(256, 256, 256, 0.8);">Learn Java and Javascript through<br/>
+      <p style="font-size: 25px; ">Learn Java and Javascript through<br/>
       hundreds of training videos and learning material</p>
 
 
@@ -92,9 +92,13 @@
 
           <div class="form-group">
             <label for="reg_fullname" class="sr-only">Full Name</label>
-            <input type="text" class="form-control" ng-model="main.user.fullName" id="reg_fullname" name="reg_fullname" placeholder="Name"
+            <input type="text" class="form-control" ng-model="main.user.fullName" ng-change="main.clearError()"  id="reg_fullname" name="reg_fullname" placeholder="Name"
             style="color: #FFF; background-color: #4C8EB4; border: none; border-radius: 0; border-bottom: 1px solid white; font-size: 17px;">
           </div>
+          <div class="form-group login-group-checkbox">
+						<input type="checkbox" class="" id="reg_agree" name="reg_agree" ng-model="main.user.agreeToTerms" ng-change="clearError()">
+						<label for="reg_agree" style="color: #FFF">I agree with the <a style="color: #FFF; text-decoration: underline;" href="/assets/terms.html" target="_blank">terms</a>.</label>
+					</div>
         </div>
         <!-- <button type="submit" ng-click="signup()" class="login-button"><i class="fa fa-chevron-right"></i></button> -->
       </div>
@@ -103,7 +107,7 @@
 
 
 
-      <p><a class="btn btn-primary btn-lg jb-btn" style="color: #FFF; border-color: #FFF; margin-top: 20px; font-size: 20px;"
+      <p><a class="btn btn-primary btn-lg jb-btn" style="color: #FFF; border-color: #FFF; font-size: 20px;background-color: rgba(76, 174, 80, 0.65)"
         href="#" ng-click="main.signup()" role="button">Start learning!</a></p>
         <p style="font-size: 15px;margin-top: 20px;"><a href="#" ng-click="main.openLoginModal()" style="color: #FFF;">Already have an account? Login here</a><br/></p>
         
@@ -111,14 +115,15 @@
     
     </div>
 
-    
+    <!-- TODO
     <div id="otherlinks" style="position: absolute; top: 20px; right: 40px;">
-    <a href="#" ng-href="/courses" style="color: #FFF;">Courses</a>
-    <a href="#" style="color: #FFF;">Blog</a>
-    <a href="#" style="color: #FFF;">About</a>
+    <a href="#" ng-href="/courses" style="color: #FFF; margin-right: 15px;">Courses</a>
+    
+    <a href="#" style="color: #FFF; margin-right: 15px;">About</a> 
     
     
     </div>    
+     -->
 
     <img src="/assets/images/banner.svg" class="pull-right" alt="Responsive image">
   </div>

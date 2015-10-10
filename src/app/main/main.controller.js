@@ -27,6 +27,14 @@
     }
     
     vm.signup = function () {
+      if (!vm.user || !vm.user.email || !vm.user.password || !vm.user.fullName) {
+        vm.err = "Please fill in your details";
+        return;
+      }
+      if (!vm.user.agreeToTerms) {
+        vm.err = "You need to agree to the terms of use";
+        return;
+      }
       User.signup(vm.user)
         .then(function (success) {
           $state.go('dashboard');

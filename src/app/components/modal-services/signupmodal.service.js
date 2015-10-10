@@ -24,6 +24,14 @@
 
   function SignUpController($scope, User, $modalInstance, loginModalService) {
     $scope.signup = function () {
+      if (!$scope.user || !$scope.user.email || !$scope.user.password || !$scope.user.fullName) {
+        $scope.err = "Please fill in your details";
+        return;
+      }
+      if (!$scope.user.agreeToTerms) {
+        $scope.err = "You need to agree to the terms of use";
+        return;
+      }
       User.signup($scope.user)
         .then(function (success) {
           $modalInstance.dismiss();
@@ -37,7 +45,11 @@
           }
 
         });
-    }
+    };
+    
+    $scope.clearError = function() {
+      $scope.err = '';
+    };
 
     $scope.openLoginModal = function () {
       $modalInstance.dismiss();
