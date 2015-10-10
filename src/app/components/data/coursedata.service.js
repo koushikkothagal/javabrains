@@ -165,7 +165,7 @@
 						'img': 'https://i.ytimg.com/vi/b42CJ0r-1to/mqdefault.jpg',
 						'tags': ['Java', 'Servlets and JSPs']
 				},
-				{ slNo: 11, code: 'jsps_intro', topic: 'servlets', name: 'Java Server Pages',
+				{ slNo: 11, code: 'servlets_jspsintro', topic: 'servlets', name: 'Java Server Pages',
 						'desc': 'This course covers writing and implementing Java Server Pages (JSPs) on a servlet container. You will understand what JSPs are, how they are related to servlets and how to write view logic using them.',
 						'level': 'Beginner', 
 						'maxPoints': 120,

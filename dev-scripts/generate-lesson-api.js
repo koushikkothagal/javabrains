@@ -412,7 +412,7 @@ var courseNames =
 // courseNames.forEach(function (courseName) {
 //   console.log(courseName);
 
-var courseName = 'javaee_advjaxrs';
+var courseName = 'servlets_jspsintro';
 buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     console.log('In then');
