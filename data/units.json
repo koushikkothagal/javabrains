@@ -18,7 +18,7 @@
         "updatedAt": "2015-08-12T18:44:18.423Z"
     },
 	{
-        "courseCode": "maven_intro",
+        "courseCode": "buildsys_mavenintro",
         "createdAt": "2015-08-20T03:41:32.103Z",
         "objectId": "BJfHkcPies",
         "unitDescription": "Understand some of the basic Maven concepts like archetypes, build phases and dependencies. Setup a web application using Maven that covers the concepts you've learned.",
@@ -90,7 +90,7 @@
         "updatedAt": "2015-08-20T03:22:11.674Z"
     },
 	{
-        "courseCode": "maven_intro",
+        "courseCode": "buildsys_mavenintro",
         "createdAt": "2015-08-20T03:24:52.520Z",
         "objectId": "SqPO3gqjbE",
         "unitDescription": "In this unit, you'll understand what Maven is, and why it is useful. You will also setup a simple Maven project from scratch and configure pom.xml.",
@@ -162,7 +162,7 @@
         "updatedAt": "2015-08-20T03:56:04.774Z"
     },
 	{
-        "courseCode": "maven_intro",
+        "courseCode": "buildsys_mavenintro",
         "createdAt": "2015-08-20T03:41:35.643Z",
         "objectId": "hSFid99yz2",
         "unitDescription": "Maven has a concept of plugins that let you implement added funcionality to your build cycle. Learn about the Jetty plugin that lets you spin up a servlet container right from a Maven command. Also, learn how to integrate Maven with Eclipse.",

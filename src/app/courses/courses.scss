@@ -16,8 +16,8 @@ label.spring::before {
 label.javaee::before {
 	border-color: $javaee;
 } 
-label.maven::before {
-	border-color: $maven;
+label.buildsys::before {
+	border-color: $buildsys;
 } 
 label.struts2::before {
 	border-color: $struts2;
@@ -44,9 +44,9 @@ input.combo:checked + label.javaee::before {
   background-color: $javaee;
 }
 
-input.combo:checked + label.maven::before {
-	border-color: $maven;
-  background-color: $maven;
+input.combo:checked + label.buildsys::before {
+	border-color: $buildsys;
+  background-color: $buildsys;
 }
 
 input.combo:checked + label.struts2::before {

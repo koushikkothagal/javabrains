@@ -1,7 +1,7 @@
 
 $spring: #5CB860;
 $javaee: lighten(#DD3C43, 10%);
-$maven: lighten(#e74c3c, 15%);
+$buildsys: lighten(#e74c3c, 15%);
 $struts2: lighten(#2980b9, 15%);
 $hibernate: darken(#f1c40f, 5%);
 $servlets: lighten(#34495e, 15%);
@@ -16,8 +16,8 @@ $angularjs: lighten(#8e44ad, 1%);
 	color: $javaee;
 }
 
-.maven .topic-color {
-	color: $maven;
+.buildsys .topic-color {
+	color: $buildsys;
 }
 
 .struts2 .topic-color {
@@ -44,8 +44,8 @@ $angularjs: lighten(#8e44ad, 1%);
 	background-color: $javaee !important;
 }
 
-.maven .topic-bg, .bg-maven {
-	background-color: $maven !important;
+.buildsys .topic-bg, .bg-buildsys {
+	background-color: $buildsys !important;
 }
 
 .struts2 .topic-bg, .bg-struts2 {
@@ -84,10 +84,10 @@ $angularjs: lighten(#8e44ad, 1%);
 	border-color: $javaee !important;
 }
 
-.maven .btn-topic {
+.buildsys .btn-topic {
 	@extend .btn-topic;
-	background-color: $maven !important;
-	border-color: $maven !important;
+	background-color: $buildsys !important;
+	border-color: $buildsys !important;
 }
 
 .struts2 .btn-topic {

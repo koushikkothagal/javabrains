@@ -14,7 +14,7 @@
     if (userCourses.length === 0) {
       // User hasn't taken any courses yet. Show them the popular courses
       vm.mostRecent = undefined;
-      var popularCourses = ['javaee_jaxrs', 'spring_core', 'maven_intro'];
+      var popularCourses = ['javaee_jaxrs', 'spring_core', 'buildsys_mavenintro'];
       
       for (var i in popularCourses) {
         

@@ -31,13 +31,13 @@
 			'courses': 2
 		},
 		{
-			'code': 'maven',
-			'name': 'Maven',
+			'code': 'buildsys',
+			'name': 'Build Systems',
 			'color': '#e74c3c',
-			'desc': 'Understand and use Maven to simplify your application\'s build and dependency management.', 
+			'desc': 'Understand and use build systems to simplify your application\'s build and dependency management.', 
 			'tech': 'java',
 			'level': 'Intermediate',
-			'tags': ['Java', 'Maven'],
+			'tags': ['Java', 'Build'],
 			'courses': 1
 		},
 		{
@@ -144,7 +144,7 @@
 						'img': 'https://i.ytimg.com/vi/sjZGFHEdD4M/mqdefault.jpg',
 						'tags': ['Java', 'Hibernate']
 				},
-				{ slNo: 8, code: 'maven_intro', topic: 'maven', name: 'Introduction to Maven',
+				{ slNo: 8, code: 'buildsys_mavenintro', topic: 'buildsys', name: 'Introduction to Maven',
 						'desc': 'This course is an introduction to the basic features of Apache Maven. You will learn what Maven is and how it helps managing dependencies in your Java project. You will understand POM configuration, build phases and use plugins.',
 						'level': 'Beginner', 
 						'maxPoints': 90,
