@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<!-- This page is a passthrough frame used to host a parse.com experience from your server.
+     If you choose to use this feature, be sure to tell Parse where you put this page in your
+     app settings page.
+     In general, there should be no reason to edit the contents of this page -->
+<head>
+  <style type='text/css'>
+    html {
+      height: 100%;
+    }
+    .chromeless {
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      top: 0px;
+      border: 0px;
+      margin: 0px;
+      padding: 0px;
+    }
+    .scrollable {
+      overflow: auto;
+    }
+    .noscroll {
+      overflow: hidden;
+    }
+    h1, p {
+      padding: 15px;
+      color: #0067AB;
+      font: inherit;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica;
+    }
+    h1 {
+      font-size: 30px;
+      font-weight: 600;
+    }
+  </style>
+  <script language='javascript' type='text/javascript'><!--
+
+    window.onload = function() {
+      // When there are query strings, this page is being used to pass content onto parse. Create
+      // the iframe to do so. Forwards relevant query parameters onto the iFrame.
+      if (window.location.search) {
+        var urlParams = {};
+        (function () {
+            var pair, // Really a match. Index 0 is the full match; 1 & 2 are the key & val.
+                tokenize = /([^&=]+)=?([^&]*)/g,
+                // decodeURIComponents escapes everything but will leave +s that should be ' '
+                re_space = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); },
+                // Substring to cut off the leading '?'
+                querystring = window.location.search.substring(1);
+
+            while (pair = tokenize.exec(querystring))
+               urlParams[re_space(pair[1])] = re_space(pair[2]);
+        })();
+
+        var base = 'https://www.parse.com';
+        var link = '';
+        var query = '';
+        for (param in urlParams) {
+          if (param == 'link') {
+            link = urlParams['link'];
+          } else {
+            if (query != '') {
+              query += "&";
+            }
+            query += param + '=' + encodeURIComponent(urlParams[param]);
+          }
+        }
+
+        // Ensure there's a leading slash to avoid open redirect
+        if (link.charAt(0) !== "/") {
+          link = "/" + link;
+        }
+
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('src', base + link + '?' + query);
+        iframe.setAttribute('class', 'chromeless scrollable');
+        document.getElementById('content').appendChild(iframe);
+
+      // Otherwise, this page is likely being viewed by the app owner. Explain how to use it.
+      } else {
+        document.getElementById('content').innerHTML = 
+          '<h1>This page lets you host Parse.com content from your own domain.</h1>' +
+          '<p>Right click <a href="' + encodeURI(window.location.pathname) + '">here</a> to save this page. ' +
+          'Upload it to your own website and paste the URL in the "Parse Frame URL" ' +
+          'app settings at Parse.com.</p>';
+      }
+    }
+    //-->
+  </script>
+</head>
+<body class='chromeless noscroll'>
+  <noscript>We apologize, but user management requires javascript</noscript>
+  <div id='content' class='chromeless noscroll'></div>
+</body>
+</html>

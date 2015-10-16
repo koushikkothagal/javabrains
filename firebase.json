@@ -8,6 +8,10 @@
   ],
   "rewrites": [
     {
+      "source": "/user",
+      "destination": "/user_management.html"
+    },
+    {
       "source": "**",
       "destination": "/index.html"
     }
