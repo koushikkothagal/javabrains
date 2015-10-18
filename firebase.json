@@ -12,8 +12,20 @@
       "destination": "/user_management.html"
     },
     {
-      "source": "/assets/terms.html",
-      "destination": "/assets/terms.html"
+      "source": "/change-password",
+      "destination": "/change-password.html"
+    },
+    {
+      "source": "/email-verification",
+      "destination": "/email-verification.html"
+    },
+    {
+      "source": "/password-reset-success",
+      "destination": "/password-reset-success.html"
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms.html"
     },
     {
       "source": "**",
