@@ -12,7 +12,10 @@
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        onEnter: function(ParseData){
+          ParseData.sendAnalytics();
+        }
       })
       .state('dashboard', {
         url: '/dashboard',
@@ -26,19 +29,28 @@
           'userCourses': ['UserData', function(UserData) {
             return UserData.getStartedCourses();
           }]
+        },
+        onEnter: function(ParseData){
+          ParseData.sendAnalytics();
         }
       })
       .state('topics', {
         url: '/topics',
         templateUrl: 'app/topics/topics.html',
         controller: 'TopicsController',
-        controllerAs: 'topics'
+        controllerAs: 'topics',
+        onEnter: function(ParseData){
+          ParseData.sendAnalytics();
+        }
       })
       .state('courses', {
         url: '/courses?topic',
         templateUrl: '/app/courses/courses.html',
         controller: 'CoursesController',
-        controllerAs: 'courses'
+        controllerAs: 'courses',
+        onEnter: function(ParseData){
+          ParseData.sendAnalytics();
+        }
       })
       .state('course', {
         url: '/courses/:courseName',
@@ -56,7 +68,10 @@
         },
         templateUrl: '/app/coursedetail/coursedetail.html',
         controller: 'CourseDetailController',
-        controllerAs: 'course'
+        controllerAs: 'course',
+        onEnter: function(ParseData){
+          ParseData.sendAnalytics();
+        }
       })
       .state('lesson', {
         url: '/courses/:courseName/lessons/:lessonName',
@@ -74,7 +89,10 @@
         },
         templateUrl: '/app/lessons/lessons.html',
         controller: 'LessonController',
-        controllerAs: 'lesson'
+        controllerAs: 'lesson',
+        onEnter: function(ParseData){
+          ParseData.sendAnalytics();
+        }
       })
       ;
 

@@ -1,59 +1,74 @@
 <!doctype html>
 <html ng-app="javabrains">
-  <head>
-    <meta charset="utf-8">
-    <title ng-bind="page.title">Java Brains</title>
-    <base href="/">
-    <meta name="description" content="{{page.description}}">
-    <meta name="viewport" content="width=device-width">
-    <meta name="google-site-verification" content="hGKiEJfyW5Go4ypNCLYggPwtFnNn43WUB3CQ-OM_fGg" />
-    <!-- <link href='//fonts.googleapis.com/css?family=Nunito:400,300,700|Varela+Round' rel='stylesheet' type='text/css'> -->
-    <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/app/index.css">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <!-- build:css({.tmp/serve,src}) /styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
-    <!-- endbower -->
-    <!-- endbuild -->
+<head>
+  <meta charset="utf-8">
+  <title ng-bind="page.title">Java Brains</title>
+  <base href="/">
+  <meta name="description" content="{{page.description}}">
+  <meta name="viewport" content="width=device-width">
+  <meta name="google-site-verification" content="hGKiEJfyW5Go4ypNCLYggPwtFnNn43WUB3CQ-OM_fGg" />
+  <!-- <link href='//fonts.googleapis.com/css?family=Nunito:400,300,700|Varela+Round' rel='stylesheet' type='text/css'> -->
+  <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/app/index.css">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <!-- build:css({.tmp/serve,src}) /styles/app.css -->
-    <!-- inject:css -->
-    <!-- css files will be automatically insert here -->
-    <!-- endinject -->
-    <!-- endbuild -->
-  </head>
-  <body>
+  <!-- build:css({.tmp/serve,src}) /styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+  <!-- endbower -->
+  <!-- endbuild -->
 
-    <div ui-view></div>
+  <!-- build:css({.tmp/serve,src}) /styles/app.css -->
+  <!-- inject:css -->
+  <!-- css files will be automatically insert here -->
+  <!-- endinject -->
+  <!-- endbuild -->
+</head>
 
-    <jb-footer></jb-footer>
-    
+<body>
 
-    <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-    <!-- build:js(src) /scripts/vendor.js -->
-    <!-- bower:js -->
-    <!-- run `gulp inject` to automatically populate bower script dependencies -->
-    <!-- endbower -->
-    <!-- endbuild -->
+  <div ui-view></div>
 
-    <!-- build:js({.tmp/serve,.tmp/partials,src}) /scripts/app.js -->
-    <!-- inject:js -->
-    <!-- js files will be automatically insert here -->
-    <!-- endinject -->
-    
-
-    <!-- inject:partials -->
-    <!-- angular templates will be automatically converted in js and inserted here -->
-    <!-- endinject -->
-    <!-- endbuild -->
+  <jb-footer></jb-footer>
 
 
+  <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 
-    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  </body>
+  ga('create', 'UA-52497694-3', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+
+  <!-- build:js(src) /scripts/vendor.js -->
+  <!-- bower:js -->
+  <!-- run `gulp inject` to automatically populate bower script dependencies -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp/serve,.tmp/partials,src}) /scripts/app.js -->
+  <!-- inject:js -->
+  <!-- js files will be automatically insert here -->
+  <!-- endinject -->
+
+
+  <!-- inject:partials -->
+  <!-- angular templates will be automatically converted in js and inserted here -->
+  <!-- endinject -->
+  <!-- endbuild -->
+
+
+
+
+
+</body>
+
 </html>

@@ -26,7 +26,7 @@
     
 
     /** @ngInject */
-    function NavbarController($modal, loginModalService, signUpModalService, User, $rootScope) {
+    function NavbarController($modal, loginModalService, signUpModalService, User, $rootScope, $state) {
       var vm = this;
       $rootScope.$on('$stateChangeSuccess', 
         function(){

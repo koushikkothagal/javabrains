@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('javabrains')
-	.service('ParseData', function ($q) {
+	.service('ParseData', function ($q, $location, User, $window) {
 
 		var service = this;
 
@@ -127,6 +127,18 @@ angular.module('javabrains')
 				return item.attributes;
 		}
 		
+		service.sendAnalytics = function() {
+			var dimensions = {
+			'url': $location.url()
+			};
+			var currentUser = User.getCurrentUser();
+			if (currentUser) {
+				dimensions.user = currentUser.email
+			};
+          	Parse.Analytics.track('pageView', dimensions);
+			  
+			$window.ga('send', 'pageview', { page: $location.url() });
+		}
 
 	});
 	
