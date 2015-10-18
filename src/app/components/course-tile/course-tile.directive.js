@@ -28,6 +28,13 @@
       this.topic = courseDataService.topicMap[this.course.topic]; 
       // _.find(this.topics, {'code': this.course.topic});
       this.course.color = this.topic.color;
+      if (this.course.incomplete) {
+        this.course.link = "";
+      }
+      else {
+        this.course.link = "course({'courseName': vm.course.code})";  
+      }
+      
     }
   }
 

@@ -13,37 +13,6 @@ angular.module('javabrains')
 				})
 		}
 
-		// TODO: Remove this function. Not used.
-		service.markCourseStarted = function (courseId) {
-			if (!User.getCurrentUser()) {
-				return;
-			}
-			ParseData.getFirst('UserCourses',
-				[
-					['EQ', 'courseId', courseId]
-				])
-				.then(function (result) {
-					if (result) {
-						ParseData.saveObject(result,
-							{
-								'courseId': courseId,
-								'user': User.getCurrentUser().email
-							});
-					}
-					else {
-						ParseData.save('UserCourses',
-							{
-								'courseId': courseId,
-								'user': User.getCurrentUser().email
-							});
-					}
-
-				})
-				.catch(function () {
-					// TODO: Some Analytics call to log error
-				});
-		}
-
 		service.getAndMarkLessonsViewed = function (courseId, permalinkName) {
 			var lessons = {
 				'totalPoints': 0

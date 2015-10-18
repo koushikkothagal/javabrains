@@ -194,10 +194,11 @@
 						'img': 'https://i.ytimg.com/vi/EOdvmGVdndA/mqdefault.jpg',
 						'tags': ['Java', 'Java EE']
 				},
-				{ slNo: 13, code: 'corejs_intro', topic: 'corejs', name: 'Introduction to JavaScript',
+				{ slNo: 13, code: 'corejs_intro', topic: 'corejs', name: 'JavaScript Fundamentals',
 						'desc': 'This course is an introduction to the Javascript programming language. The course is meant for a developer new to JavaScript, but who is familiar with programming using some of the more traditional programming languages like C++ or Java.',
 						'level': 'Beginner', 
 						'maxPoints': 0,
+						'incomplete': true,
 						'img': '/assets/images/coming-soon.jpg',
 						'tags': ['Javascript', 'Core']
 				}

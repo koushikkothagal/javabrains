@@ -30,10 +30,5 @@
      });
      
      
-     vm.markCourseStarted = function() {
-       // UserData.markCourseStarted(vm.info.code);
-     }
-     
-     
   }
 })();
