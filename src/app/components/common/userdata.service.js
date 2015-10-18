@@ -154,6 +154,11 @@ angular.module('javabrains')
 				});
 
 
+		};
+		
+		
+		service.submitContact = function(message) {
+			ParseData.save('Message', message);
 		}
 
 

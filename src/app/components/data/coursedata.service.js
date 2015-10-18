@@ -41,6 +41,16 @@
 			'courses': 1
 		},
 		{
+			'code': 'corejs',
+			'name': 'JavaScript',
+			'color': '#533737',
+			'desc': 'Learn the fundamentals and core concepts of the Javascript programming language.', 
+			'tech': 'js',
+			'level': 'Beginner',
+			'tags': ['Javascript', 'Core'],
+			'courses': 1
+		},
+		{
 			'code': 'struts2',
 			'name': 'Struts 2',
 			'color': '#2980b9',
@@ -70,7 +80,10 @@
 			'level': 'Advanced',
 			'tags': ['Java', 'Servlets', 'JSP'],
 			'courses': 2
-		},
+		}
+		/*
+		,
+		
 		{ 
 			'code': 'angularjs', 
 			'name': 'AngularJS (Coming soon)',
@@ -81,6 +94,7 @@
 			'tags': ['Javascript', 'AngularJS'],
 			'courses': 0
 		}
+		*/
 	];
 	
 	this.topicMap = {};
@@ -178,15 +192,14 @@
 						'level': 'Advanced', 
 						'maxPoints': 520,
 						'img': 'https://i.ytimg.com/vi/EOdvmGVdndA/mqdefault.jpg',
-						'tags': ['Java', 'Java EE'],
-						objectives: [
-								'Bootstrapping JAX-RS applications with Application class',
-								'Understanding resource life cycles',
-								'Implementing ParamConverters, MessageBodyReaders and MessageBodyWriters',
-								'Building a REST API client in Java using JAX-RS',
-								'Implementing REST API Authentication',
-								'Testing your REST API project'
-									]
+						'tags': ['Java', 'Java EE']
+				},
+				{ slNo: 13, code: 'corejs_intro', topic: 'corejs', name: 'Introduction to JavaScript',
+						'desc': 'This course is an introduction to the Javascript programming language. The course is meant for a developer new to JavaScript, but who is familiar with programming using some of the more traditional programming languages like C++ or Java.',
+						'level': 'Beginner', 
+						'maxPoints': 0,
+						'img': '/assets/images/coming-soon.jpg',
+						'tags': ['Javascript', 'Core']
 				}
 				
 

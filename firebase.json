@@ -12,6 +12,10 @@
       "destination": "/user_management.html"
     },
     {
+      "source": "/assets/terms.html",
+      "destination": "/assets/terms.html"
+    },
+    {
       "source": "**",
       "destination": "/index.html"
     }

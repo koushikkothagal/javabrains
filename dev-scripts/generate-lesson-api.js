@@ -412,7 +412,7 @@ var courseNames =
 // courseNames.forEach(function (courseName) {
 //   console.log(courseName);
 
-var courseName = 'buildsys_mavenintro';
+var courseName = 'corejs_intro';
 buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     console.log('In then');

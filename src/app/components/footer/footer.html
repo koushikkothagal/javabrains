@@ -1,0 +1,48 @@
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Java Brains</h3>
+
+				<p class="footer-links">
+					<a href="/">Home</a>
+					·
+					<a href="/topics">Topics</a>
+					·
+					<a href="/courses">Courses</a>
+					·
+					<a href="#" ng-click="vm.openLoginModal()">Login</a>
+					·
+					<a href="#" ng-click="vm.openSignUpModal()">Sign Up</a>
+					
+				</p>
+
+				<p class="footer-company-name">Java Brains is the work of Koushik Kothagal.</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p>Contact</p>
+
+				
+					<div class="form-box">
+					<p class="thanks" ng-if="vm.submitted">Thanks for writing!</p>
+					<input type="text" name="email" ng-model="vm.message.email" placeholder="Email" />
+					<textarea name="message" ng-model="vm.message.body" placeholder="Message"></textarea>
+					<button ng-click="vm.submitContact()">Send</button>
+					</div>
+				
+
+			</div>
+
+		</footer>
