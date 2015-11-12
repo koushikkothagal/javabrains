@@ -53,6 +53,14 @@ angular.module('javabrains')
           currentUser = user;
         });
     };
+    
+    service.updateUser = function (user) {
+      return ParseAuth.updateUser(user)
+        .then(function (user) {
+          currentUser = user;
+        });
+    };
+    
         
     service.resetPassword = function (user) {
       return ParseAuth.resetPassword(user)

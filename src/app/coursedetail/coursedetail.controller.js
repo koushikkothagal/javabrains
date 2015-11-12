@@ -6,10 +6,20 @@
     .controller('CourseDetailController', CourseDetailController);
 
   /** @ngInject */
-  function CourseDetailController(courseData, courseDataService, User, UserData, lessonsViewed) {
+  function CourseDetailController(courseData, courseDataService, User, UserData, lessonsViewed, $rootScope) {
      this.info = courseData.data;
+     
+     
      console.log(lessonsViewed);
      var vm = this;
+     
+     $rootScope.page = {
+      'title': vm.info.name + ' - Java Brains',
+      'desc': vm.info.desc
+    };
+     
+     
+     
      vm.info.topic = courseDataService.topicMap[vm.info.topic];
      vm.info.imageUrl = '/assets/images/' + vm.info.code + '.jpg'
      vm.info.courseBaseUrl = '/courses/' + vm.info.code + '/lessons/';

@@ -6,10 +6,17 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController(User, currentUser, userCourses, courseDataService, $http) {
+  function DashboardController(User, currentUser, userCourses, courseDataService, $http, $rootScope) {
     var vm = this;
     vm.courseList = [];
     vm.user = User.getCurrentUser();
+    
+    $rootScope.page = {
+      'title': 'Dashboard - Java Brains',
+      'desc': 'Welcome to your dashboard page. Check out your courses!'
+    };
+    
+    
 
     if (userCourses.length === 0) {
       // User hasn't taken any courses yet. Show them the popular courses

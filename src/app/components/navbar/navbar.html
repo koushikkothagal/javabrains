@@ -10,6 +10,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a ng-href="{{vm.getHomeLink()}}">Home</a></li>
+        <li><a ng-href="/topics">Topics</a></li>
         <li><a ng-href="/courses">Courses</a></li>
         <li ng-if="!vm.currentUser"><a class="clickable" ng-click="vm.openLoginModal()">Log in</a></li>
         <li ng-if="!vm.currentUser" id="sign-up"><a ng-click="vm.openSignUpModal()" class="shadow bold-text clickable">Sign up</a></li>
@@ -19,7 +20,7 @@
           
           
           <div  class="btn-group" dropdown>
-      <button id="profile-button" type="button" class="btn btn-default" ui-sref="dashboard">
+      <button id="profile-button" type="button" class="btn btn-default" ui-sref="profile">
         <i class="fa fa-user"></i> <span ng-bind="vm.currentUser.fullName"
      </button>
       <button type="button" class="btn btn-default" dropdown-toggle>
@@ -27,8 +28,7 @@
         <span class="sr-only">Profile</span>
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
-        <li role="menuitem"><a class="clickable" ui-sref="dashboard">Your Dashboard</a></li>
-        <li class="divider"></li>
+        <li role="menuitem"><a ng-href="/profile">Your Profile</a></li>
         <li role="menuitem"><a class="clickable" ng-click="vm.logout()">Logout</a></li>
       </ul>
     </div>

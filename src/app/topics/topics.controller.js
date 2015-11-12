@@ -6,8 +6,13 @@
     .controller('TopicsController', TopicsController);
 
   /** @ngInject */
-  function TopicsController(courseDataService) {
+  function TopicsController(courseDataService, $rootScope) {
     var vm = this;
+    $rootScope.page = {
+      'title': 'Browse Topics - Java Brains',
+      'desc': 'Browse available topics'
+    };
+
     vm.topics = courseDataService.topics;
     console.log(vm.topics);
 

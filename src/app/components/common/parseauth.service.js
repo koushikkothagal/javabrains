@@ -42,6 +42,40 @@ angular.module('javabrains')
     }
 
 
+    service.updateUser = function (userObj) {
+
+      var currentUser = Parse.User.current();
+      if (userObj.email && userObj.email !== currentUser.attributes.email) {
+        currentUser.set("username", userObj.email);
+        currentUser.set("email", userObj.email);  
+      }
+      if (userObj.password) {
+        currentUser.set("password", userObj.password);
+      }
+      if (userObj.fullName && userObj.fullName !== currentUser.attributes.fullName) {
+        currentUser.set("fullName", userObj.fullName);  
+      }
+
+      var deferred = $q.defer();
+
+      currentUser.save(null)
+        .then(
+          function (user) {
+            return deferred.resolve(user.attributes);
+          },
+          function (error) {
+            if (error.code === 202) {
+              error.code = 'EMAIL_TAKEN';
+            }
+            if (error.code === 125) {
+              error.code = 'INVALID_EMAIL';
+            }
+            return deferred.reject(error);
+          }
+          );
+      return deferred.promise;
+    }
+
     service.resetPassword = function (userObj) {
       var deferred = $q.defer();
       Parse.User.requestPasswordReset(userObj.email)

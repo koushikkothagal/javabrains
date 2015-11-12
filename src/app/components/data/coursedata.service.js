@@ -86,7 +86,7 @@
 		
 		{ 
 			'code': 'angularjs', 
-			'name': 'AngularJS (Coming soon)',
+			'name': 'AngularJS',
 			'color': '#8e44ad',
 			'desc': 'Learn about this client side application framework and build rich single page applications.',
 			'tech': 'js',
@@ -95,6 +95,7 @@
 			'courses': 0
 		}
 		*/
+
 	];
 	
 	this.topicMap = {};
@@ -202,7 +203,17 @@
 						'img': '/assets/images/coming-soon.jpg',
 						'tags': ['Javascript', 'Core']
 				}
-				
+				/*
+				,
+				{ slNo: 14, code: 'angularjs_intro', topic: 'angularjs', name: 'Thinking in AngularJS',
+						'desc': 'This course is an introduction to the Javascript programming language. The course is meant for a developer new to JavaScript, but who is familiar with programming using some of the more traditional programming languages like C++ or Java.',
+						'level': 'Beginner', 
+						'maxPoints': 0,
+						'incomplete': true,
+						'img': '/assets/images/coming-soon.jpg',
+						'tags': ['Javascript', 'Core']
+				}
+				*/
 
 			];
 	this.courseMap = {};

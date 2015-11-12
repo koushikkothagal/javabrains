@@ -34,6 +34,20 @@
           ParseData.sendAnalytics();
         }
       })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'app/profile/profile.html',
+        controller: 'ProfileController',
+        controllerAs: 'profile',
+        resolve: {
+          'currentUser': ['ParseAuth', function (ParseAuth) {
+            return ParseAuth.requireAuth();
+          }]
+        },
+        onEnter: function(ParseData){
+          ParseData.sendAnalytics();
+        }
+      })
       .state('topics', {
         url: '/topics',
         templateUrl: 'app/topics/topics.html',
