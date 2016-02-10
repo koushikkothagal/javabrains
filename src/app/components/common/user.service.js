@@ -69,6 +69,11 @@ angular.module('javabrains')
         });
     };
       
+    service.resendEmail = function (user) {
+      return ParseAuth.resendEmail();
+    };
+    
+  
       
       
       /*

@@ -47,6 +47,7 @@
       vm.logout = function () {
         User.logout();
         vm.currentUser = null;
+        $state.go('home');
       };
       
       vm.getHomeLink = function() {

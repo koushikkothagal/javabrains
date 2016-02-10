@@ -104,7 +104,7 @@ var getUnitFileNames = function (fileNames) {
 }
 
 var openYamlFile = function (path) {
-  return Q.nfcall(yamlhead, path);
+  return Q.nfcall(yamlhead, path, {});
 }
 
 function convertToHtml(markup) {
@@ -133,7 +133,7 @@ var prepareQuizContent = function(quiz, permalinkName) {
       // var code = question.code;
       console.log(code);
       code = marked(code);
-      var answerLength = question.correctAnswer.length;
+      var answerLength = question.correctAnswer.length + 5;
       // var result = highlight.highlight('java', code, true);
       // code = result.value;
       // var $ = cheerio.load(code);
@@ -164,10 +164,14 @@ var generateCourseInfo = function (courseName) {
   var courseFileName = BASE_PATH + courseName + '/course.md';
   return openYamlFile(courseFileName)
     .then(function (response) {
+      console.log("Response of " + courseFileName);
       var yaml = response[0];
       yaml = cleanYaml(yaml);
       return yaml;
     })
+    .catch(function (error) {
+      console.log(error);
+})
 }
 
 var generateUnitMap = function (courseName, fileNames) {
@@ -412,7 +416,8 @@ var courseNames =
 // courseNames.forEach(function (courseName) {
 //   console.log(courseName);
 
-var courseName = 'javaee_jaxrs';
+var courseName = 'corejs_jsfordev';
+console.log("start");
 buildCourseDataStructure(courseName)
   .then(function (courseInfo) {
     console.log('In then');

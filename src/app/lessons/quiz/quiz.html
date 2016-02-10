@@ -111,7 +111,8 @@
                 </div>
 
             </div>
-            <a class="btn btn-topic pull-right" style="max-width: 200px; margin: 70px auto" ng-href="{{ctrl.nextPermalinkName}}">Next lesson &nbsp; <i class="fa fa-arrow-right"></i></a>
+            <a class="btn btn-topic pull-right" style="max-width: 200px; margin: 70px auto" ng-show="ctrl.nextPermalinkName" ng-href="{{ctrl.nextPermalinkName}}">Next lesson &nbsp; <i class="fa fa-arrow-right"></i></a>
+            <p style="margin-top: 50px;">&nbsp;</p> <!-- Temporary para tag to add space at the bottom for when nextPermalinkName is empty and the above button doesn't show up -->'
         </div>
     </div>
 

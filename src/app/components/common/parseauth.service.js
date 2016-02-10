@@ -98,6 +98,42 @@ angular.module('javabrains')
 
     }
 
+    
+    service.resendEmail = function () {
+/* TODO
+      var currentUser = Parse.User.current();
+      var actualEmail = currentUser.attributes.email;
+      currentUser.set("email", 'foo@bar.com');
+      
+      
+      var deferred = $q.defer();
+
+      currentUser.save(null)
+        .then(
+          function (user) {
+            user.set("email", actualEmail);
+          },
+          function (error) {
+            if (error.code === 202) {
+              error.code = 'EMAIL_TAKEN';
+            }
+            if (error.code === 125) {
+              error.code = 'INVALID_EMAIL';
+            }
+            return deferred.reject(error);
+          }
+          );
+      return deferred.promise;
+      
+*/
+    }
+
+    
+    
+    
+    
+    
+    
     service.loginUser = function (userObj) {
       var deferred = $q.defer();
       Parse.User.logIn(userObj.email, userObj.password)

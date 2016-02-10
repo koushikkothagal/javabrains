@@ -19,6 +19,16 @@
       vm.err = '';
     }  
     
+    vm.resendEmail = function() {
+      vm.err = '';
+      User.resendEmail()
+        .then(function(success) {
+          vm.err = "Email resent. Click on the link in the email to verify your account."
+        })
+    }  
+    
+    
+    
     vm.updateProfile = function () {
       if (!vm.user || !vm.user.email || !vm.user.fullName) {
         vm.err = "Please fill in your details";

@@ -21,6 +21,9 @@
     -ms-flex-align: center;
     align-items: center;
     padding: 7px;
+    .popover {
+        width: 300px !important;
+    }
     
 }
 
@@ -67,3 +70,4 @@
     margin-top: -45px;
     font-size: 27px;
 }
+
